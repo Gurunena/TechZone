@@ -1,0 +1,106 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechZone - Contact Us</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">TechZone</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collpase" data-bs-target="#navbarNav">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navebar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products/laptops.html">Products"></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="legal.html">Legal & Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <span class="badge bg-danger me-2">Notice</span> Need urgent technical support? Call our hotline directly!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <h2 class="text-center mb-4 fw-bold">Contact Our Support Team</h2>
+    </div>
+
+    <div class="container my-5">
+
+        <div class="row g-4">
+
+            <div class="col-md-7">
+                <div class="card p-4 shadow-sm border-0">
+                    <h4 class="mb-3">Send us a Message</h4>
+                    <form>
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="'John Doe" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inquiryType" class="form-label">Inquiry Type</label>
+                            <slect class="form-select" id="inquiryType">
+                                <option selected>General Inquiry</option>
+                                <option value="1">Warranty Inquiry</option>
+                                <option value="2">Technical Support</option>
+                                <option value="3">Sales / Quotation</option>
+                            </slect>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="How can we help you?"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary-custom me-2">Submit Message</button>
+                        <button type="reset" classs="btn btn-outline-secondary">Reset</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+
+                <div class="card mb-3 shadow-sm border-0">
+                    <img src="assets/images/banner/contact-banner.jpg" class="cart-img-top img-fluid rounded-top" alt="Showroom Image">
+                    <div class="cart-body">
+                        <h5 class="cart-title fw-bold">Main Showroom</h5>
+                        <p class="cart-text text-nuted">123 Tech Street, Colombo 03, Sri Lanka.</p>
+                        <p class="mb-1"><strong>Phone:</strong> +94 11 234 5678</p>
+                        <p class="mb-0"><strong>Email:</strong> support@techzone.lk</p>
+                    <div>
+                </div>
+
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Opening Hours</h5>
+                        <p class="mb-1 text-muted">Monday - Friday: 9.00 AM -6.00 PM</p>
+                        <p class="mb-0 text-muted">Saturday: 9.00 AM - 2.00 PM</p>
+                        <span class="badge bg-warning text-dark mt-2">Closed on Sundays</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/global.js"></script>
+    <script src="assets/js/contact.js"></script>
+</body>
+</html>
