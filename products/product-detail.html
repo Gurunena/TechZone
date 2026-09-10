@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ASUS TUF Gaming F15 — Intel i5, 16GB RAM, 512GB SSD, RTX 4050. Buy online at TechZone with free islandwide delivery.">
+  <title>ASUS TUF Gaming F15 — TechZone</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 (CDN) + Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Site styles: global first, then page-specific -->
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/product-detail.css">
+
+  <link rel="icon" href="../assets/images/logo/favicon.png">
+</head>
+<body>
+
+<!-- ============================================================
+     1. TOP HEADER BAR (identical to index.html)
+     ============================================================ -->
+<header class="tz-header">
+  <div class="container">
+    <div class="tz-header-inner">
+
+      <!-- Brand -->
+      <a class="tz-brand" href="../index.html">
+        <img src="../assets/images/logo/ChatGPT Image Sep 10, 2026, 04_28_41 PM.png" alt="TechZone logo" class="tz-brand-mark">
+        <span class="tz-brand-text">
+          Tech<b>Zone</b>
+          <small>Your PC. Our Passion.</small>
+        </span>
+      </a>
+
+      <!-- Mobile toggler (shows nav links on small screens) -->
+      <button class="tz-mobile-toggle d-lg-none" type="button"
+              data-bs-toggle="collapse" data-bs-target="#tzMainNav"
+              aria-controls="tzMainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <!-- Search -->
+      <form class="tz-search" role="search" id="tzSearchForm" autocomplete="off">
+        <label class="visually-hidden" for="tzSearchInput">Search products</label>
+        <input type="search" id="tzSearchInput" class="tz-search-input"
+               placeholder="Search for products, brands and more...">
+        <button class="tz-search-btn" type="submit" aria-label="Search">
+          <i class="bi bi-search"></i>
+        </button>
+        <!-- Live suggestions, filled by global.js -->
+        <div class="tz-suggest" id="tzSuggest" role="listbox"></div>
+      </form>
+
+      <!-- Account / Wishlist / Cart -->
+      <div class="tz-actions">
+        <a class="tz-icon-btn" href="../account/profile.html">
+          <i class="bi bi-person"></i>
+          <span class="tz-icon-label">
+            <small>Hello, Sign in</small>
+            <strong>Account</strong>
+          </span>
+        </a>
+
+        <a class="tz-icon-btn" href="../account/wishlist.html">
+          <i class="bi bi-heart"></i>
+          <span class="tz-icon-label">
+            <small>Saved</small>
+            <strong>Wishlist</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-wishlist-count data-count="0">0</span>
+        </a>
+
+        <a class="tz-icon-btn" href="../cart/cart.html">
+          <i class="bi bi-bag"></i>
+          <span class="tz-icon-label">
+            <small>My Cart</small>
+            <strong>Cart</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-cart-count data-count="0">0</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     2. NAVIGATION BAR (identical to index.html, "Laptops" active)
+     ============================================================ -->
+<nav class="tz-nav" id="tzNav" aria-label="Main navigation">
+  <div class="container">
+    <div class="tz-nav-inner">
+
+      <!-- All Categories dropdown -->
+      <div class="dropdown tz-allcat">
+        <button class="tz-allcat-btn dropdown-toggle" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-grid-3x3-gap-fill"></i>
+          <span>All Categories</span>
+        </button>
+        <ul class="dropdown-menu tz-allcat-menu">
+          <li><a class="dropdown-item" href="laptops.html"><i class="bi bi-laptop"></i> Laptops</a></li>
+          <li><a class="dropdown-item" href="desktops.html"><i class="bi bi-pc-display"></i> Desktops</a></li>
+          <li><a class="dropdown-item" href="gaming.html"><i class="bi bi-controller"></i> Gaming PCs</a></li>
+          <li><a class="dropdown-item" href="components.html"><i class="bi bi-cpu"></i> Components</a></li>
+          <li><a class="dropdown-item" href="peripherals.html"><i class="bi bi-keyboard"></i> Peripherals</a></li>
+          <li><a class="dropdown-item" href="accessories.html"><i class="bi bi-headphones"></i> Accessories</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="gaming.html"><i class="bi bi-lightning-charge"></i> Today's Deals</a></li>
+        </ul>
+      </div>
+
+      <!-- Main links (collapse on mobile) -->
+      <div class="collapse navbar-collapse tz-nav-links" id="tzMainNav">
+        <ul class="tz-nav-list">
+          <li><a class="tz-nav-link" href="../index.html">Home</a></li>
+          <li><a class="tz-nav-link active" href="laptops.html">Laptops</a></li>
+          <li><a class="tz-nav-link" href="desktops.html">Desktops</a></li>
+          <li><a class="tz-nav-link" href="gaming.html">Gaming</a></li>
+          <li><a class="tz-nav-link" href="components.html">Components</a></li>
+          <li><a class="tz-nav-link" href="peripherals.html">Peripherals</a></li>
+          <li><a class="tz-nav-link" href="accessories.html">Accessories</a></li>
+          <li><a class="tz-nav-link" href="../about.html">Brands</a></li>
+          <li><a class="tz-nav-pill" href="gaming.html">Deals</a></li>
+        </ul>
+      </div>
+
+      <!-- Delivery note -->
+      <div class="tz-delivery">
+        <i class="bi bi-truck"></i>
+        <span>
+          <strong>Free Delivery</strong>
+          <small>Islandwide</small>
+        </span>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============================================================
+       3. BREADCRUMB
+       ============================================================ -->
+  <div class="tz-breadcrumb">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="laptops.html">Laptops</a></li>
+          <li class="breadcrumb-item active" aria-current="page">ASUS TUF Gaming F15</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       4. MAIN PRODUCT SECTION — gallery left, info right
+       ============================================================ -->
+  <section class="section product-main"
+           data-product-detail
+           data-id="asus-tuf-f15"
+           data-name="ASUS TUF Gaming F15"
+           data-price="289990"
+           data-stock="8"
+           data-image="../assets/images/products/asus-tuf-f15.png">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+
+        <!-- ---------- LEFT: IMAGE GALLERY ---------- -->
+        <div class="col-lg-6">
+          <div class="gallery">
+
+            <div class="gallery-main">
+              <img src="../assets/images/products/asus-tuf-f15.png"
+                   alt="ASUS TUF Gaming F15" id="galleryMain" data-gallery-main>
+
+              <!-- Wishlist heart, floating over the main image -->
+              <button class="gallery-wish" type="button" data-tz-wish="asus-tuf-f15"
+                      aria-label="Add ASUS TUF Gaming F15 to wishlist">
+                <i class="bi bi-heart"></i>
+              </button>
+            </div>
+
+            <!-- Thumbnails — click swaps the main image (product-detail.js) -->
+            <div class="gallery-thumbs">
+            <button class="gallery-thumb is-active" type="button"
+                    data-gallery-thumb
+                    data-full="../assets/images/products/asus-tuf-f15.png"
+                    aria-label="View image 1 of 4">
+              <img src="../assets/images/products/asus-tuf-f15.png" alt="ASUS TUF Gaming F15 — front view">
+            </button>
+            <button class="gallery-thumb" type="button"
+                    data-gallery-thumb
+                    data-full="../assets/images/products/asus-tuf-f15-2.png"
+                    aria-label="View image 2 of 4">
+              <img src="../assets/images/products/asus-tuf-f15-2.png" alt="ASUS TUF Gaming F15 — keyboard close-up">
+            </button>
+            <button class="gallery-thumb" type="button"
+                    data-gallery-thumb
+                    data-full="../assets/images/products/asus-tuf-f15-3.png"
+                    aria-label="View image 3 of 4">
+              <img src="../assets/images/products/asus-tuf-f15-3.png" alt="ASUS TUF Gaming F15 — side ports">
+            </button>
+            <button class="gallery-thumb" type="button"
+                    data-gallery-thumb
+                    data-full="../assets/images/products/asus-tuf-f15-4.png"
+                    aria-label="View image 4 of 4">
+              <img src="../assets/images/products/asus-tuf-f15-4.png" alt="ASUS TUF Gaming F15 — rear view">
+            </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ---------- RIGHT: PRODUCT INFO ---------- -->
+        <div class="col-lg-6">
+          <div class="product-info">
+
+            <span class="tz-badge tz-badge-best">Best Seller</span>
+
+            <h1 class="product-name">ASUS TUF Gaming F15</h1>
+
+            <div class="info-rating">
+              <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span>
+              <a href="#reviews" data-scroll-reviews>(24 reviews)</a>
+            </div>
+
+            <!-- Price -->
+            <div class="info-price">
+              <span class="price-current">Rs. 289,990</span>
+              <span class="price-was">Rs. 319,990</span>
+              <span class="price-save">Save Rs. 30,000</span>
+            </div>
+
+            <p class="info-desc">
+              The ASUS TUF Gaming F15 pairs a 12th-gen Intel Core i5 with an NVIDIA RTX 4050 to
+              run modern titles comfortably at 1080p. Its 144Hz IPS panel keeps fast-paced games
+              looking sharp, while the military-grade chassis and self-cleaning cooling system
+              are built to survive daily travel. A spare M.2 slot and upgradable memory mean it
+              grows with you.
+            </p>
+
+            <!-- Key specs -->
+            <ul class="key-specs">
+              <li>
+                <span class="spec-icon"><i class="bi bi-cpu"></i></span>
+                <span class="spec-text"><small>Processor</small><strong>Intel Core i5-12500H</strong></span>
+              </li>
+              <li>
+                <span class="spec-icon"><i class="bi bi-memory"></i></span>
+                <span class="spec-text"><small>RAM</small><strong>16GB DDR4 3200MHz</strong></span>
+              </li>
+              <li>
+                <span class="spec-icon"><i class="bi bi-device-hdd"></i></span>
+                <span class="spec-text"><small>Storage</small><strong>512GB PCIe NVMe SSD</strong></span>
+              </li>
+              <li>
+                <span class="spec-icon"><i class="bi bi-gpu-card"></i></span>
+                <span class="spec-text"><small>Graphics</small><strong>NVIDIA GeForce RTX 4050 6GB</strong></span>
+              </li>
+              <li>
+                <span class="spec-icon"><i class="bi bi-display"></i></span>
+                <span class="spec-text"><small>Display</small><strong>15.6" FHD 144Hz IPS</strong></span>
+              </li>
+              <li>
+                <span class="spec-icon"><i class="bi bi-battery-half"></i></span>
+                <span class="spec-text"><small>Battery</small><strong>56WHrs, up to 6 hours</strong></span>
+              </li>
+            </ul>
+
+            <!-- Stock status (product-detail.js switches to the low-stock style) -->
+            <p class="stock-status" data-stock-status></p>
+
+            <!-- Quantity + buy actions -->
+            <div class="buy-row">
+              <div class="qty-control" role="group" aria-label="Quantity">
+                <button class="qty-btn" type="button" data-qty-step="-1" aria-label="Decrease quantity">
+                  <i class="bi bi-dash"></i>
+                </button>
+                <input type="number" class="qty-input" id="qtyInput" data-qty-input
+                       value="1" min="1" max="8" aria-label="Quantity">
+                <button class="qty-btn" type="button" data-qty-step="1" aria-label="Increase quantity">
+                  <i class="bi bi-plus"></i>
+                </button>
+              </div>
+
+              <button class="btn btn-tz btn-buy" type="button"
+                      data-tz-add-to-cart
+                      data-id="asus-tuf-f15"
+                      data-name="ASUS TUF Gaming F15"
+                      data-price="289990"
+                      data-image="../assets/images/products/asus-tuf-f15.png"
+                      data-qty="1">
+                <i class="bi bi-bag-plus"></i> <span data-add-label>Add to Cart</span>
+              </button>
+
+              <button class="btn btn-tz-outline btn-buy" type="button" data-buy-now>
+                Buy Now
+              </button>
+            </div>
+
+            <!-- Delivery -->
+            <div class="delivery-row">
+              <i class="bi bi-truck"></i>
+              <span><strong>Free Delivery Islandwide</strong> — 2-4 business days</span>
+            </div>
+
+            <!-- Trust badges -->
+            <ul class="info-trust">
+              <li><i class="bi bi-patch-check"></i><span>Genuine Product</span></li>
+              <li><i class="bi bi-shield-lock"></i><span>Secure Payment</span></li>
+              <li><i class="bi bi-arrow-counterclockwise"></i><span>Easy Returns</span></li>
+            </ul>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. TABBED INFO — Description / Specifications / Reviews
+       ============================================================ -->
+  <section class="section product-tabs" id="reviews">
+    <div class="container">
+      <div class="tabs-card">
+
+        <ul class="nav nav-pills tab-nav" id="productTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="tab-description" data-bs-toggle="pill"
+                    data-bs-target="#pane-description" type="button" role="tab"
+                    aria-controls="pane-description" aria-selected="true">Description</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-specs" data-bs-toggle="pill"
+                    data-bs-target="#pane-specs" type="button" role="tab"
+                    aria-controls="pane-specs" aria-selected="false">Specifications</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-reviews" data-bs-toggle="pill"
+                    data-bs-target="#pane-reviews" type="button" role="tab"
+                    aria-controls="pane-reviews" aria-selected="false">Reviews (24)</button>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+
+          <!-- ---------- Description ---------- -->
+          <div class="tab-pane fade show active" id="pane-description" role="tabpanel"
+               aria-labelledby="tab-description" tabindex="0">
+            <h3>About the ASUS TUF Gaming F15</h3>
+            <p>
+              The TUF Gaming F15 is ASUS's durability-first take on the mainstream gaming laptop.
+              Inside sits a 12th-generation Intel Core i5-12500H with twelve cores, paired with an
+              NVIDIA GeForce RTX 4050 running at up to 140W total graphics power. That combination
+              is comfortably enough for 1080p gaming at high settings in most current titles, and
+              DLSS 3 support gives you extra headroom in the ones that ask more.
+            </p>
+            <p>
+              The 15.6-inch panel runs at 144Hz with an IPS-level coating, so fast movement stays
+              readable rather than smearing. Cooling is handled by self-cleaning dual fans that
+              push dust out through anti-dust tunnels — a genuinely useful feature in Sri Lanka's
+              humidity, where laptop intakes clog faster than most manufacturers plan for.
+            </p>
+            <p>
+              Build quality is where the TUF line earns its name. The chassis is MIL-STD-810H
+              rated for drops, vibration and temperature swings, and the keyboard is tested to
+              20 million keystrokes. With 16GB of memory across two slots and a spare M.2 bay
+              alongside the 512GB SSD, it is straightforward to upgrade later instead of
+              replacing the whole machine.
+            </p>
+          </div>
+
+          <!-- ---------- Specifications ---------- -->
+          <div class="tab-pane fade" id="pane-specs" role="tabpanel"
+               aria-labelledby="tab-specs" tabindex="0">
+            <table class="table spec-table">
+              <caption class="visually-hidden">Full specifications for the ASUS TUF Gaming F15</caption>
+              <tbody>
+                <tr>
+                  <th scope="row">Processor</th>
+                  <td>Intel Core i5-12500H (12 cores, up to 4.5GHz)</td>
+                </tr>
+                <tr>
+                  <th scope="row">RAM</th>
+                  <td>16GB DDR4 3200MHz (2 x 8GB, expandable to 32GB)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Storage</th>
+                  <td>512GB PCIe 4.0 NVMe M.2 SSD (1 spare slot)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Graphics</th>
+                  <td>NVIDIA GeForce RTX 4050 6GB GDDR6</td>
+                </tr>
+                <tr>
+                  <th scope="row">Display</th>
+                  <td>15.6" FHD (1920 x 1080) IPS, 144Hz, 250 nits, 45% NTSC</td>
+                </tr>
+                <tr>
+                  <th scope="row">Battery</th>
+                  <td>56WHrs, 4-cell Li-ion, 200W AC adapter</td>
+                </tr>
+                <tr>
+                  <th scope="row">Weight</th>
+                  <td>2.20 kg</td>
+                </tr>
+                <tr>
+                  <th scope="row">Operating System</th>
+                  <td>Windows 11 Home (pre-installed)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Ports</th>
+                  <td>1x USB 3.2 Gen 1 Type-A, 2x USB 3.2 Gen 2 Type-A, 1x USB 3.2 Gen 2 Type-C (DisplayPort / Power Delivery), 1x HDMI 2.1, 1x RJ45 LAN, 1x 3.5mm combo audio</td>
+                </tr>
+                <tr>
+                  <th scope="row">Warranty</th>
+                  <td>2 years international warranty (local service in Sri Lanka)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- ---------- Reviews ---------- -->
+          <div class="tab-pane fade" id="pane-reviews" role="tabpanel"
+               aria-labelledby="tab-reviews" tabindex="0">
+
+            <div class="row g-4">
+
+              <!-- Summary + breakdown -->
+              <div class="col-lg-4">
+                <div class="rating-summary">
+                  <div class="rating-score">4.0</div>
+                  <div class="rating-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></div>
+                  <p class="rating-count">Based on 24 reviews</p>
+
+              <div class="rating-row">
+                <span class="rating-row-label">5&#9733;</span>
+                <div class="progress" role="progressbar" aria-label="5 star reviews"
+                     aria-valuenow="10" aria-valuemin="0" aria-valuemax="24">
+                  <div class="progress-bar" style="width: 42%"></div>
+                </div>
+                <span class="rating-row-count">10</span>
+              </div>
+              <div class="rating-row">
+                <span class="rating-row-label">4&#9733;</span>
+                <div class="progress" role="progressbar" aria-label="4 star reviews"
+                     aria-valuenow="8" aria-valuemin="0" aria-valuemax="24">
+                  <div class="progress-bar" style="width: 33%"></div>
+                </div>
+                <span class="rating-row-count">8</span>
+              </div>
+              <div class="rating-row">
+                <span class="rating-row-label">3&#9733;</span>
+                <div class="progress" role="progressbar" aria-label="3 star reviews"
+                     aria-valuenow="4" aria-valuemin="0" aria-valuemax="24">
+                  <div class="progress-bar" style="width: 17%"></div>
+                </div>
+                <span class="rating-row-count">4</span>
+              </div>
+              <div class="rating-row">
+                <span class="rating-row-label">2&#9733;</span>
+                <div class="progress" role="progressbar" aria-label="2 star reviews"
+                     aria-valuenow="1" aria-valuemin="0" aria-valuemax="24">
+                  <div class="progress-bar" style="width: 4%"></div>
+                </div>
+                <span class="rating-row-count">1</span>
+              </div>
+              <div class="rating-row">
+                <span class="rating-row-label">1&#9733;</span>
+                <div class="progress" role="progressbar" aria-label="1 star reviews"
+                     aria-valuenow="1" aria-valuemin="0" aria-valuemax="24">
+                  <div class="progress-bar" style="width: 4%"></div>
+                </div>
+                <span class="rating-row-count">1</span>
+              </div>
+
+                  <button class="btn btn-tz w-100 mt-3" type="button"
+                          data-bs-toggle="collapse" data-bs-target="#reviewForm"
+                          aria-expanded="false" aria-controls="reviewForm">
+                    Write a Review
+                  </button>
+                </div>
+              </div>
+
+              <!-- Review list -->
+              <div class="col-lg-8">
+
+                <!-- Simple client-side form — adds to the list below, nothing is sent anywhere -->
+                <div class="collapse" id="reviewForm">
+                  <form class="review-form" data-review-form>
+                    <h4>Write a review</h4>
+                    <div class="row g-2">
+                      <div class="col-sm-6">
+                        <label class="form-label" for="reviewName">Your name</label>
+                        <input type="text" class="form-control" id="reviewName" required>
+                      </div>
+                      <div class="col-sm-6">
+                        <label class="form-label" for="reviewRating">Rating</label>
+                        <select class="form-select" id="reviewRating">
+                          <option value="5">5 &#9733; Excellent</option>
+                          <option value="4">4 &#9733; Good</option>
+                          <option value="3">3 &#9733; Average</option>
+                          <option value="2">2 &#9733; Poor</option>
+                          <option value="1">1 &#9733; Terrible</option>
+                        </select>
+                      </div>
+                      <div class="col-12">
+                        <label class="form-label" for="reviewBody">Your review</label>
+                        <textarea class="form-control" id="reviewBody" rows="3" required></textarea>
+                      </div>
+                    </div>
+                    <button class="btn btn-tz mt-3" type="submit">Submit Review</button>
+                  </form>
+                </div>
+
+                <div class="review-list" data-review-list>
+              <article class="review">
+                <div class="review-head">
+                  <div class="review-avatar">N</div>
+                  <div>
+                    <h4>Nuwan Perera</h4>
+                    <div class="review-meta">
+                      <span class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                      <span class="review-date">28 August 2025</span>
+                    </div>
+                  </div>
+                  <span class="review-verified"><i class="bi bi-patch-check-fill"></i> Verified purchase</span>
+                </div>
+                <p>Excellent machine for the price. Handles Valorant and Warzone on high settings without breaking a sweat, and the 144Hz screen makes a real difference. Delivery to Kandy took three days.</p>
+              </article>
+              <article class="review">
+                <div class="review-head">
+                  <div class="review-avatar">T</div>
+                  <div>
+                    <h4>Tharindu Silva</h4>
+                    <div class="review-meta">
+                      <span class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span>
+                      <span class="review-date">14 August 2025</span>
+                    </div>
+                  </div>
+                  <span class="review-verified"><i class="bi bi-patch-check-fill"></i> Verified purchase</span>
+                </div>
+                <p>Great performance and build quality. The fans do get loud under heavy load, but the cooling keeps temperatures reasonable. Battery life is average — expect around 4 hours of normal use.</p>
+              </article>
+              <article class="review">
+                <div class="review-head">
+                  <div class="review-avatar">A</div>
+                  <div>
+                    <h4>Amaya Rathnayake</h4>
+                    <div class="review-meta">
+                      <span class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span>
+                      <span class="review-date">2 August 2025</span>
+                    </div>
+                  </div>
+                  <span class="review-verified"><i class="bi bi-patch-check-fill"></i> Verified purchase</span>
+                </div>
+                <p>Bought this for design work and light gaming. The RTX 4050 handles Premiere Pro renders nicely. Would have liked a brighter display, but at this price it is hard to complain.</p>
+              </article>
+              <article class="review">
+                <div class="review-head">
+                  <div class="review-avatar">K</div>
+                  <div>
+                    <h4>Kasun Fernando</h4>
+                    <div class="review-meta">
+                      <span class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i></span>
+                      <span class="review-date">19 July 2025</span>
+                    </div>
+                  </div>
+                  <span class="review-verified"><i class="bi bi-patch-check-fill"></i> Verified purchase</span>
+                </div>
+                <p>Solid laptop, but mine arrived with only 8GB of RAM installed and TechZone sorted out a replacement quickly. Good service, just check your unit on arrival.</p>
+              </article>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. RELATED PRODUCTS
+       ============================================================ -->
+  <section class="section section-related">
+    <div class="container">
+
+      <div class="section-head">
+        <h2 class="section-title"><span class="title-bar"></span>You May Also Like</h2>
+        <a class="view-all" href="laptops.html">View All <i class="bi bi-arrow-right"></i></a>
+      </div>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3 g-lg-4">
+
+          <div class="col">
+            <article class="product-card">
+              <a class="product-thumb" href="product-detail.html?id=dell-xps-13-plus" tabindex="-1" aria-hidden="true">
+              <span class="product-badges"><span class="tz-badge tz-badge-popular">Popular</span></span>
+                <img src="../assets/images/products/dell-xps-13-plus.png" alt="Dell XPS 13 Plus laptop">
+              </a>
+              <div class="product-body">
+                <h3 class="product-title">
+                  <a class="stretched-link" href="product-detail.html?id=dell-xps-13-plus">Dell XPS 13 Plus</a>
+                </h3>
+                <p class="product-spec">Intel i7 / 16GB / 512GB SSD</p>
+                <div class="product-rating">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                  <span>(12)</span>
+                </div>
+                <div class="product-price">
+                  <span class="price-now">Rs. 329,990</span>
+                </div>
+                <div class="product-actions">
+                  <button class="btn btn-tz" type="button"
+                          data-tz-add-to-cart
+                          data-id="dell-xps-13-plus"
+                          data-name="Dell XPS 13 Plus"
+                          data-price="329990"
+                          data-image="../assets/images/products/dell-xps-13-plus.png">
+                    <i class="bi bi-bag-plus"></i> Add to Cart
+                  </button>
+                  <button class="btn btn-wish" type="button" data-tz-wish="dell-xps-13-plus" aria-label="Add Dell XPS 13 Plus to wishlist">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="product-card">
+              <a class="product-thumb" href="product-detail.html?id=hp-victus-16" tabindex="-1" aria-hidden="true">
+              <span class="product-badges"><span class="tz-badge tz-badge-discount">-8%</span></span>
+                <img src="../assets/images/products/hp-victus-16.png" alt="HP Victus 16 laptop">
+              </a>
+              <div class="product-body">
+                <h3 class="product-title">
+                  <a class="stretched-link" href="product-detail.html?id=hp-victus-16">HP Victus 16</a>
+                </h3>
+                <p class="product-spec">AMD Ryzen 7 / 16GB / 1TB SSD / RTX 4060</p>
+                <div class="product-rating">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                  <span>(19)</span>
+                </div>
+                <div class="product-price">
+                  <span class="price-now">Rs. 274,990</span>
+                <span class="price-old">Rs. 299,990</span>
+                </div>
+                <div class="product-actions">
+                  <button class="btn btn-tz" type="button"
+                          data-tz-add-to-cart
+                          data-id="hp-victus-16"
+                          data-name="HP Victus 16"
+                          data-price="274990"
+                          data-image="../assets/images/products/hp-victus-16.png">
+                    <i class="bi bi-bag-plus"></i> Add to Cart
+                  </button>
+                  <button class="btn btn-wish" type="button" data-tz-wish="hp-victus-16" aria-label="Add HP Victus 16 to wishlist">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="product-card">
+              <a class="product-thumb" href="product-detail.html?id=lenovo-legion-pro-5" tabindex="-1" aria-hidden="true">
+              <span class="product-badges"><span class="tz-badge tz-badge-new">New</span></span>
+                <img src="../assets/images/products/lenovo-legion-pro-5.png" alt="Lenovo Legion Pro 5 laptop">
+              </a>
+              <div class="product-body">
+                <h3 class="product-title">
+                  <a class="stretched-link" href="product-detail.html?id=lenovo-legion-pro-5">Lenovo Legion Pro 5</a>
+                </h3>
+                <p class="product-spec">Intel i9 / 32GB / 1TB SSD / RTX 4070</p>
+                <div class="product-rating">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <span>(9)</span>
+                </div>
+                <div class="product-price">
+                  <span class="price-now">Rs. 349,990</span>
+                </div>
+                <div class="product-actions">
+                  <button class="btn btn-tz" type="button"
+                          data-tz-add-to-cart
+                          data-id="lenovo-legion-pro-5"
+                          data-name="Lenovo Legion Pro 5"
+                          data-price="349990"
+                          data-image="../assets/images/products/lenovo-legion-pro-5.png">
+                    <i class="bi bi-bag-plus"></i> Add to Cart
+                  </button>
+                  <button class="btn btn-wish" type="button" data-tz-wish="lenovo-legion-pro-5" aria-label="Add Lenovo Legion Pro 5 to wishlist">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col">
+            <article class="product-card">
+              <a class="product-thumb" href="product-detail.html?id=acer-predator-helios-neo" tabindex="-1" aria-hidden="true">
+                <img src="../assets/images/products/acer-predator-helios-neo.png" alt="Acer Predator Helios Neo laptop">
+              </a>
+              <div class="product-body">
+                <h3 class="product-title">
+                  <a class="stretched-link" href="product-detail.html?id=acer-predator-helios-neo">Acer Predator Helios Neo</a>
+                </h3>
+                <p class="product-spec">Intel i7 / 16GB / 1TB SSD / RTX 4060</p>
+                <div class="product-rating">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                  <span>(14)</span>
+                </div>
+                <div class="product-price">
+                  <span class="price-now">Rs. 298,990</span>
+                </div>
+                <div class="product-actions">
+                  <button class="btn btn-tz" type="button"
+                          data-tz-add-to-cart
+                          data-id="acer-predator-helios-neo"
+                          data-name="Acer Predator Helios Neo"
+                          data-price="298990"
+                          data-image="../assets/images/products/acer-predator-helios-neo.png">
+                    <i class="bi bi-bag-plus"></i> Add to Cart
+                  </button>
+                  <button class="btn btn-wish" type="button" data-tz-wish="acer-predator-helios-neo" aria-label="Add Acer Predator Helios Neo to wishlist">
+                    <i class="bi bi-heart"></i>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     7. FOOTER (identical to index.html)
+     ============================================================ -->
+<footer class="tz-footer">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Column 1 — About -->
+      <div class="col-lg-4 col-md-6">
+        <a class="tz-brand" href="../index.html">
+          <img src="../assets/images/logo/ChatGPT Image Sep 10, 2026, 04_28_41 PM.png" alt="TechZone logo" class="tz-brand-mark">
+          <span class="tz-brand-text">
+            Tech<b>Zone</b>
+            <small>Your PC. Our Passion.</small>
+          </span>
+        </a>
+        <p class="footer-about">
+          Your trusted computer shop in Sri Lanka. We bring you the best in laptops,
+          desktops, gaming gear and more — all in one place.
+        </p>
+        <div class="tz-social">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+
+      <!-- Column 2 — Quick Links -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about.html">About Us</a></li>
+          <li><a href="../contact.html">Contact Us</a></li>
+          <li><a href="../contact.html#faqs">FAQs</a></li>
+          <li><a href="../contact.html#returns">Returns &amp; Refunds</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3 — Categories -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="laptops.html">Laptops</a></li>
+          <li><a href="desktops.html">Desktops</a></li>
+          <li><a href="components.html">Components</a></li>
+          <li><a href="peripherals.html">Peripherals</a></li>
+          <li><a href="accessories.html">Accessories</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4 — Customer Service -->
+      <div class="col-lg-2 col-md-6">
+        <h4>Customer Service</h4>
+        <ul class="footer-contact">
+          <li><i class="bi bi-telephone"></i> <a href="tel:+94112345678">+94 11 234 5678</a></li>
+          <li><i class="bi bi-envelope"></i> <a href="mailto:support@techzone.lk">support@techzone.lk</a></li>
+          <li><i class="bi bi-clock"></i> <span>Mon–Sat<br>9:00 AM – 6:00 PM</span></li>
+          <li><i class="bi bi-truck"></i> <span>Free islandwide delivery on orders over Rs. 25,000</span></li>
+        </ul>
+      </div>
+
+      <!-- Column 5 — Payment Methods -->
+      <div class="col-lg-2 col-md-6">
+        <h4>Payment Methods</h4>
+        <div class="pay-badges">
+          <span class="pay-badge">VISA</span>
+          <span class="pay-badge">Mastercard</span>
+          <span class="pay-badge">Amex</span>
+          <span class="pay-badge">COD</span>
+        </div>
+        <p class="footer-secure"><i class="bi bi-shield-check"></i> Secure checkout</p>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="tz-footer-bottom">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <span>&copy; <span data-tz-year>2025</span> TechZone. All rights reserved.</span>
+        <span class="footer-legal">
+          <a href="#">Privacy Policy</a> <span class="sep">|</span> <a href="#">Terms &amp; Conditions</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast host for "added to cart" messages -->
+<div class="tz-toast-wrap" id="tzToastWrap" aria-live="polite" aria-atomic="true"></div>
+
+<!-- Scripts: Bootstrap, then global, then page-specific -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/global.js"></script>
+<script src="../assets/js/product-detail.js"></script>
+</body>
+</html>
