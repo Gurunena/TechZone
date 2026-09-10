@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Shop laptops at TechZone — ASUS, Dell, HP, Lenovo, Acer and MSI. Filter by brand, processor, RAM, storage and price.">
+  <title>Laptops — TechZone</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 (CDN) + Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Site styles: global first, then page-specific -->
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/laptops.css">
+
+  <link rel="icon" href="../assets/images/logo/favicon.png">
+</head>
+<body>
+
+<!-- ============================================================
+     1. TOP HEADER BAR (identical to index.html)
+     ============================================================ -->
+<header class="tz-header">
+  <div class="container">
+    <div class="tz-header-inner">
+
+      <!-- Brand -->
+      <a class="tz-brand" href="../index.html">
+        <img src="../assets/images/logo/ChatGPT Image Sep 10, 2026, 04_28_41 PM.png" alt="TechZone logo" class="tz-brand-mark">
+        <span class="tz-brand-text">
+          Tech<b>Zone</b>
+          <small>Your PC. Our Passion.</small>
+        </span>
+      </a>
+
+      <!-- Mobile toggler (shows nav links on small screens) -->
+      <button class="tz-mobile-toggle d-lg-none" type="button"
+              data-bs-toggle="collapse" data-bs-target="#tzMainNav"
+              aria-controls="tzMainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <!-- Search -->
+      <form class="tz-search" role="search" id="tzSearchForm" autocomplete="off">
+        <label class="visually-hidden" for="tzSearchInput">Search products</label>
+        <input type="search" id="tzSearchInput" class="tz-search-input"
+               placeholder="Search for products, brands and more...">
+        <button class="tz-search-btn" type="submit" aria-label="Search">
+          <i class="bi bi-search"></i>
+        </button>
+        <!-- Live suggestions, filled by global.js -->
+        <div class="tz-suggest" id="tzSuggest" role="listbox"></div>
+      </form>
+
+      <!-- Account / Wishlist / Cart -->
+      <div class="tz-actions">
+        <a class="tz-icon-btn" href="../account/profile.html">
+          <i class="bi bi-person"></i>
+          <span class="tz-icon-label">
+            <small>Hello, Sign in</small>
+            <strong>Account</strong>
+          </span>
+        </a>
+
+        <a class="tz-icon-btn" href="../account/wishlist.html">
+          <i class="bi bi-heart"></i>
+          <span class="tz-icon-label">
+            <small>Saved</small>
+            <strong>Wishlist</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-wishlist-count data-count="0">0</span>
+        </a>
+
+        <a class="tz-icon-btn" href="../cart/cart.html">
+          <i class="bi bi-bag"></i>
+          <span class="tz-icon-label">
+            <small>My Cart</small>
+            <strong>Cart</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-cart-count data-count="0">0</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     2. NAVIGATION BAR (identical to index.html, "Laptops" active)
+     ============================================================ -->
+<nav class="tz-nav" id="tzNav" aria-label="Main navigation">
+  <div class="container">
+    <div class="tz-nav-inner">
+
+      <!-- All Categories dropdown -->
+      <div class="dropdown tz-allcat">
+        <button class="tz-allcat-btn dropdown-toggle" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-grid-3x3-gap-fill"></i>
+          <span>All Categories</span>
+        </button>
+        <ul class="dropdown-menu tz-allcat-menu">
+          <li><a class="dropdown-item" href="laptops.html"><i class="bi bi-laptop"></i> Laptops</a></li>
+          <li><a class="dropdown-item" href="desktops.html"><i class="bi bi-pc-display"></i> Desktops</a></li>
+          <li><a class="dropdown-item" href="gaming.html"><i class="bi bi-controller"></i> Gaming PCs</a></li>
+          <li><a class="dropdown-item" href="components.html"><i class="bi bi-cpu"></i> Components</a></li>
+          <li><a class="dropdown-item" href="peripherals.html"><i class="bi bi-keyboard"></i> Peripherals</a></li>
+          <li><a class="dropdown-item" href="accessories.html"><i class="bi bi-headphones"></i> Accessories</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="gaming.html"><i class="bi bi-lightning-charge"></i> Today's Deals</a></li>
+        </ul>
+      </div>
+
+      <!-- Main links (collapse on mobile) -->
+      <div class="collapse navbar-collapse tz-nav-links" id="tzMainNav">
+        <ul class="tz-nav-list">
+          <li><a class="tz-nav-link" href="../index.html">Home</a></li>
+          <li><a class="tz-nav-link active" href="laptops.html">Laptops</a></li>
+          <li><a class="tz-nav-link" href="desktops.html">Desktops</a></li>
+          <li><a class="tz-nav-link" href="gaming.html">Gaming</a></li>
+          <li><a class="tz-nav-link" href="components.html">Components</a></li>
+          <li><a class="tz-nav-link" href="peripherals.html">Peripherals</a></li>
+          <li><a class="tz-nav-link" href="accessories.html">Accessories</a></li>
+          <li><a class="tz-nav-link" href="../about.html">Brands</a></li>
+          <li><a class="tz-nav-pill" href="gaming.html">Deals</a></li>
+        </ul>
+      </div>
+
+      <!-- Delivery note -->
+      <div class="tz-delivery">
+        <i class="bi bi-truck"></i>
+        <span>
+          <strong>Free Delivery</strong>
+          <small>Islandwide</small>
+        </span>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============================================================
+       3. BREADCRUMB
+       ============================================================ -->
+  <div class="tz-breadcrumb">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Laptops</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       4. PAGE TITLE BAR + SORT
+       ============================================================ -->
+  <section class="listing-head">
+    <div class="container">
+      <div class="listing-head-inner">
+
+        <div class="listing-title">
+          <h1>Laptops</h1>
+          <p class="listing-count">
+            Showing <strong data-shown>12</strong> of <strong data-total>12</strong> products
+          </p>
+        </div>
+
+        <div class="listing-tools">
+          <!-- Opens the filter sidebar as an offcanvas below lg -->
+          <button class="btn btn-tz-light d-lg-none" type="button"
+                  data-bs-toggle="offcanvas" data-bs-target="#filterPanel" aria-controls="filterPanel">
+            <i class="bi bi-sliders"></i> Filters
+            <span class="filter-pill" data-active-count hidden>0</span>
+          </button>
+
+          <div class="sort-wrap">
+            <label class="form-label mb-0" for="sortSelect">Sort by</label>
+            <select class="form-select" id="sortSelect" data-sort>
+              <option value="popularity">Popularity</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="newest">Newest First</option>
+              <option value="rating">Top Rated</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. MAIN LAYOUT — filter sidebar + product grid
+       ============================================================ -->
+  <section class="section listing-body">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- ---------- LEFT SIDEBAR: FILTERS ---------- -->
+        <div class="col-lg-3">
+          <!-- offcanvas-lg = drawer on mobile, plain sidebar from lg up -->
+          <div class="offcanvas-lg offcanvas-start filter-panel" tabindex="-1"
+               id="filterPanel" aria-labelledby="filterPanelLabel">
+
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="filterPanelLabel">Filters</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                      data-bs-target="#filterPanel" aria-label="Close"></button>
+            </div>
+
+            <div class="offcanvas-body">
+              <div class="filter-card">
+
+                <div class="filter-head d-none d-lg-flex">
+                  <h2>Filters</h2>
+                  <button type="button" class="clear-all" data-clear-filters>Clear All</button>
+                </div>
+
+                <div class="accordion" id="filterAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#filt1"
+                    aria-expanded="true" aria-controls="filt1">Price Range</button>
+          </h2>
+          <div id="filt1" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
+            <div class="accordion-body">
+            <div class="price-range">
+              <div class="row g-2">
+                <div class="col-6">
+                  <label class="form-label small" for="priceMin">Min (Rs.)</label>
+                  <input type="number" class="form-control form-control-sm" id="priceMin"
+                         data-filter="price" min="0" step="1000" placeholder="65,000">
+                </div>
+                <div class="col-6">
+                  <label class="form-label small" for="priceMax">Max (Rs.)</label>
+                  <input type="number" class="form-control form-control-sm" id="priceMax"
+                         data-filter="price" min="0" step="1000" placeholder="350,000">
+                </div>
+              </div>
+              <label class="form-label small mt-3" for="priceSlider">
+                Up to <strong data-price-slider-label>Rs. 350,000</strong>
+              </label>
+              <input type="range" class="form-range" id="priceSlider" data-filter="price"
+                     min="50000" max="350000" step="5000" value="350000">
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#filt2"
+                    aria-expanded="true" aria-controls="filt2">Brand</button>
+          </h2>
+          <div id="filt2" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
+            <div class="accordion-body">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="brand-asus" data-filter="brand" value="asus">
+              <label class="form-check-label" for="brand-asus">ASUS</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="brand-dell" data-filter="brand" value="dell">
+              <label class="form-check-label" for="brand-dell">Dell</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="brand-hp" data-filter="brand" value="hp">
+              <label class="form-check-label" for="brand-hp">HP</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="brand-lenovo" data-filter="brand" value="lenovo">
+              <label class="form-check-label" for="brand-lenovo">Lenovo</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="brand-acer" data-filter="brand" value="acer">
+              <label class="form-check-label" for="brand-acer">Acer</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="brand-msi" data-filter="brand" value="msi">
+              <label class="form-check-label" for="brand-msi">MSI</label>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#filt3"
+                    aria-expanded="true" aria-controls="filt3">Processor</button>
+          </h2>
+          <div id="filt3" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
+            <div class="accordion-body">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="cpu-i3" data-filter="cpu" value="i3">
+              <label class="form-check-label" for="cpu-i3">Intel i3</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="cpu-i5" data-filter="cpu" value="i5">
+              <label class="form-check-label" for="cpu-i5">Intel i5</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="cpu-i7" data-filter="cpu" value="i7">
+              <label class="form-check-label" for="cpu-i7">Intel i7</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="cpu-i9" data-filter="cpu" value="i9">
+              <label class="form-check-label" for="cpu-i9">Intel i9</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="cpu-ryzen5" data-filter="cpu" value="ryzen5">
+              <label class="form-check-label" for="cpu-ryzen5">AMD Ryzen 5</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="cpu-ryzen7" data-filter="cpu" value="ryzen7">
+              <label class="form-check-label" for="cpu-ryzen7">AMD Ryzen 7</label>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#filt4"
+                    aria-expanded="true" aria-controls="filt4">RAM</button>
+          </h2>
+          <div id="filt4" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
+            <div class="accordion-body">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="ram-8" data-filter="ram" value="8">
+              <label class="form-check-label" for="ram-8">8GB</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="ram-16" data-filter="ram" value="16">
+              <label class="form-check-label" for="ram-16">16GB</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="ram-32" data-filter="ram" value="32">
+              <label class="form-check-label" for="ram-32">32GB</label>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#filt5"
+                    aria-expanded="true" aria-controls="filt5">Storage</button>
+          </h2>
+          <div id="filt5" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
+            <div class="accordion-body">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="storage-256" data-filter="storage" value="256">
+              <label class="form-check-label" for="storage-256">256GB SSD</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="storage-512" data-filter="storage" value="512">
+              <label class="form-check-label" for="storage-512">512GB SSD</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="storage-1024" data-filter="storage" value="1024">
+              <label class="form-check-label" for="storage-1024">1TB SSD</label>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#filt6"
+                    aria-expanded="true" aria-controls="filt6">Rating</button>
+          </h2>
+          <div id="filt6" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
+            <div class="accordion-body">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="rating-4" data-filter="rating" value="4">
+              <label class="form-check-label" for="rating-4">
+                <span class="filter-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                4&#9733; &amp; above
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="rating-3" data-filter="rating" value="3">
+              <label class="form-check-label" for="rating-3">
+                <span class="filter-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                3&#9733; &amp; above
+              </label>
+            </div>
+            </div>
+          </div>
+        </div>
+                </div>
+
+                <button type="button" class="btn btn-tz-outline w-100 mt-3 d-lg-none" data-clear-filters>
+                  Clear All Filters
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ---------- RIGHT: PRODUCT GRID ---------- -->
+        <div class="col-lg-9">
+
+          <!-- Chips for the filters currently applied -->
+          <div class="active-filters" data-active-filters hidden></div>
+
+          <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3 g-lg-4"
+               data-product-grid data-page-size="9">
+
+        <div class="col">
+          <article class="product-card" data-product
+                   data-id="asus-tuf-f15"
+                   data-brand="asus"
+                   data-cpu="i5"
+                   data-ram="16"
+                   data-storage="512"
+                   data-price="289990"
+                   data-rating="4"
+                   data-reviews="24"
+                   data-added="8">
+            <a class="product-thumb" href="product-detail.html?id=asus-tuf-f15" tabindex="-1" aria-hidden="true">
+            <span class="product-badges"><span class="tz-badge tz-badge-best">Best Seller</span></span>
+              <img src="../assets/images/products/asus-tuf-f15.png" alt="ASUS TUF Gaming F15 laptop">
+            </a>
+            <div class="product-body">
+              <h3 class="product-title">
+                <a class="stretched-link" href="product-detail.html?id=asus-tuf-f15">ASUS TUF Gaming F15</a>
+              </h3>
+              <p class="product-spec">Intel i5 / 16GB / 512GB SSD / RTX 4050</p>
+              <div class="product-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                <span>(24)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-now">Rs. 289,990</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-tz" type="button"
+                        data-tz-add-to-cart
+                        data-id="asus-tuf-f15"
+                        data-name="ASUS TUF Gaming F15"
+                        data-price="289990"
+                        data-image="../assets/images/products/asus-tuf-f15.png">
+                  <i class="bi bi-bag-plus"></i> Add to Cart
+                </button>
+                <button class="btn btn-wish" type="button" data-tz-wish="asus-tuf-f15" aria-label="Add ASUS TUF Gaming F15 to wishlist">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="product-card" data-product
+                   data-id="asus-vivobook-15"
+                   data-brand="asus"
+                   data-cpu="i3"
+                   data-ram="8"
+                   data-storage="256"
+                   data-price="89990"
+                   data-rating="3.5"
+                   data-reviews="16"
+                   data-added="3">
+            <a class="product-thumb" href="product-detail.html?id=asus-vivobook-15" tabindex="-1" aria-hidden="true">
+              <img src="../assets/images/products/asus-vivobook-15.png" alt="ASUS Vivobook 15 laptop">
+            </a>
+            <div class="product-body">
+              <h3 class="product-title">
+                <a class="stretched-link" href="product-detail.html?id=asus-vivobook-15">ASUS Vivobook 15</a>
+              </h3>
+              <p class="product-spec">Intel i3 / 8GB / 256GB SSD</p>
+              <div class="product-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i class="bi bi-star"></i>
+                <span>(16)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-now">Rs. 89,990</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-tz" type="button"
+                        data-tz-add-to-cart
+                        data-id="asus-vivobook-15"
+                        data-name="ASUS Vivobook 15"
+                        data-price="89990"
+                        data-image="../assets/images/products/asus-vivobook-15.png">
+                  <i class="bi bi-bag-plus"></i> Add to Cart
+                </button>
+                <button class="btn btn-wish" type="button" data-tz-wish="asus-vivobook-15" aria-label="Add ASUS Vivobook 15 to wishlist">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="product-card" data-product
+                   data-id="dell-inspiron-15"
+                   data-brand="dell"
+                   data-cpu="i5"
+                   data-ram="8"
+                   data-storage="512"
+                   data-price="124990"
+                   data-rating="4"
+                   data-reviews="31"
+                   data-added="5">
+            <a class="product-thumb" href="product-detail.html?id=dell-inspiron-15" tabindex="-1" aria-hidden="true">
+            <span class="product-badges"><span class="tz-badge tz-badge-discount">-11%</span></span>
+              <img src="../assets/images/products/dell-inspiron-15.png" alt="Dell Inspiron 15 laptop">
+            </a>
+            <div class="product-body">
+              <h3 class="product-title">
+                <a class="stretched-link" href="product-detail.html?id=dell-inspiron-15">Dell Inspiron 15</a>
+              </h3>
+              <p class="product-spec">Intel i5 / 8GB / 512GB SSD</p>
+              <div class="product-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                <span>(31)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-now">Rs. 124,990</span>
+              <span class="price-old">Rs. 139,990</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-tz" type="button"
+                        data-tz-add-to-cart
+                        data-id="dell-inspiron-15"
+                        data-name="Dell Inspiron 15"
+                        data-price="124990"
+                        data-image="../assets/images/products/dell-inspiron-15.png">
+                  <i class="bi bi-bag-plus"></i> Add to Cart
+                </button>
+                <button class="btn btn-wish" type="button" data-tz-wish="dell-inspiron-15" aria-label="Add Dell Inspiron 15 to wishlist">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="product-card" data-product
+                   data-id="dell-xps-13-plus"
+                   data-brand="dell"
+                   data-cpu="i7"
+                   data-ram="16"
+                   data-storage="512"
+                   data-price="329990"
+                   data-rating="4.5"
+                   data-reviews="12"
+                   data-added="10">
+            <a class="product-thumb" href="product-detail.html?id=dell-xps-13-plus" tabindex="-1" aria-hidden="true">
+            <span class="product-badges"><span class="tz-badge tz-badge-popular">Popular</span></span>
+              <img src="../assets/images/products/dell-xps-13-plus.png" alt="Dell XPS 13 Plus laptop">
+            </a>
+            <div class="product-body">
+              <h3 class="product-title">
+                <a class="stretched-link" href="product-detail.html?id=dell-xps-13-plus">Dell XPS 13 Plus</a>
+              </h3>
+              <p class="product-spec">Intel i7 / 16GB / 512GB SSD</p>
+              <div class="product-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                <span>(12)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-now">Rs. 329,990</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-tz" type="button"
+                        data-tz-add-to-cart
+                        data-id="dell-xps-13-plus"
+                        data-name="Dell XPS 13 Plus"
+                        data-price="329990"
+                        data-image="../assets/images/products/dell-xps-13-plus.png">
+                  <i class="bi bi-bag-plus"></i> Add to Cart
+                </button>
+                <button class="btn btn-wish" type="button" data-tz-wish="dell-xps-13-plus" aria-label="Add Dell XPS 13 Plus to wishlist">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="product-card" data-product
+                   data-id="hp-pavilion-14"
+                   data-brand="hp"
+                   data-cpu="ryzen5"
+                   data-ram="8"
+                   data-storage="512"
+                   data-price="109990"
+                   data-rating="4"
+                   data-reviews="27"
+                   data-added="4">
+            <a class="product-thumb" href="product-detail.html?id=hp-pavilion-14" tabindex="-1" aria-hidden="true">
+              <img src="../assets/images/products/hp-pavilion-14.png" alt="HP Pavilion 14 laptop">
+            </a>
+            <div class="product-body">
+              <h3 class="product-title">
+                <a class="stretched-link" href="product-detail.html?id=hp-pavilion-14">HP Pavilion 14</a>
+              </h3>
+              <p class="product-spec">AMD Ryzen 5 / 8GB / 512GB SSD</p>
+              <div class="product-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                <span>(27)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-now">Rs. 109,990</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-tz" type="button"
+                        data-tz-add-to-cart
+                        data-id="hp-pavilion-14"
+                        data-name="HP Pavilion 14"
+                        data-price="109990"
+                        data-image="../assets/images/products/hp-pavilion-14.png">
+                  <i class="bi bi-bag-plus"></i> Add to Cart
+                </button>
+                <button class="btn btn-wish" type="button" data-tz-wish="hp-pavilion-14" aria-label="Add HP Pavilion 14 to wishlist">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="product-card" data-product
+                   data-id="hp-victus-16"
+                   data-brand="hp"
+                   data-cpu="ryzen7"
+                   data-ram="16"
+                   data-storage="1024"
+                   data-price="274990"
+                   data-rating="4.5"
+                   data-reviews="19"
+                   data-added="9">
+            <a class="product-thumb" href="product-detail.html?id=hp-victus-16" tabindex="-1" aria-hidden="true">
+            <span class="product-badges"><span class="tz-badge tz-badge-discount">-8%</span></span>
+              <img src="../assets/images/products/hp-victus-16.png" alt="HP Victus 16 laptop">
+            </a>
+            <div class="product-body">
+              <h3 class="product-title">
+                <a class="stretched-link" href="product-detail.html?id=hp-victus-16">HP Victus 16</a>
+              </h3>
+              <p class="product-spec">AMD Ryzen 7 / 16GB / 1TB SSD / RTX 4060</p>
+              <div class="product-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                <span>(19)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-now">Rs. 274,990</span>
+              <span class="price-old">Rs. 299,990</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-tz" type="button"
+                        data-tz-add-to-cart
+                        data-id="hp-victus-16"
+                        data-name="HP Victus 16"
+                        data-price="274990"
+                        data-image="../assets/images/products/hp-victus-16.png">
+                  <i class="bi bi-bag-plus"></i> Add to Cart
+                </button>
+                <button class="btn btn-wish" type="button" data-tz-wish="hp-victus-16" aria-label="Add HP Victus 16 to wishlist">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="product-card" data-product
+                   data-id="lenovo-ideapad-slim-3"
+                   data-brand="lenovo"
+                   data-cpu="i3"
+                   data-ram="8"
+                   data-storage="256"
+                   data-price="68990"
+                   data-rating="3.5"
+                   data-reviews="44"
+                   data-added="2">
+            <a class="product-thumb" href="product-detail.html?id=lenovo-ideapad-slim-3" tabindex="-1" aria-hidden="true">
+              <img src="../assets/images/products/lenovo-ideapad-slim-3.png" alt="Lenovo IdeaPad Slim 3 laptop">
+            </a>
+            <div class="product-body">
+              <h3 class="product-title">
+                <a class="stretched-link" href="product-detail.html?id=lenovo-ideapad-slim-3">Lenovo IdeaPad Slim 3</a>
+              </h3>
+              <p class="product-spec">Intel i3 / 8GB / 256GB SSD</p>
+              <div class="product-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i class="bi bi-star"></i>
+                <span>(44)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-now">Rs. 68,990</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-tz" type="button"
+                        data-tz-add-to-cart
+                        data-id="lenovo-ideapad-slim-3"
+                        data-name="Lenovo IdeaPad Slim 3"
+                        data-price="68990"
+                        data-image="../assets/images/products/lenovo-ideapad-slim-3.png">
+                  <i class="bi bi-bag-plus"></i> Add to Cart
+                </button>
+                <button class="btn btn-wish" type="button" data-tz-wish="lenovo-ideapad-slim-3" aria-label="Add Lenovo IdeaPad Slim 3 to wishlist">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="product-card" data-product
+                   data-id="lenovo-legion-pro-5"
+                   data-brand="lenovo"
+                   data-cpu="i9"
+                   data-ram="32"
+                   data-storage="1024"
+                   data-price="349990"
+                   data-rating="5"
+                   data-reviews="9"
+                   data-added="12">
+            <a class="product-thumb" href="product-detail.html?id=lenovo-legion-pro-5" tabindex="-1" aria-hidden="true">
+            <span class="product-badges"><span class="tz-badge tz-badge-new">New</span></span>
+              <img src="../assets/images/products/lenovo-legion-pro-5.png" alt="Lenovo Legion Pro 5 laptop">
+            </a>
+            <div class="product-body">
+              <h3 class="product-title">
+                <a class="stretched-link" href="product-detail.html?id=lenovo-legion-pro-5">Lenovo Legion Pro 5</a>
+              </h3>
+              <p class="product-spec">Intel i9 / 32GB / 1TB SSD / RTX 4070</p>
+              <div class="product-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                <span>(9)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-now">Rs. 349,990</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-tz" type="button"
+                        data-tz-add-to-cart
+                        data-id="lenovo-legion-pro-5"
+                        data-name="Lenovo Legion Pro 5"
+                        data-price="349990"
+                        data-image="../assets/images/products/lenovo-legion-pro-5.png">
+                  <i class="bi bi-bag-plus"></i> Add to Cart
+                </button>
+                <button class="btn btn-wish" type="button" data-tz-wish="lenovo-legion-pro-5" aria-label="Add Lenovo Legion Pro 5 to wishlist">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="product-card" data-product
+                   data-id="acer-aspire-5"
+                   data-brand="acer"
+                   data-cpu="i5"
+                   data-ram="16"
+                   data-storage="512"
+                   data-price="132990"
+                   data-rating="4"
+                   data-reviews="38"
+                   data-added="6">
+            <a class="product-thumb" href="product-detail.html?id=acer-aspire-5" tabindex="-1" aria-hidden="true">
+              <img src="../assets/images/products/acer-aspire-5.png" alt="Acer Aspire 5 laptop">
+            </a>
+            <div class="product-body">
+              <h3 class="product-title">
+                <a class="stretched-link" href="product-detail.html?id=acer-aspire-5">Acer Aspire 5</a>
+              </h3>
+              <p class="product-spec">Intel i5 / 16GB / 512GB SSD</p>
+              <div class="product-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                <span>(38)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-now">Rs. 132,990</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-tz" type="button"
+                        data-tz-add-to-cart
+                        data-id="acer-aspire-5"
+                        data-name="Acer Aspire 5"
+                        data-price="132990"
+                        data-image="../assets/images/products/acer-aspire-5.png">
+                  <i class="bi bi-bag-plus"></i> Add to Cart
+                </button>
+                <button class="btn btn-wish" type="button" data-tz-wish="acer-aspire-5" aria-label="Add Acer Aspire 5 to wishlist">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="product-card" data-product
+                   data-id="acer-predator-helios-neo"
+                   data-brand="acer"
+                   data-cpu="i7"
+                   data-ram="16"
+                   data-storage="1024"
+                   data-price="298990"
+                   data-rating="4.5"
+                   data-reviews="14"
+                   data-added="11">
+            <a class="product-thumb" href="product-detail.html?id=acer-predator-helios-neo" tabindex="-1" aria-hidden="true">
+              <img src="../assets/images/products/acer-predator-helios-neo.png" alt="Acer Predator Helios Neo laptop">
+            </a>
+            <div class="product-body">
+              <h3 class="product-title">
+                <a class="stretched-link" href="product-detail.html?id=acer-predator-helios-neo">Acer Predator Helios Neo</a>
+              </h3>
+              <p class="product-spec">Intel i7 / 16GB / 1TB SSD / RTX 4060</p>
+              <div class="product-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                <span>(14)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-now">Rs. 298,990</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-tz" type="button"
+                        data-tz-add-to-cart
+                        data-id="acer-predator-helios-neo"
+                        data-name="Acer Predator Helios Neo"
+                        data-price="298990"
+                        data-image="../assets/images/products/acer-predator-helios-neo.png">
+                  <i class="bi bi-bag-plus"></i> Add to Cart
+                </button>
+                <button class="btn btn-wish" type="button" data-tz-wish="acer-predator-helios-neo" aria-label="Add Acer Predator Helios Neo to wishlist">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="product-card" data-product
+                   data-id="msi-modern-14"
+                   data-brand="msi"
+                   data-cpu="ryzen5"
+                   data-ram="16"
+                   data-storage="512"
+                   data-price="118990"
+                   data-rating="4"
+                   data-reviews="22"
+                   data-added="7">
+            <a class="product-thumb" href="product-detail.html?id=msi-modern-14" tabindex="-1" aria-hidden="true">
+            <span class="product-badges"><span class="tz-badge tz-badge-discount">-8%</span></span>
+              <img src="../assets/images/products/msi-modern-14.png" alt="MSI Modern 14 laptop">
+            </a>
+            <div class="product-body">
+              <h3 class="product-title">
+                <a class="stretched-link" href="product-detail.html?id=msi-modern-14">MSI Modern 14</a>
+              </h3>
+              <p class="product-spec">AMD Ryzen 5 / 16GB / 512GB SSD</p>
+              <div class="product-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                <span>(22)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-now">Rs. 118,990</span>
+              <span class="price-old">Rs. 129,990</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-tz" type="button"
+                        data-tz-add-to-cart
+                        data-id="msi-modern-14"
+                        data-name="MSI Modern 14"
+                        data-price="118990"
+                        data-image="../assets/images/products/msi-modern-14.png">
+                  <i class="bi bi-bag-plus"></i> Add to Cart
+                </button>
+                <button class="btn btn-wish" type="button" data-tz-wish="msi-modern-14" aria-label="Add MSI Modern 14 to wishlist">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col">
+          <article class="product-card" data-product
+                   data-id="msi-katana-15"
+                   data-brand="msi"
+                   data-cpu="i7"
+                   data-ram="16"
+                   data-storage="512"
+                   data-price="259990"
+                   data-rating="4"
+                   data-reviews="17"
+                   data-added="1">
+            <a class="product-thumb" href="product-detail.html?id=msi-katana-15" tabindex="-1" aria-hidden="true">
+              <img src="../assets/images/products/msi-katana-15.png" alt="MSI Katana 15 laptop">
+            </a>
+            <div class="product-body">
+              <h3 class="product-title">
+                <a class="stretched-link" href="product-detail.html?id=msi-katana-15">MSI Katana 15</a>
+              </h3>
+              <p class="product-spec">Intel i7 / 16GB / 512GB SSD / RTX 4050</p>
+              <div class="product-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                <span>(17)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-now">Rs. 259,990</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-tz" type="button"
+                        data-tz-add-to-cart
+                        data-id="msi-katana-15"
+                        data-name="MSI Katana 15"
+                        data-price="259990"
+                        data-image="../assets/images/products/msi-katana-15.png">
+                  <i class="bi bi-bag-plus"></i> Add to Cart
+                </button>
+                <button class="btn btn-wish" type="button" data-tz-wish="msi-katana-15" aria-label="Add MSI Katana 15 to wishlist">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+          </div>
+
+          <!-- Shown when nothing matches the current filters -->
+          <div class="no-results" data-no-results hidden>
+            <i class="bi bi-search"></i>
+            <h3>No products match your filters</h3>
+            <p>Try widening the price range or clearing a filter or two.</p>
+            <button type="button" class="btn btn-tz" data-clear-filters>Clear All Filters</button>
+          </div>
+
+          <!-- ============================================================
+               6. PAGINATION (rebuilt by laptops.js to match the results)
+               ============================================================ -->
+          <nav class="listing-pagination" aria-label="Product pages">
+            <ul class="pagination justify-content-center" data-pagination>
+              <li class="page-item disabled"><a class="page-link" href="#" data-page="prev">Previous</a></li>
+              <li class="page-item active"><a class="page-link" href="#" data-page="1">1</a></li>
+              <li class="page-item"><a class="page-link" href="#" data-page="2">2</a></li>
+              <li class="page-item"><a class="page-link" href="#" data-page="3">3</a></li>
+              <li class="page-item"><a class="page-link" href="#" data-page="4">4</a></li>
+              <li class="page-item"><a class="page-link" href="#" data-page="5">5</a></li>
+              <li class="page-item"><a class="page-link" href="#" data-page="next">Next</a></li>
+            </ul>
+          </nav>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     7. FOOTER (identical to index.html)
+     ============================================================ -->
+<footer class="tz-footer">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Column 1 — About -->
+      <div class="col-lg-4 col-md-6">
+        <a class="tz-brand" href="../index.html">
+          <img src="../assets/images/logo/ChatGPT Image Sep 10, 2026, 04_28_41 PM.png" alt="TechZone logo" class="tz-brand-mark">
+          <span class="tz-brand-text">
+            Tech<b>Zone</b>
+            <small>Your PC. Our Passion.</small>
+          </span>
+        </a>
+        <p class="footer-about">
+          Your trusted computer shop in Sri Lanka. We bring you the best in laptops,
+          desktops, gaming gear and more — all in one place.
+        </p>
+        <div class="tz-social">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+
+      <!-- Column 2 — Quick Links -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about.html">About Us</a></li>
+          <li><a href="../contact.html">Contact Us</a></li>
+          <li><a href="../contact.html#faqs">FAQs</a></li>
+          <li><a href="../contact.html#returns">Returns &amp; Refunds</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3 — Categories -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="laptops.html">Laptops</a></li>
+          <li><a href="desktops.html">Desktops</a></li>
+          <li><a href="components.html">Components</a></li>
+          <li><a href="peripherals.html">Peripherals</a></li>
+          <li><a href="accessories.html">Accessories</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4 — Customer Service -->
+      <div class="col-lg-2 col-md-6">
+        <h4>Customer Service</h4>
+        <ul class="footer-contact">
+          <li><i class="bi bi-telephone"></i> <a href="tel:+94112345678">+94 11 234 5678</a></li>
+          <li><i class="bi bi-envelope"></i> <a href="mailto:support@techzone.lk">support@techzone.lk</a></li>
+          <li><i class="bi bi-clock"></i> <span>Mon–Sat<br>9:00 AM – 6:00 PM</span></li>
+          <li><i class="bi bi-truck"></i> <span>Free islandwide delivery on orders over Rs. 25,000</span></li>
+        </ul>
+      </div>
+
+      <!-- Column 5 — Payment Methods -->
+      <div class="col-lg-2 col-md-6">
+        <h4>Payment Methods</h4>
+        <div class="pay-badges">
+          <span class="pay-badge">VISA</span>
+          <span class="pay-badge">Mastercard</span>
+          <span class="pay-badge">Amex</span>
+          <span class="pay-badge">COD</span>
+        </div>
+        <p class="footer-secure"><i class="bi bi-shield-check"></i> Secure checkout</p>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="tz-footer-bottom">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <span>&copy; <span data-tz-year>2025</span> TechZone. All rights reserved.</span>
+        <span class="footer-legal">
+          <a href="#">Privacy Policy</a> <span class="sep">|</span> <a href="#">Terms &amp; Conditions</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast host for "added to cart" messages -->
+<div class="tz-toast-wrap" id="tzToastWrap" aria-live="polite" aria-atomic="true"></div>
+
+<!-- Scripts: Bootstrap, then global, then page-specific -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/global.js"></script>
+<script src="../assets/js/laptops.js"></script>
+</body>
+</html>

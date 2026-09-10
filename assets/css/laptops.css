@@ -1,0 +1,268 @@
+/* ==========================================================================
+   TechZone — laptops.css
+   Product listing page: breadcrumb, title bar + sort, filter sidebar,
+   result chips, empty state, pagination.
+
+   Generic on purpose — desktops.css and gaming.css can be copies of this
+   file, since none of the selectors mention laptops specifically.
+   Loaded AFTER global.css.  (Product card styling lives in global.css.)
+   ========================================================================== */
+
+/* The JS toggles elements with the `hidden` attribute. Several of them also
+   set `display` below, which would beat the browser default for [hidden] —
+   so make [hidden] win outright. */
+[hidden] { display: none !important; }
+
+/* --------------------------------------------------------------------------
+   BREADCRUMB
+   -------------------------------------------------------------------------- */
+.tz-breadcrumb {
+  background: #EDF1F7;
+  border-bottom: 1px solid var(--tz-border);
+  padding: 10px 0;
+}
+.tz-breadcrumb .breadcrumb { font-size: .8125rem; margin: 0; }
+.tz-breadcrumb .breadcrumb-item a { color: var(--color-text-muted); }
+.tz-breadcrumb .breadcrumb-item a:hover { color: var(--color-primary); }
+.tz-breadcrumb .breadcrumb-item.active { color: var(--color-navy-dark); font-weight: 600; }
+
+/* --------------------------------------------------------------------------
+   PAGE TITLE BAR + SORT
+   -------------------------------------------------------------------------- */
+.listing-head {
+  background: var(--color-white);
+  border-bottom: 1px solid var(--tz-border);
+  padding: 26px 0;
+}
+
+.listing-head-inner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.listing-title h1 { font-size: 1.75rem; margin: 0 0 4px; }
+.listing-count { font-size: .875rem; color: var(--color-text-muted); margin: 0; }
+.listing-count strong { color: var(--color-navy-dark); font-weight: 600; }
+
+.listing-tools { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+.sort-wrap { display: flex; align-items: center; gap: 10px; }
+.sort-wrap .form-label {
+  font-size: .8125rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  font-weight: 500;
+}
+.sort-wrap .form-select {
+  min-width: 200px;
+  font-size: .875rem;
+  padding: .5rem 2rem .5rem .8rem;
+}
+
+/* Count of applied filters, shown on the mobile Filters button */
+.filter-pill {
+  display: inline-block;
+  min-width: 20px;
+  padding: 0 6px;
+  margin-left: 6px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: .6875rem;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+/* --------------------------------------------------------------------------
+   FILTER SIDEBAR
+   -------------------------------------------------------------------------- */
+.listing-body { padding: 32px 0 56px; }
+
+.filter-card {
+  background: var(--color-white);
+  border: 1px solid var(--tz-border);
+  border-radius: var(--tz-radius);
+  padding: 18px;
+}
+
+.filter-head {
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid var(--tz-border);
+}
+.filter-head h2 { font-size: 1rem; margin: 0; }
+
+.clear-all {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: .8125rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+.clear-all:hover { color: var(--color-primary-hover); text-decoration: underline; }
+
+/* Accordion sections */
+.filter-card .accordion-item { border: 0; border-bottom: 1px solid var(--tz-border); background: transparent; }
+.filter-card .accordion-item:last-child { border-bottom: 0; }
+
+.filter-card .accordion-button {
+  background: transparent;
+  color: var(--color-navy-dark);
+  font-size: .875rem;
+  font-weight: 600;
+  padding: .85rem 0;
+  box-shadow: none;
+}
+.filter-card .accordion-button:not(.collapsed) { color: var(--color-primary); }
+.filter-card .accordion-button:focus { box-shadow: none; border-color: transparent; }
+.filter-card .accordion-button::after { width: .9rem; height: .9rem; background-size: .9rem; }
+
+.filter-card .accordion-body { padding: 0 0 14px; }
+
+/* Checkboxes */
+.filter-card .form-check { margin-bottom: 8px; padding-left: 1.7rem; }
+.filter-card .form-check:last-child { margin-bottom: 0; }
+.filter-card .form-check-input { margin-left: -1.7rem; border-color: #CBD5E1; cursor: pointer; }
+.filter-card .form-check-input:checked { background-color: var(--color-primary); border-color: var(--color-primary); }
+.filter-card .form-check-input:focus { box-shadow: 0 0 0 3px rgba(45, 140, 255, .15); border-color: var(--color-primary); }
+.filter-card .form-check-label {
+  font-size: .8125rem;
+  color: var(--color-navy-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+.filter-card .form-check-label:hover { color: var(--color-primary); }
+
+.filter-stars { color: var(--tz-star); font-size: .75rem; letter-spacing: -1px; }
+
+/* Price range */
+.price-range .form-label { font-size: .75rem; color: var(--color-text-muted); margin-bottom: .25rem; }
+.price-range .form-control { font-size: .8125rem; }
+.price-range .form-range { accent-color: var(--color-primary); }
+.price-range strong { color: var(--color-primary); }
+
+/* Sticky sidebar on desktop — 116px clears the sticky nav */
+@media (min-width: 992px) {
+  .filter-panel { position: sticky; top: 116px; }
+  .filter-panel .offcanvas-header { display: none; }
+  .filter-panel .offcanvas-body { padding: 0; display: block; }
+}
+
+/* --------------------------------------------------------------------------
+   ACTIVE FILTER CHIPS
+   -------------------------------------------------------------------------- */
+.active-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  background: rgba(45, 140, 255, .1);
+  border: 1px solid rgba(45, 140, 255, .3);
+  color: var(--color-primary);
+  border-radius: 999px;
+  padding: .3rem .75rem;
+  font-size: .75rem;
+  font-weight: 600;
+}
+.filter-chip button {
+  background: none;
+  border: 0;
+  padding: 0;
+  line-height: 1;
+  color: inherit;
+  font-size: .9rem;
+  opacity: .7;
+}
+.filter-chip button:hover { opacity: 1; }
+
+/* --------------------------------------------------------------------------
+   PRODUCT GRID TWEAKS
+   The card itself is styled in global.css — only listing-specific bits here.
+   -------------------------------------------------------------------------- */
+
+/* .stretched-link makes the whole card clickable, so the buttons need to be
+   lifted above its overlay to stay usable. */
+.listing-body .product-actions { position: relative; z-index: 2; }
+.listing-body .product-card .product-title a { text-decoration: none; }
+
+/* Hidden by the filters, or by pagination.
+   The class lands on the Bootstrap column, not the card — hiding the card
+   alone would leave an empty cell in the grid. */
+[data-product-grid] > .col.is-filtered-out,
+[data-product-grid] > .col.is-off-page { display: none; }
+
+/* --------------------------------------------------------------------------
+   EMPTY STATE
+   -------------------------------------------------------------------------- */
+.no-results {
+  background: var(--color-white);
+  border: 1px dashed var(--tz-border);
+  border-radius: var(--tz-radius);
+  padding: 56px 24px;
+  text-align: center;
+}
+.no-results i { font-size: 2.25rem; color: var(--color-text-muted); display: block; margin-bottom: 14px; }
+.no-results h3 { font-size: 1.1rem; margin-bottom: 6px; }
+.no-results p { color: var(--color-text-muted); font-size: .875rem; margin-bottom: 18px; }
+
+/* --------------------------------------------------------------------------
+   PAGINATION
+   -------------------------------------------------------------------------- */
+.listing-pagination { margin-top: 36px; }
+
+.listing-pagination .page-link {
+  color: var(--color-navy-dark);
+  border-color: var(--tz-border);
+  font-size: .875rem;
+  font-weight: 500;
+  padding: .5rem .85rem;
+  margin: 0 3px;
+  border-radius: 8px;
+  transition: all .15s ease;
+}
+.listing-pagination .page-link:hover {
+  background: var(--color-bg-light);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.listing-pagination .page-item.active .page-link {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+.listing-pagination .page-item.disabled .page-link {
+  color: var(--color-text-muted);
+  background: var(--color-bg-light);
+  border-color: var(--tz-border);
+  opacity: .6;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE
+   -------------------------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  .filter-panel { width: 320px; }
+  .filter-panel .offcanvas-body { background: var(--color-bg-light); }
+  .filter-card { border: 0; padding: 0; background: transparent; }
+  .listing-head-inner { align-items: flex-start; }
+  .listing-tools { width: 100%; justify-content: space-between; }
+}
+
+@media (max-width: 575.98px) {
+  .listing-head { padding: 20px 0; }
+  .listing-title h1 { font-size: 1.4rem; }
+  .listing-tools { flex-direction: column; align-items: stretch; gap: 10px; }
+  .sort-wrap { width: 100%; }
+  .sort-wrap .form-select { min-width: 0; flex: 1; }
+  .listing-body { padding: 24px 0 44px; }
+  .listing-pagination .page-link { padding: .45rem .7rem; margin: 0 2px; }
+}
