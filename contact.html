@@ -1,161 +1,300 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Legal Information - TechZone</title>
-  <!-- CSS Links -->
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/global.css">
-  <link rel="stylesheet" href="assets/css/legal.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechZone - Contact Us</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
 </head>
-<body class="bg-light">
+<body>
 
-  <!-- Navbar PlaceHolder -->
-  <nav class="navbar navbar-expand-lg sticky-top">
-    <div class="container">
-      <a class="navbar-brand text-white fw-bold fs-4" href="index.html">TechZone <span class="fs-6 fw-normal text-info">🖥️</span></a>
-      <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
+<!-- ============================================================
+     1. TOP HEADER BAR — logo / search / account-wishlist-cart
+     ============================================================ -->
+<header class="tz-header">
+  <div class="container">
+    <div class="tz-header-inner">
+
+      <!-- Brand -->
+      <a class="tz-brand" href="index.html">
+        <img src="assets/images/logo/logo.png" alt="TechZone logo" class="tz-brand-mark">
+        <span class="tz-brand-text">
+          Tech<b>Zone</b>
+          <small>Your PC. Our Passion.</small>
+        </span>
+      </a>
+
+      <!-- Mobile toggler (shows nav links on small screens) -->
+      <button class="tz-mobile-toggle d-lg-none" type="button"
+              data-bs-toggle="collapse" data-bs-target="#tzMainNav"
+              aria-controls="tzMainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="products/gaming.html">Gaming PCs</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact Us</a></li>
-          <li class="nav-item"><a class="nav-link text-white active" href="legal.html">Legal</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-  <!-- Banner -->
-  <div class="bg-dark text-white py-4 mb-4" style="background-color: var(--color-navy-dark) !important;">
-    <div class="container">
-      <h2 class="fw-bold mb-0">Legal Policies & Terms</h2>
-      <p class="text-secondary mb-0">Understand your rights, privacy, and return policies at TechZone.</p>
+      <!-- Search -->
+      <form class="tz-search" role="search" id="tzSearchForm" autocomplete="off">
+        <label class="visually-hidden" for="tzSearchInput">Search products</label>
+        <input type="search" id="tzSearchInput" class="tz-search-input"
+               placeholder="Search for products, brands and more...">
+        <button class="tz-search-btn" type="submit" aria-label="Search">
+          <i class="bi bi-search"></i>
+        </button>
+        <!-- Live suggestions, filled by global.js -->
+        <div class="tz-suggest" id="tzSuggest" role="listbox"></div>
+      </form>
+
+      <!-- Account / Wishlist / Cart -->
+      <div class="tz-actions">
+        <a class="tz-icon-btn" href="account/profile.html">
+          <i class="bi bi-person"></i>
+          <span class="tz-icon-label">
+            <small>Hello, Sign in</small>
+            <strong>Account</strong>
+          </span>
+        </a>
+
+        <a class="tz-icon-btn" href="account/wishlist.html">
+          <i class="bi bi-heart"></i>
+          <span class="tz-icon-label">
+            <small>Saved</small>
+            <strong>Wishlist</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-wishlist-count data-count="0">0</span>
+        </a>
+
+        <a class="tz-icon-btn" href="cart/cart.html">
+          <i class="bi bi-bag"></i>
+          <span class="tz-icon-label">
+            <small>My Cart</small>
+            <strong>Cart</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-cart-count data-count="0">0</span>
+        </a>
+      </div>
+
     </div>
   </div>
+</header>
 
-  <main class="container py-3 mb-5">
-    
-    <!-- Badge Highlight (Assignment requirement 8) -->
-    <div class="mb-4">
-      <span class="badge bg-success p-2 fs-6">Updated for 2026</span>
-      <span class="badge bg-primary p-2 fs-6">Official Document</span>
+<!-- ============================================================
+     2. NAVIGATION BAR — categories dropdown / links / delivery note
+     Sticky on scroll (see .tz-nav in global.css)
+     ============================================================ -->
+<nav class="tz-nav" id="tzNav" aria-label="Main navigation">
+  <div class="container">
+    <div class="tz-nav-inner">
+
+      <!-- All Categories dropdown -->
+      <div class="dropdown tz-allcat">
+        <button class="tz-allcat-btn dropdown-toggle" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-grid-3x3-gap-fill"></i>
+          <span>All Categories</span>
+        </button>
+        <ul class="dropdown-menu tz-allcat-menu">
+          <li><a class="dropdown-item" href="products/laptops.html"><i class="bi bi-laptop"></i> Laptops</a></li>
+          <li><a class="dropdown-item" href="products/desktops.html"><i class="bi bi-pc-display"></i> Desktops</a></li>
+          <li><a class="dropdown-item" href="products/gaming.html"><i class="bi bi-controller"></i> Gaming PCs</a></li>
+          <li><a class="dropdown-item" href="products/components.html"><i class="bi bi-cpu"></i> Components</a></li>
+          <li><a class="dropdown-item" href="products/peripherals.html"><i class="bi bi-keyboard"></i> Peripherals</a></li>
+          <li><a class="dropdown-item" href="products/accessories.html"><i class="bi bi-headphones"></i> Accessories</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="products/gaming.html"><i class="bi bi-lightning-charge"></i> Today's Deals</a></li>
+        </ul>
+      </div>
+
+      <!-- Main links (collapse on mobile) -->
+      <div class="collapse navbar-collapse tz-nav-links" id="tzMainNav">
+        <ul class="tz-nav-list">
+          <li><a class="tz-nav-link active" href="index.html">Home</a></li>
+          <li><a class="tz-nav-link" href="products/laptops.html">Laptops</a></li>
+          <li><a class="tz-nav-link" href="products/desktops.html">Desktops</a></li>
+          <li><a class="tz-nav-link" href="products/gaming.html">Gaming</a></li>
+          <li><a class="tz-nav-link" href="products/components.html">Components</a></li>
+          <li><a class="tz-nav-link" href="products/peripherals.html">Peripherals</a></li>
+          <li><a class="tz-nav-link" href="products/accessories.html">Accessories</a></li>
+          <li><a class="tz-nav-link" href="about.html">Brands</a></li>
+          <li><a class="tz-nav-pill" href="products/gaming.html">Deals</a></li>
+        </ul>
+      </div>
+
+      <!-- Delivery note -->
+      <div class="tz-delivery">
+        <i class="bi bi-truck"></i>
+        <span>
+          <strong>Free Delivery</strong>
+          <small>Islandwide</small>
+        </span>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+    <div class="container my-4">
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <span class="badge bg-danger me-2">Notice</span> Need urgent technical support? Call our hotline directly!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <h2 class="text-center mb-4 fw-bold">Contact Our Support Team</h2>
     </div>
 
-    <!-- Main Content Cards (Assignment requirement 3) -->
+    <div class="container my-5">
+
+        <div class="row g-4">
+
+            <div class="col-md-7">
+                <div class="card p-4 shadow-sm border-0">
+                    <h4 class="mb-3">Send us a Message</h4>
+                    <form>
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" placeholder="'John Doe" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inquiryType" class="form-label">Inquiry Type</label>
+                            <slect class="form-select" id="inquiryType">
+                                <option selected>General Inquiry</option>
+                                <option value="1">Warranty Inquiry</option>
+                                <option value="2">Technical Support</option>
+                                <option value="3">Sales / Quotation</option>
+                            </slect>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="How can we help you?"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary-custom me-2">Submit Message</button>
+                        <button type="reset" classs="btn btn-outline-secondary">Reset</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+
+                <div class="card mb-3 shadow-sm border-0">
+                    <img src="assets/images/banner/contact-banner.jpg" class="cart-img-top img-fluid rounded-top" alt="Showroom Image">
+                    <div class="cart-body">
+                        <h5 class="cart-title fw-bold">Main Showroom</h5>
+                        <p class="cart-text text-nuted">123 Tech Street, Colombo 03, Sri Lanka.</p>
+                        <p class="mb-1"><strong>Phone:</strong> +94 11 234 5678</p>
+                        <p class="mb-0"><strong>Email:</strong> support@techzone.lk</p>
+                    <div>
+                </div>
+
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Opening Hours</h5>
+                        <p class="mb-1 text-muted">Monday - Friday: 9.00 AM -6.00 PM</p>
+                        <p class="mb-0 text-muted">Saturday: 9.00 AM - 2.00 PM</p>
+                        <span class="badge bg-warning text-dark mt-2">Closed on Sundays</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<!-- ============================================================
+     7. FOOTER
+     ============================================================ -->
+<footer class="tz-footer">
+  <div class="container">
     <div class="row g-4">
-      
-      <!-- Card 1: Terms of Service -->
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h5 class="card-title fw-bold text-primary">1. Terms of Service</h5>
-            <p class="card-text text-muted">
-              By accessing and using TechZone, you agree to comply with our purchasing policies, pricing updates, and product availability terms.
-            </p>
-            <a href="#termsDetail" class="btn btn-outline-primary btn-sm">Read Details</a>
-          </div>
-        </div>
-      </div>
 
-      <!-- Card 2: Privacy Policy -->
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h5 class="card-title fw-bold text-primary">2. Privacy Policy</h5>
-            <p class="card-text text-muted">
-              We respect your data privacy. Your personal details collected during checkout are fully encrypted and never shared with 3rd parties.
-            </p>
-            <a href="#privacyDetail" class="btn btn-outline-primary btn-sm">Read Details</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3: Warranty Policy -->
-      <div class="col-md-4">
-        <div class="card h-100 shadow-sm border-0">
-          <div class="card-body">
-            <h5 class="card-title fw-bold text-primary">3. Warranty & Returns</h5>
-            <p class="card-text text-muted">
-              All PC components and desktops sold on TechZone include 1 to 3 years of manufacturer-backed warranty protection.
-            </p>
-            <a href="#warrantyDetail" class="btn btn-outline-primary btn-sm">Read Details</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Detailed Legal Content Section -->
-    <div class="bg-white p-4 rounded shadow-sm mt-5">
-      <section id="termsDetail" class="mb-4">
-        <h4 class="fw-bold text-dark">Terms of Service Details</h4>
-        <p class="text-secondary">
-          All orders are subject to acceptance and availability. Prices for products are subject to change without notice. TechZone reserves the right to cancel orders arising from pricing errors in system catalogues.
+      <!-- Column 1 — About -->
+      <div class="col-lg-4 col-md-6">
+        <a class="tz-brand" href="index.html">
+          <img src="assets/images/logo/logo.png" alt="TechZone logo" class="tz-brand-mark">
+          <span class="tz-brand-text">
+            Tech<b>Zone</b>
+            <small>Your PC. Our Passion.</small>
+          </span>
+        </a>
+        <p class="footer-about">
+          Your trusted computer shop in Sri Lanka. We bring you the best in laptops,
+          desktops, gaming gear and more — all in one place.
         </p>
-      </section>
-
-      <hr>
-
-      <section id="privacyDetail" class="mb-4">
-        <h4 class="fw-bold text-dark">Privacy & Data Security</h4>
-        <p class="text-secondary">
-          We process payments using secure gateway providers. Card information is never stored directly on TechZone servers. Cookies are used solely to preserve your shopping cart state.
-        </p>
-      </section>
-
-      <hr>
-
-      <section id="warrantyDetail">
-        <h4 class="fw-bold text-dark">Warranty & Replacement Policy Summary</h4>
-        
-        <!-- Table for Policy Details (Assignment requirement 5) -->
-        <div class="table-responsive mt-3">
-          <table class="table table-bordered table-hover">
-            <thead class="table-light">
-              <tr>
-                <th>Product Category</th>
-                <th>Standard Warranty</th>
-                <th>Return Window</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Pre-built Desktops & Gaming PCs</td>
-                <td>3 Years Hardware</td>
-                <td>7 Days Replacement</td>
-              </tr>
-              <tr>
-                <td>PC Components (GPUs, CPUs, RAM)</td>
-                <td>1 - 3 Years (Brand based)</td>
-                <td>3 Days Replacement</td>
-              </tr>
-              <tr>
-                <td>Peripherals & Accessories</td>
-                <td>6 Months - 1 Year</td>
-                <td>3 Days Replacement</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="tz-social">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
         </div>
-      </section>
+      </div>
+
+      <!-- Column 2 — Quick Links -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html#faqs">FAQs</a></li>
+          <li><a href="contact.html#returns">Returns &amp; Refunds</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3 — Categories -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="products/laptops.html">Laptops</a></li>
+          <li><a href="products/desktops.html">Desktops</a></li>
+          <li><a href="products/components.html">Components</a></li>
+          <li><a href="products/peripherals.html">Peripherals</a></li>
+          <li><a href="products/accessories.html">Accessories</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4 — Customer Service -->
+      <div class="col-lg-2 col-md-6">
+        <h4>Customer Service</h4>
+        <ul class="footer-contact">
+          <li><i class="bi bi-telephone"></i> <a href="tel:+94112345678">+94 11 234 5678</a></li>
+          <li><i class="bi bi-envelope"></i> <a href="mailto:support@techzone.lk">support@techzone.lk</a></li>
+          <li><i class="bi bi-clock"></i> <span>Mon–Sat<br>9:00 AM – 6:00 PM</span></li>
+          <li><i class="bi bi-truck"></i> <span>Free islandwide delivery on orders over Rs. 25,000</span></li>
+        </ul>
+      </div>
+
+      <!-- Column 5 — Payment Methods -->
+      <div class="col-lg-2 col-md-6">
+        <h4>Payment Methods</h4>
+        <div class="pay-badges">
+          <span class="pay-badge">VISA</span>
+          <span class="pay-badge">Mastercard</span>
+          <span class="pay-badge">Amex</span>
+          <span class="pay-badge">COD</span>
+        </div>
+        <p class="footer-secure"><i class="bi bi-shield-check"></i> Secure checkout</p>
+      </div>
+
     </div>
 
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer text-white py-4 mt-auto">
-    <div class="container text-center">
-      <p class="mb-0">&copy; 2026 TechZone. All Rights Reserved. Designed for Group Assignment.</p>
+    <!-- Bottom bar -->
+    <div class="tz-footer-bottom">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <span>&copy; <span data-tz-year>2025</span> TechZone. All rights reserved.</span>
+        <span class="footer-legal">
+          <a href="#">Privacy Policy</a> <span class="sep">|</span> <a href="#">Terms &amp; Conditions</a>
+        </span>
+      </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  <!-- JS Links -->
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/global.js"></script>
-  <script src="assets/js/legal.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/global.js"></script>
+    <script src="assets/js/contact.js"></script>
 </body>
 </html>
