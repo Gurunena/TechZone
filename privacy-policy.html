@@ -1,22 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-wisth, initial-scale=0.1">
+<!-- ============================================================
+     1. TOP HEADER BAR — logo / search / account-wishlist-cart
+     ============================================================ -->
+<header class="tz-header">
+  <div class="container">
+    <div class="tz-header-inner">
 
-    <title>Privacy Policy | TechZone</title>
+      <!-- Brand -->
+      <a class="tz-brand" href="index.html">
+        <img src="assets/images/logo/logo.png" alt="TechZone logo" class="tz-brand-mark">
+        <span class="tz-brand-text">
+          Tech<b>Zone</b>
+          <small>Your PC. Our Passion.</small>
+        </span>
+      </a>
 
-    <link rel="stylesheet"
-          href="../assets/css/bootstrap.min.css">
-    
-    <link rel="stylesheet"
-          href="../assets/css/global.css">
+      <!-- Mobile toggler (shows nav links on small screens) -->
+      <button class="tz-mobile-toggle d-lg-none" type="button"
+              data-bs-toggle="collapse" data-bs-target="#tzMainNav"
+              aria-controls="tzMainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
 
-    <link rel="stylesheet"
-          href="../assets/css/privacy-policy.css">
-</head>
+      <!-- Search -->
+      <form class="tz-search" role="search" id="tzSearchForm" autocomplete="off">
+        <label class="visually-hidden" for="tzSearchInput">Search products</label>
+        <input type="search" id="tzSearchInput" class="tz-search-input"
+               placeholder="Search for products, brands and more...">
+        <button class="tz-search-btn" type="submit" aria-label="Search">
+          <i class="bi bi-search"></i>
+        </button>
+        <!-- Live suggestions, filled by global.js -->
+        <div class="tz-suggest" id="tzSuggest" role="listbox"></div>
+      </form>
+
+      <!-- Account / Wishlist / Cart -->
+      <div class="tz-actions">
+        <a class="tz-icon-btn" href="account/profile.html">
+          <i class="bi bi-person"></i>
+          <span class="tz-icon-label">
+            <small>Hello, Sign in</small>
+            <strong>Account</strong>
+          </span>
+        </a>
+
+        <a class="tz-icon-btn" href="account/wishlist.html">
+          <i class="bi bi-heart"></i>
+          <span class="tz-icon-label">
+            <small>Saved</small>
+            <strong>Wishlist</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-wishlist-count data-count="0">0</span>
+        </a>
+
+        <a class="tz-icon-btn" href="cart/cart.html">
+          <i class="bi bi-bag"></i>
+          <span class="tz-icon-label">
+            <small>My Cart</small>
+            <strong>Cart</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-cart-count data-count="0">0</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</header>
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark tech-navbar sticky-top">
@@ -24,7 +75,7 @@
     <div class="container">
         <a class="navbar-brand fw-bold"
             href="../index.html">
-            🖥️ TechZone
+             TechZone
         </a>
     <button class="navbar-toggler"
             type="button"
@@ -92,7 +143,7 @@
     <div class="container text-center">
 
         <div class="policy-icon">
-            🔒
+        
         </div>
 
         <h1>Privacy Policy</h1>
@@ -122,20 +173,20 @@
                 <h5>Legal Information</h5>
 
                 <a href="shipping-policy.html">
-                    🚚 Shipping Policy
+                     Shipping Policy
                 </a>
 
                 <a href="returns-refunds.html">
-                    ↩️ Returns & Refunds
+                     Returns & Refunds
                 </a>
 
                 <a class="active"
                     href="privacy-policy.html">
-                🔒 Privacy Policy
+                     Privacy Policy
                 </a>
 
                 <a href="terms-conditions.html">
-                    📄 Terms & Conditions
+                     Terms & Conditions
                 </a>
             </div>
         </div>
@@ -191,7 +242,7 @@
 
                         <div class="col-md-6">
                             <div class="privacy-card">
-                                <span>📞</span>
+                                <span></span>
                                 <h5>Customer Support</h5>
 
                                 <p>
@@ -204,7 +255,7 @@
 
                         <div class="col-md-6">
                             <div class="privacy-card">
-                                <span>🔐</span>
+                                <span></span>
                                 <h5>Accout Management</h5>
 
                                 <p>
@@ -217,7 +268,7 @@
 
                          <div class="col-md-6">
                             <div class="privacy-card">
-                                <span>⚙️</span>
+                                <span></span>
                                 <h5>Improve Services</h5>
 
                                 <p>
@@ -280,50 +331,95 @@
     </div>
 </main>
 
-<footer class="tech-footer">
-    <div class="container py-4">
-        <div class="row">
-            <div class="col-md-6">
-                <h5>TechZone</h5>
+<!-- ============================================================
+     7. FOOTER
+     ============================================================ -->
+<footer class="tz-footer">
+  <div class="container">
+    <div class="row g-4">
 
-                <p>
-                    Your PC. Our Passion.
-                </p>
-
-            </div>
-
-            <div class="col-md-6">
-                <h5>Legal</h5>
-
-                <a href="shipping-policy.html">
-                    Shipping Policy
-                </a>
-
-                <a href="returns-refunds.html">
-                    Returns & Refunds
-                </a>
-
-                <a href="privacy-policy.html">
-                    Privacy Policy
-                </a>
-
-                <a href="terms-conditions.html">
-                    Terms & Conditions
-                </a>
-
-            </div>
-        </div>
-
-        <hr>
-
-        <p class="text-center mb-0">
-            © <span id="currentYear"></span> 
-            TechZone.All rights reserved.
+      <!-- Column 1 — About -->
+      <div class="col-lg-4 col-md-6">
+        <a class="tz-brand" href="index.html">
+          <img src="assets/images/logo/logo.png" alt="TechZone logo" class="tz-brand-mark">
+          <span class="tz-brand-text">
+            Tech<b>Zone</b>
+            <small>Your PC. Our Passion.</small>
+          </span>
+        </a>
+        <p class="footer-about">
+          Your trusted computer shop in Sri Lanka. We bring you the best in laptops,
+          desktops, gaming gear and more — all in one place.
         </p>
+        <div class="tz-social">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+
+      <!-- Column 2 — Quick Links -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html#faqs">FAQs</a></li>
+          <li><a href="contact.html#returns">Returns &amp; Refunds</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3 — Categories -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="products/laptops.html">Laptops</a></li>
+          <li><a href="products/desktops.html">Desktops</a></li>
+          <li><a href="products/components.html">Components</a></li>
+          <li><a href="products/peripherals.html">Peripherals</a></li>
+          <li><a href="products/accessories.html">Accessories</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4 — Customer Service -->
+      <div class="col-lg-2 col-md-6">
+        <h4>Customer Service</h4>
+        <ul class="footer-contact">
+          <li><i class="bi bi-telephone"></i> <a href="tel:+94112345678">+94 11 234 5678</a></li>
+          <li><i class="bi bi-envelope"></i> <a href="mailto:support@techzone.lk">support@techzone.lk</a></li>
+          <li><i class="bi bi-clock"></i> <span>Mon–Sat<br>9:00 AM – 6:00 PM</span></li>
+          <li><i class="bi bi-truck"></i> <span>Free islandwide delivery on orders over Rs. 25,000</span></li>
+        </ul>
+      </div>
+
+      <!-- Column 5 — Payment Methods -->
+      <div class="col-lg-2 col-md-6">
+        <h4>Payment Methods</h4>
+        <div class="pay-badges">
+          <span class="pay-badge">VISA</span>
+          <span class="pay-badge">Mastercard</span>
+          <span class="pay-badge">Amex</span>
+          <span class="pay-badge">COD</span>
+        </div>
+        <p class="footer-secure"><i class="bi bi-shield-check"></i> Secure checkout</p>
+      </div>
+
     </div>
+
+    <!-- Bottom bar -->
+    <div class="tz-footer-bottom">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <span>&copy; <span data-tz-year>2025</span> TechZone. All rights reserved.</span>
+        <span class="footer-legal">
+          <a href="#">Privacy Policy</a> <span class="sep">|</span> <a href="#">Terms &amp; Conditions</a>
+        </span>
+      </div>
+    </div>
+  </div>
 </footer>
 
-<script src="assets/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/global.js"></script>
 <script src="assets/js/privacy-policy.js"></script>
 
