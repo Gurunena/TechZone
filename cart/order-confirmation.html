@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Thank you for your order at TechZone. Your order has been confirmed and is being processed.">
+  <title>Order Confirmed — TechZone</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 (CDN) + Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Site styles: global first, then page-specific -->
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/order-confirmation.css">
+
+  <link rel="icon" href="../assets/images/logo/favicon.png">
+</head>
+<body>
+
+<!-- ============================================================
+     1. TOP HEADER BAR (identical to index.html)
+     ============================================================ -->
+<header class="tz-header">
+  <div class="container">
+    <div class="tz-header-inner">
+
+      <a class="tz-brand" href="../index.html">
+        <img src="../assets/images/logo/ChatGPT Image Sep 10, 2026, 04_28_41 PM.png" alt="TechZone logo" class="tz-brand-mark">
+        <span class="tz-brand-text">
+          Tech<b>Zone</b>
+          <small>Your PC. Our Passion.</small>
+        </span>
+      </a>
+
+      <button class="tz-mobile-toggle d-lg-none" type="button"
+              data-bs-toggle="collapse" data-bs-target="#tzMainNav"
+              aria-controls="tzMainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <form class="tz-search" role="search" id="tzSearchForm" autocomplete="off">
+        <label class="visually-hidden" for="tzSearchInput">Search products</label>
+        <input type="search" id="tzSearchInput" class="tz-search-input"
+               placeholder="Search for products, brands and more...">
+        <button class="tz-search-btn" type="submit" aria-label="Search">
+          <i class="bi bi-search"></i>
+        </button>
+        <div class="tz-suggest" id="tzSuggest" role="listbox"></div>
+      </form>
+
+      <div class="tz-actions">
+        <a class="tz-icon-btn" href="../account/profile.html">
+          <i class="bi bi-person"></i>
+          <span class="tz-icon-label">
+            <small>Hello, Sign in</small>
+            <strong>Account</strong>
+          </span>
+        </a>
+
+        <a class="tz-icon-btn" href="../account/wishlist.html">
+          <i class="bi bi-heart"></i>
+          <span class="tz-icon-label">
+            <small>Saved</small>
+            <strong>Wishlist</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-wishlist-count data-count="0">0</span>
+        </a>
+
+        <a class="tz-icon-btn" href="cart.html">
+          <i class="bi bi-bag"></i>
+          <span class="tz-icon-label">
+            <small>My Cart</small>
+            <strong>Cart</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-cart-count data-count="0">0</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     2. NAVIGATION BAR (identical to index.html)
+     ============================================================ -->
+<nav class="tz-nav" id="tzNav" aria-label="Main navigation">
+  <div class="container">
+    <div class="tz-nav-inner">
+
+      <div class="dropdown tz-allcat">
+        <button class="tz-allcat-btn dropdown-toggle" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-grid-3x3-gap-fill"></i>
+          <span>All Categories</span>
+        </button>
+        <ul class="dropdown-menu tz-allcat-menu">
+          <li><a class="dropdown-item" href="../products/laptops.html"><i class="bi bi-laptop"></i> Laptops</a></li>
+          <li><a class="dropdown-item" href="../products/desktops.html"><i class="bi bi-pc-display"></i> Desktops</a></li>
+          <li><a class="dropdown-item" href="../products/gaming.html"><i class="bi bi-controller"></i> Gaming PCs</a></li>
+          <li><a class="dropdown-item" href="../products/components.html"><i class="bi bi-cpu"></i> Components</a></li>
+          <li><a class="dropdown-item" href="../products/peripherals.html"><i class="bi bi-keyboard"></i> Peripherals</a></li>
+          <li><a class="dropdown-item" href="../products/accessories.html"><i class="bi bi-headphones"></i> Accessories</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="../products/gaming.html"><i class="bi bi-lightning-charge"></i> Today's Deals</a></li>
+        </ul>
+      </div>
+
+      <div class="collapse navbar-collapse tz-nav-links" id="tzMainNav">
+        <ul class="tz-nav-list">
+          <li><a class="tz-nav-link" href="../index.html">Home</a></li>
+          <li><a class="tz-nav-link" href="../products/laptops.html">Laptops</a></li>
+          <li><a class="tz-nav-link" href="../products/desktops.html">Desktops</a></li>
+          <li><a class="tz-nav-link" href="../products/gaming.html">Gaming</a></li>
+          <li><a class="tz-nav-link" href="../products/components.html">Components</a></li>
+          <li><a class="tz-nav-link" href="../products/peripherals.html">Peripherals</a></li>
+          <li><a class="tz-nav-link" href="../products/accessories.html">Accessories</a></li>
+          <li><a class="tz-nav-link" href="../about.html">Brands</a></li>
+          <li><a class="tz-nav-pill" href="../products/gaming.html">Deals</a></li>
+        </ul>
+      </div>
+
+      <div class="tz-delivery">
+        <i class="bi bi-truck"></i>
+        <span>
+          <strong>Free Delivery</strong>
+          <small>Islandwide</small>
+        </span>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+
+    <!-- ========================================================
+         SUCCESS HERO
+         ======================================================== -->
+    <section class="confirm-hero">
+      <div class="confirm-check"><i class="bi bi-check-lg"></i></div>
+      <h1>Thank you for your order!</h1>
+      <p class="confirm-lead" id="confirmLead">Your order has been placed successfully and is now being processed.</p>
+
+      <div class="confirm-meta">
+        <div class="meta-pill">
+          <span class="meta-label">Order Number</span>
+          <span class="meta-value" id="metaOrderNo">TZ-2026-0000</span>
+        </div>
+        <div class="meta-pill">
+          <span class="meta-label">Order Date</span>
+          <span class="meta-value" id="metaDate">—</span>
+        </div>
+        <div class="meta-pill">
+          <span class="meta-label">Estimated Delivery</span>
+          <span class="meta-value" id="metaEta">—</span>
+        </div>
+      </div>
+
+      <div class="alert alert-info confirm-alert" role="alert">
+        <i class="bi bi-envelope-check"></i>
+        A confirmation email has been sent to <strong id="confirmEmail">your inbox</strong>. You can track your order any time from your account.
+      </div>
+    </section>
+
+    <div class="row g-4">
+
+      <!-- ORDER DETAILS -->
+      <div class="col-lg-8">
+        <div class="tz-card confirm-block">
+          <h2 class="block-title"><i class="bi bi-receipt"></i> Order Summary</h2>
+
+          <!-- Bootstrap responsive, striped, bordered, hover table -->
+          <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered align-middle order-table">
+              <thead class="table-dark">
+                <tr>
+                  <th scope="col">Product</th>
+                  <th scope="col" class="text-center">Unit Price</th>
+                  <th scope="col" class="text-center">Qty</th>
+                  <th scope="col" class="text-end">Total</th>
+                </tr>
+              </thead>
+              <tbody id="orderRows"><!-- injected by order-confirmation.js --></tbody>
+              <tfoot>
+                <tr>
+                  <th colspan="3" class="text-end">Subtotal</th>
+                  <td class="text-end" id="rowSubtotal">Rs. 0</td>
+                </tr>
+                <tr>
+                  <th colspan="3" class="text-end">Delivery</th>
+                  <td class="text-end" id="rowDelivery">Rs. 0</td>
+                </tr>
+                <tr class="order-grand">
+                  <th colspan="3" class="text-end">Total Paid</th>
+                  <td class="text-end" id="rowTotal">Rs. 0</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+
+        <!-- What happens next -->
+        <div class="tz-card confirm-block">
+          <h2 class="block-title"><i class="bi bi-truck"></i> What Happens Next</h2>
+          <ol class="timeline">
+            <li class="tl-done">
+              <span class="tl-dot"><i class="bi bi-check"></i></span>
+              <div><strong>Order Confirmed</strong><span>We've received your order.</span></div>
+            </li>
+            <li class="tl-current">
+              <span class="tl-dot"><i class="bi bi-box-seam"></i></span>
+              <div><strong>Processing &amp; Packing</strong><span>Our team is preparing your items.</span></div>
+            </li>
+            <li>
+              <span class="tl-dot"><i class="bi bi-truck"></i></span>
+              <div><strong>Out for Delivery</strong><span>Your order is on the way.</span></div>
+            </li>
+            <li>
+              <span class="tl-dot"><i class="bi bi-house-check"></i></span>
+              <div><strong>Delivered</strong><span>Enjoy your new tech!</span></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- DELIVERY / PAYMENT + ACTIONS -->
+      <div class="col-lg-4">
+        <div class="tz-card confirm-block">
+          <h2 class="block-title"><i class="bi bi-geo-alt"></i> Delivery Details</h2>
+          <address class="ship-details" id="shipDetails">
+            <!-- injected -->
+          </address>
+          <hr>
+          <div class="pay-line">
+            <span>Payment</span>
+            <span class="badge bg-primary" id="payBadge">Card</span>
+          </div>
+          <div class="pay-line">
+            <span>Delivery</span>
+            <span id="deliveryMethod">Standard Delivery</span>
+          </div>
+        </div>
+
+        <div class="confirm-actions">
+          <a href="../account/orders.html" class="btn btn-tz"><i class="bi bi-truck"></i> Track My Order</a>
+          <button type="button" class="btn btn-tz-light" id="printBtn"><i class="bi bi-printer"></i> Print Receipt</button>
+          <a href="../products/laptops.html" class="btn btn-tz-outline"><i class="bi bi-arrow-left"></i> Continue Shopping</a>
+        </div>
+
+        <div class="help-box">
+          <i class="bi bi-headset"></i>
+          <div>
+            <strong>Need help?</strong>
+            <span>Call <a href="tel:+94112345678">+94 11 234 5678</a> or email <a href="mailto:support@techzone.lk">support@techzone.lk</a></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<!-- ============================================================
+     FOOTER (identical to index.html)
+     ============================================================ -->
+<footer class="tz-footer">
+  <div class="container">
+    <div class="row g-4">
+
+      <div class="col-lg-4 col-md-6">
+        <a class="tz-brand" href="../index.html">
+          <img src="../assets/images/logo/ChatGPT Image Sep 10, 2026, 04_28_41 PM.png" alt="TechZone logo" class="tz-brand-mark">
+          <span class="tz-brand-text">
+            Tech<b>Zone</b>
+            <small>Your PC. Our Passion.</small>
+          </span>
+        </a>
+        <p class="footer-about">
+          Your trusted computer shop in Sri Lanka. We bring you the best in laptops,
+          desktops, gaming gear and more — all in one place.
+        </p>
+        <div class="tz-social">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-6 col-6">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about.html">About Us</a></li>
+          <li><a href="../contact.html">Contact Us</a></li>
+          <li><a href="../contact.html#faqs">FAQs</a></li>
+          <li><a href="../contact.html#returns">Returns &amp; Refunds</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-md-6 col-6">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="../products/laptops.html">Laptops</a></li>
+          <li><a href="../products/desktops.html">Desktops</a></li>
+          <li><a href="../products/components.html">Components</a></li>
+          <li><a href="../products/peripherals.html">Peripherals</a></li>
+          <li><a href="../products/accessories.html">Accessories</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-md-6">
+        <h4>Customer Service</h4>
+        <ul class="footer-contact">
+          <li><i class="bi bi-telephone"></i> <a href="tel:+94112345678">+94 11 234 5678</a></li>
+          <li><i class="bi bi-envelope"></i> <a href="mailto:support@techzone.lk">support@techzone.lk</a></li>
+          <li><i class="bi bi-clock"></i> <span>Mon–Sat<br>9:00 AM – 6:00 PM</span></li>
+          <li><i class="bi bi-truck"></i> <span>Free islandwide delivery on orders over Rs. 25,000</span></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-md-6">
+        <h4>Payment Methods</h4>
+        <div class="pay-badges">
+          <span class="pay-badge">VISA</span>
+          <span class="pay-badge">Mastercard</span>
+          <span class="pay-badge">Amex</span>
+          <span class="pay-badge">COD</span>
+        </div>
+        <p class="footer-secure"><i class="bi bi-shield-check"></i> Secure checkout</p>
+      </div>
+
+    </div>
+
+    <div class="tz-footer-bottom">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <span>&copy; <span data-tz-year>2025</span> TechZone. All rights reserved.</span>
+        <span class="footer-legal">
+          <a href="../privacy-policy.html">Privacy Policy</a> <span class="sep">|</span> <a href="../terms-condition.html">Terms &amp; Conditions</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="tz-toast-wrap" id="tzToastWrap" aria-live="polite" aria-atomic="true"></div>
+
+<!-- Scripts: Bootstrap, then global, then page-specific -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/global.js"></script>
+<script src="../assets/js/order-confirmation.js"></script>
+</body>
+</html>

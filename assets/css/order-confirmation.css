@@ -1,0 +1,198 @@
+/* ==========================================================================
+   TechZone — order-confirmation.css
+   Thank-you / order confirmation page. Loaded AFTER global.css.
+   ========================================================================== */
+
+main { padding: 32px 0 56px; }
+
+/* --------------------------------------------------------------------------
+   SUCCESS HERO
+   -------------------------------------------------------------------------- */
+.confirm-hero {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 32px;
+}
+.confirm-check {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--color-success);
+  color: #fff;
+  font-size: 2.6rem;
+  box-shadow: 0 10px 26px rgba(34, 197, 94, .35);
+  animation: pop .4s ease;
+}
+@keyframes pop {
+  0% { transform: scale(.4); opacity: 0; }
+  70% { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.confirm-hero h1 { font-size: 1.9rem; margin: 0 0 8px; }
+.confirm-lead { color: var(--color-text-muted); font-size: 1rem; margin: 0 0 22px; }
+
+.confirm-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.meta-pill {
+  background: #fff;
+  border: 1px solid var(--tz-border);
+  border-radius: 12px;
+  padding: 12px 20px;
+  min-width: 160px;
+  box-shadow: var(--tz-shadow);
+}
+.meta-label {
+  display: block;
+  font-size: .6875rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.meta-value { font-size: 1rem; font-weight: 700; color: var(--color-navy-dark); }
+
+.confirm-alert {
+  text-align: left;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+.confirm-alert i { font-size: 1.15rem; }
+
+/* --------------------------------------------------------------------------
+   BLOCKS
+   -------------------------------------------------------------------------- */
+.confirm-block { padding: 22px 24px; margin-bottom: 20px; }
+.block-title {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-size: 1.05rem;
+  margin: 0 0 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--tz-border);
+}
+.block-title i { color: var(--color-primary); }
+
+/* Order table tweaks */
+.order-table { margin: 0; }
+.order-table thead th { font-size: .8125rem; letter-spacing: .02em; }
+.order-table tbody td, .order-table tbody th { font-size: .875rem; }
+.order-table .ot-product { display: flex; align-items: center; gap: 12px; }
+.ot-thumb {
+  flex: 0 0 46px;
+  width: 46px; height: 46px;
+  border: 1px solid var(--tz-border);
+  border-radius: 8px; background: #fff; padding: 4px;
+  object-fit: contain;
+}
+.ot-thumb.img-missing { padding: 0; }
+.ot-thumb.img-ph {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  background: linear-gradient(135deg, #E8EEF6, #F5F7FA);
+  color: var(--color-primary);
+}
+.ot-thumb.img-ph i { font-size: 1.1rem; opacity: .7; }
+.ot-name { font-weight: 600; }
+.order-table tfoot th { font-weight: 600; color: var(--color-text-muted); }
+.order-table tfoot td { font-weight: 700; }
+.order-grand th, .order-grand td { font-size: 1.05rem !important; color: var(--color-navy-dark); }
+.order-grand td { color: var(--color-primary) !important; }
+
+/* --------------------------------------------------------------------------
+   TIMELINE
+   -------------------------------------------------------------------------- */
+.timeline { list-style: none; padding: 0; margin: 0; position: relative; }
+.timeline li {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 0 0 22px 0;
+}
+.timeline li:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 17px;
+  top: 34px;
+  bottom: 0;
+  width: 2px;
+  background: var(--tz-border);
+}
+.tl-dot {
+  flex: 0 0 36px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  background: #fff;
+  border: 2px solid var(--tz-border);
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  z-index: 1;
+}
+.timeline div { display: flex; flex-direction: column; padding-top: 4px; }
+.timeline strong { font-size: .9rem; }
+.timeline span { font-size: .8125rem; color: var(--color-text-muted); }
+.tl-done .tl-dot { background: var(--color-success); border-color: var(--color-success); color: #fff; }
+.tl-current .tl-dot { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+.tl-current strong { color: var(--color-primary); }
+
+/* --------------------------------------------------------------------------
+   DELIVERY DETAILS / ACTIONS
+   -------------------------------------------------------------------------- */
+.ship-details { font-style: normal; font-size: .875rem; line-height: 1.7; margin: 0; color: var(--color-navy-dark); }
+.ship-details .sd-name { font-weight: 700; }
+.ship-details .sd-muted { color: var(--color-text-muted); }
+
+.pay-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .875rem;
+  padding: 6px 0;
+  color: var(--color-text-muted);
+}
+.pay-line span:last-child { color: var(--color-navy-dark); font-weight: 600; }
+
+.confirm-actions { display: flex; flex-direction: column; gap: 10px; margin: 4px 0 20px; }
+.confirm-actions .btn { justify-content: center; display: flex; align-items: center; gap: .5rem; }
+
+.help-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 1px dashed var(--tz-border);
+  border-radius: var(--tz-radius);
+  padding: 16px;
+}
+.help-box > i { font-size: 1.6rem; color: var(--color-primary); }
+.help-box strong { display: block; font-size: .875rem; }
+.help-box span { font-size: .8125rem; color: var(--color-text-muted); }
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE + PRINT
+   -------------------------------------------------------------------------- */
+@media (max-width: 575.98px) {
+  .confirm-hero h1 { font-size: 1.5rem; }
+  .meta-pill { min-width: 140px; flex: 1 1 140px; }
+  .confirm-block { padding: 18px 16px; }
+}
+
+@media print {
+  .tz-header, .tz-nav, .tz-footer, .confirm-actions, .help-box, .tz-toast-wrap { display: none !important; }
+  body { background: #fff; }
+  .confirm-block, .meta-pill { box-shadow: none; }
+}
