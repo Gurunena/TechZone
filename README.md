@@ -80,10 +80,18 @@ techzone/
 │   ├── css/
 │   │   ├── bootstrap.min.css
 │   │   ├── global.css
+│   │   ├── shipping-policy.css
+│   │   ├── returns-refunds.css
+│   │   ├── privacy-policy.css
+│   │   ├── terms-conditions.css
 │   │   └── [page-name].css   (one per page)
 │   ├── js/
 │   │   ├── bootstrap.bundle.min.js
 │   │   ├── global.js
+│   │   ├── shipping-policy.js
+│   │   ├── returns-refunds.js
+│   │   ├── privacy-policy.js
+│   │   ├── terms-conditions.js
 │   │   └── [page-name].js    (one per page)
 │   └── images/
 │       ├── products/
@@ -91,6 +99,11 @@ techzone/
 │       ├── icons/
 │       └── logo/
 └── README.md
+├── legal/
+│       ├── shipping-policy.html/
+│       ├── returns-refunds.html/
+│       ├── privacy-policy.html/
+│       └── terms-conditions.html/
 ```
 
 **Rule:** every HTML page has a matching CSS/JS file with the same name (e.g. `cart.html` → `cart.css` + `cart.js`).
