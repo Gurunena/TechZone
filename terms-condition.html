@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ============================================================
+     1. TOP HEADER BAR — logo / search / account-wishlist-cart
+     ============================================================ -->
+<header class="tz-header">
+  <div class="container">
+    <div class="tz-header-inner">
+
+      <!-- Brand -->
+      <a class="tz-brand" href="index.html">
+        <img src="assets/images/logo/logo.png" alt="TechZone logo" class="tz-brand-mark">
+        <span class="tz-brand-text">
+          Tech<b>Zone</b>
+          <small>Your PC. Our Passion.</small>
+        </span>
+      </a>
+
+      <!-- Mobile toggler (shows nav links on small screens) -->
+      <button class="tz-mobile-toggle d-lg-none" type="button"
+              data-bs-toggle="collapse" data-bs-target="#tzMainNav"
+              aria-controls="tzMainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <!-- Search -->
+      <form class="tz-search" role="search" id="tzSearchForm" autocomplete="off">
+        <label class="visually-hidden" for="tzSearchInput">Search products</label>
+        <input type="search" id="tzSearchInput" class="tz-search-input"
+               placeholder="Search for products, brands and more...">
+        <button class="tz-search-btn" type="submit" aria-label="Search">
+          <i class="bi bi-search"></i>
+        </button>
+        <!-- Live suggestions, filled by global.js -->
+        <div class="tz-suggest" id="tzSuggest" role="listbox"></div>
+      </form>
+
+      <!-- Account / Wishlist / Cart -->
+      <div class="tz-actions">
+        <a class="tz-icon-btn" href="account/profile.html">
+          <i class="bi bi-person"></i>
+          <span class="tz-icon-label">
+            <small>Hello, Sign in</small>
+            <strong>Account</strong>
+          </span>
+        </a>
+
+        <a class="tz-icon-btn" href="account/wishlist.html">
+          <i class="bi bi-heart"></i>
+          <span class="tz-icon-label">
+            <small>Saved</small>
+            <strong>Wishlist</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-wishlist-count data-count="0">0</span>
+        </a>
+
+        <a class="tz-icon-btn" href="cart/cart.html">
+          <i class="bi bi-bag"></i>
+          <span class="tz-icon-label">
+            <small>My Cart</small>
+            <strong>Cart</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-cart-count data-count="0">0</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</header>
+<body>
+
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark tech-navbar sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold"
+           href="../index.html">
+            TechZone
+        </a>
+
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse"
+             id="mainNavbar">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="../index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="../about.html">
+                        About
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="../products/laptops.html">
+                        Products
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="../contact.html">
+                        Contact
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="../cart/cart.html">
+                        Cart
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="btn btn-primary btn-sm ms-lg-2"
+                       href="../login.html">
+                        Login
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- Header -->
+
+<section class="policy-header">
+
+    <div class="container text-center">
+
+        <div class="policy-icon">
+            
+        </div>
+
+        <h1>Terms & Conditions</h1>
+
+        <p>
+            Please read these terms before using TechZone
+            and purchasing our products.
+        </p>
+
+        <span class="badge bg-primary">
+            Last Updated:
+            <span id="lastUpdated">2026</span>
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- Main -->
+
+<main class="container py-5">
+
+    <div class="row g-4">
+
+
+        <!-- Sidebar -->
+
+        <div class="col-lg-3">
+
+            <div class="policy-menu">
+
+                <h5>Legal Information</h5>
+
+                <a href="shipping-policy.html">
+                    Shipping Policy
+                </a>
+
+                <a href="returns-refunds.html">
+                     Returns & Refunds
+                </a>
+
+                <a href="privacy-policy.html">
+                     Privacy Policy
+                </a>
+
+                <a class="active"
+                   href="terms-conditions.html">
+                     Terms & Conditions
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Content -->
+
+        <div class="col-lg-9">
+
+            <div class="policy-content">
+
+
+                <div class="alert alert-primary">
+
+                    By using the TechZone website, you agree
+                    to follow the terms and conditions described
+                    on this page.
+
+                </div>
+
+
+                <section class="policy-section">
+
+                    <h2>1. Website Usage</h2>
+
+                    <p>
+                        TechZone provides this website for browsing
+                        products, accessing information and placing
+                        orders. Users should use the website in a
+                        responsible and lawful manner.
+                    </p>
+
+                </section>
+
+
+                <section class="policy-section">
+
+                    <h2>2. Product Information</h2>
+
+                    <p>
+                        TechZone aims to provide accurate product
+                        descriptions, specifications, images and
+                        pricing. Product information may be updated
+                        when necessary.
+                    </p>
+
+                </section>
+
+
+                <section class="policy-section">
+
+                    <h2>3. Product Prices</h2>
+
+                    <p>
+                        Product prices displayed on the website may
+                        change without prior notice. The applicable
+                        price during checkout will be used for the
+                        order.
+                    </p>
+
+                </section>
+
+
+                <section class="policy-section">
+
+                    <h2>4. Orders</h2>
+
+                    <p>
+                        Placing an order through the website represents
+                        a request to purchase the selected products.
+                        TechZone may review order information before
+                        confirming an order.
+                    </p>
+
+                </section>
+
+
+                <section class="policy-section">
+
+                    <h2>5. Payments</h2>
+
+                    <p>
+                        Customers are responsible for providing
+                        accurate payment information when completing
+                        a purchase. Available payment methods may
+                        depend on the checkout options provided by
+                        TechZone.
+                    </p>
+
+                </section>
+
+
+                <section class="policy-section">
+
+                    <h2>6. Delivery</h2>
+
+                    <p>
+                        Delivery is subject to the conditions described
+                        in the TechZone Shipping Policy. Delivery times
+                        may vary depending on location and external
+                        circumstances.
+                    </p>
+
+                </section>
+
+
+                <section class="policy-section">
+
+                    <h2>7. Returns and Refunds</h2>
+
+                    <p>
+                        Product returns, replacements and refunds are
+                        subject to the TechZone Returns & Refunds Policy.
+                        Customers should review that policy before
+                        requesting a return.
+                    </p>
+
+                    <a href="returns-refunds.html"
+                       class="btn btn-outline-primary">
+                        View Returns Policy
+                    </a>
+
+                </section>
+
+
+                <section class="policy-section">
+
+                    <h2>8. User Accounts</h2>
+
+                    <p>
+                        Customers are responsible for maintaining the
+                        confidentiality of their account information
+                        and for providing accurate information when
+                        creating an account.
+                    </p>
+
+                </section>
+
+
+                <section class="policy-section">
+
+                    <h2>9. Intellectual Property</h2>
+
+                    <p>
+                        Website content including text, graphics,
+                        logos and other materials should not be
+                        copied, reproduced or redistributed without
+                        appropriate permission.
+                    </p>
+
+                </section>
+
+
+                <section class="policy-section">
+
+                    <h2>10. Changes to These Terms</h2>
+
+                    <p>
+                        TechZone may update these terms and conditions
+                        when necessary. Updated terms will be made
+                        available on this page.
+                    </p>
+
+                </section>
+
+
+                <section class="policy-section">
+
+                    <h2>11. Contact Us</h2>
+
+                    <p>
+                        If you have questions about these Terms &
+                        Conditions, please contact TechZone.
+                    </p>
+
+                    <a href="../contact.html"
+                       class="btn btn-primary">
+                        Contact TechZone
+                    </a>
+
+                </section>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- ============================================================
+     7. FOOTER
+     ============================================================ -->
+<footer class="tz-footer">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Column 1 — About -->
+      <div class="col-lg-4 col-md-6">
+        <a class="tz-brand" href="index.html">
+          <img src="assets/images/logo/logo.png" alt="TechZone logo" class="tz-brand-mark">
+          <span class="tz-brand-text">
+            Tech<b>Zone</b>
+            <small>Your PC. Our Passion.</small>
+          </span>
+        </a>
+        <p class="footer-about">
+          Your trusted computer shop in Sri Lanka. We bring you the best in laptops,
+          desktops, gaming gear and more — all in one place.
+        </p>
+        <div class="tz-social">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+
+      <!-- Column 2 — Quick Links -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html#faqs">FAQs</a></li>
+          <li><a href="contact.html#returns">Returns &amp; Refunds</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3 — Categories -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="products/laptops.html">Laptops</a></li>
+          <li><a href="products/desktops.html">Desktops</a></li>
+          <li><a href="products/components.html">Components</a></li>
+          <li><a href="products/peripherals.html">Peripherals</a></li>
+          <li><a href="products/accessories.html">Accessories</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4 — Customer Service -->
+      <div class="col-lg-2 col-md-6">
+        <h4>Customer Service</h4>
+        <ul class="footer-contact">
+          <li><i class="bi bi-telephone"></i> <a href="tel:+94112345678">+94 11 234 5678</a></li>
+          <li><i class="bi bi-envelope"></i> <a href="mailto:support@techzone.lk">support@techzone.lk</a></li>
+          <li><i class="bi bi-clock"></i> <span>Mon–Sat<br>9:00 AM – 6:00 PM</span></li>
+          <li><i class="bi bi-truck"></i> <span>Free islandwide delivery on orders over Rs. 25,000</span></li>
+        </ul>
+      </div>
+
+      <!-- Column 5 — Payment Methods -->
+      <div class="col-lg-2 col-md-6">
+        <h4>Payment Methods</h4>
+        <div class="pay-badges">
+          <span class="pay-badge">VISA</span>
+          <span class="pay-badge">Mastercard</span>
+          <span class="pay-badge">Amex</span>
+          <span class="pay-badge">COD</span>
+        </div>
+        <p class="footer-secure"><i class="bi bi-shield-check"></i> Secure checkout</p>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="tz-footer-bottom">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <span>&copy; <span data-tz-year>2025</span> TechZone. All rights reserved.</span>
+        <span class="footer-legal">
+          <a href="#">Privacy Policy</a> <span class="sep">|</span> <a href="#">Terms &amp; Conditions</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
+
+<script src="../assets/js/global.js"></script>
+
+<script src="../assets/js/terms-conditions.js"></script>
+
+</body>
+
+</html>
