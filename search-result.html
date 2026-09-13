@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+
+    <title>Search Results | TechZone</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="assets/css/search-results.css">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="icon" href="assets/images/logo/favicon.png">
+    
+
+
+</head>
+<body>
+    <!--nav bar-->
+<header class="tz-header">
+  <div class="container">
+    <div class="tz-header-inner">
+
+      <!-- Brand -->
+      <a class="tz-brand" href="index.html">
+        <img src="assets/images/logo/ChatGPT Image Sep 10, 2026, 04_28_41 PM.png" alt="TechZone logo" class="tz-brand-mark">
+        <span class="tz-brand-text">
+          Tech<b>Zone</b>
+          <small>Your PC. Our Passion.</small>
+        </span>
+      </a>
+
+      <!-- Mobile toggler (shows nav links on small screens) -->
+      <button class="tz-mobile-toggle d-lg-none" type="button"
+              data-bs-toggle="collapse" data-bs-target="#tzMainNav"
+              aria-controls="tzMainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <!-- Search -->
+      <form class="tz-search" role="search" id="tzSearchForm" autocomplete="off">
+        <label class="visually-hidden" for="tzSearchInput">Search products</label>
+        <input type="search" id="tzSearchInput" class="tz-search-input"
+               placeholder="Search for products, brands and more...">
+        <button class="tz-search-btn" type="submit" aria-label="Search">
+          <i class="bi bi-search"></i>
+        </button>
+        <!-- Live suggestions, filled by global.js -->
+        <div class="tz-suggest" id="tzSuggest" role="listbox"></div>
+      </form>
+
+      <!-- Account / Wishlist / Cart -->
+      <div class="tz-actions">
+        <a class="tz-icon-btn" href="account/profile.html">
+          <i class="bi bi-person"></i>
+          <span class="tz-icon-label">
+            <small>Hello, Sign in</small>
+            <strong>Account</strong>
+          </span>
+        </a>
+
+        <a class="tz-icon-btn" href="account/wishlist.html">
+          <i class="bi bi-heart"></i>
+          <span class="tz-icon-label">
+            <small>Saved</small>
+            <strong>Wishlist</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-wishlist-count data-count="0">0</span>
+        </a>
+
+        <a class="tz-icon-btn" href="cart/cart.html">
+          <i class="bi bi-bag"></i>
+          <span class="tz-icon-label">
+            <small>My Cart</small>
+            <strong>Cart</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-cart-count data-count="0">0</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+
+
+    <div class="container my-5">
+        <!-- first row -->
+        <div class="row">
+            <div class="col-12">                
+                <h1 class="mb-4">Search Results</h1>
+                <p class="search-description">FIND THE PRODUCTS YOU ARE LOOKING FOR</p>
+            </div>
+        </div>
+
+       <!-- second row -->
+        <div class="row">
+            <div class="col-lg-3 filter-sidebar">
+                <h5>Filter Products</h5>
+                <label class="form-label">Category</label>
+                <select class="form-select" id="categoryFilter">
+                    <option>All Categories</option>
+                    <option>Laptops</option>
+                    <option>Desktops</option>
+                    <option>Components</option>
+                    <option>Peripherals</option>
+                </select>
+
+                <label class="form-label mt-3">Brand</label>
+                <select class="form-select" id="brandFilter">
+                    <option>All Brands</option>
+                    <option>ASUS</option>
+                    <option>Acer</option>
+                    <option>Lenovo</option>
+                    <option>HP</option>
+                    <option>MSI</option>
+                    <option>Samsung</option>
+                    <option>HyperX</option>
+                    <option>iBUYPOWER</option>
+                </select>
+
+                <label class="form-label mt-3">Price</label>
+                <input type="number" class="form-control" id="minPrice" placeholder="Min Price">
+                <input type="number" class="form-control" id="maxPrice" placeholder="Max Price">
+            </div>
+            <div class="col-lg-9 product-bar">
+                <div id="noResults">No products found.</div>
+                <h5>Product Results</h5>
+                <select class="form-select" id="sortFilter">
+                    <option>Sort by: Relevance</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                </select>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card product-card" data-product="ASUS TUF Gaming F15"
+                            data-category="Laptops"
+                            data-brand="ASUS"
+                            data-price="289000">
+
+                            <img src="assets/images/products/asus-tuf-f15.png" class="card-img-top product-image" alt="ASUS TUF Gaming F15">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">ASUS TUF Gaming F15</h5>
+                                <p class="card-text">15.6 inch gaming laptop with powerful perfomance</p>
+                                <p class="fw-bold">Rs. 289,000</p>
+                                <p>⭐ 4.5 (128 reviews)</p>
+                                <a href="products/product-detail.html?id=asus-tuf-f15" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card product-card" data-product="iBUYPOWER Gaming PC"
+                            data-product="iBUYPOWER Gaming PC"
+                            data-category="Desktops"
+                            data-brand="iBUYPOWER"
+                            data-price="389990">
+
+                            <img src="assets/images/products/ibuypower-gaming-pc.png" class="card-img-top product-image" alt="iBUYPOWER Gaming PC">
+
+                            <div class="card-body">
+                                <h5 class="card-title">iBUYPOWER Gaming PC</h5>
+                                <p class="card-text">High Performance gaming desktop buit for serious gamers.</p>
+                                <p class="fw-bold">Rs.389,990</p>
+                                <p>⭐ 4.6 (95 reviews)</p>
+                                <a href="products/product-detail.html?id=ibuypower-gaming-pc" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card product-card" data-product="Acer Nitro 27 Monitor"
+                            data-product="Acer Nitro 27 Monitor"
+                            data-category="Peripherals"
+                            data-brand="Acer"
+                            data-price="89990">
+
+                            <img src="assets/images/products/acer-nitro-27.png" class="card-img-top product-image" alt="Acer Nitro 27 Monitor">
+
+                            <div class="card-body">
+                                <h5 class="card-title">Acer Nitro 27 Monitor</h5>
+                                <p class="card-text">27 inch gaming monitor with a high refresh rate.</p>
+                                <p class="fw-bold">Rs.89,990</p>
+                                <p>⭐ 4.4 (76 reviews)</p>
+                                <a href="products/product-detail.html?id=acer-nitro-27" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card product-card"
+                            data-product="Samsung 970 EVO Plus"
+                            data-category="Components"
+                            data-brand="Samsung"
+                            data-price="32990">
+
+                            <img src="assets/images/products/samsung-970-evo-plus.png" class="card-img-top product-image" alt="Samsung 970 EVO Plus">
+
+                             <div class="card-body">
+                                <h5 class="card-title">Samsung 970 EVO Plus</h5>
+                                <p class="card-text">1TB NVMe M.2 SSD</p>
+                                <p class="fw-bold">Rs. 32,990</p>
+                                <p>⭐ 4.5 (41 reviews)</p>
+                                <a href="products/product-detail.html?id=samsung-970-evo-plus" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card product-card"
+                            data-product="HyperX Cloud II"
+                            data-category="Peripherals"
+                            data-brand="HyperX"
+                            data-price="24990">
+
+                            <img src="assets/images/products/hyperx-cloud-ii.png" class="card-img-top product-image" alt="HyperX Cloud II">
+
+                            <div class="card-body">
+                                <h5 class="card-title">HyperX Cloud II</h5>
+                                <p class="card-text">Gaming Headset</p>
+                                <p class="fw-bold">Rs. 24,990</p>
+                                <p>⭐ 4.5 (27 reviews)</p>
+                                <a href="products/product-detail.html?id=hyperx-cloud-ii" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+<script src="assets/js/search-results.js"></script>
+
+</body>
+</html>

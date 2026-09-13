@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Order History & Tracking | TechZone</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/order-history.css">
+</head>
+
+<body>
+
+    <!--nav bar-->
+<header class="tz-header">
+  <div class="container">
+    <div class="tz-header-inner">
+
+      <!-- Brand -->
+      <a class="tz-brand" href="index.html">
+        <img src="assets/images/logo/ChatGPT Image Sep 10, 2026, 04_28_41 PM.png" alt="TechZone logo" class="tz-brand-mark">
+        <span class="tz-brand-text">
+          Tech<b>Zone</b>
+          <small>Your PC. Our Passion.</small>
+        </span>
+      </a>
+
+      <!-- Mobile toggler (shows nav links on small screens) -->
+      <button class="tz-mobile-toggle d-lg-none" type="button"
+              data-bs-toggle="collapse" data-bs-target="#tzMainNav"
+              aria-controls="tzMainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <!-- Search -->
+      <form class="tz-search" role="search" id="tzSearchForm" autocomplete="off">
+        <label class="visually-hidden" for="tzSearchInput">Search products</label>
+        <input type="search" id="tzSearchInput" class="tz-search-input"
+               placeholder="Search for products, brands and more...">
+        <button class="tz-search-btn" type="submit" aria-label="Search">
+          <i class="bi bi-search"></i>
+        </button>
+        <!-- Live suggestions, filled by global.js -->
+        <div class="tz-suggest" id="tzSuggest" role="listbox"></div>
+      </form>
+
+      <!-- Account / Wishlist / Cart -->
+      <div class="tz-actions">
+        <a class="tz-icon-btn" href="account/profile.html">
+          <i class="bi bi-person"></i>
+          <span class="tz-icon-label">
+            <small>Hello, Sign in</small>
+            <strong>Account</strong>
+          </span>
+        </a>
+
+        <a class="tz-icon-btn" href="account/wishlist.html">
+          <i class="bi bi-heart"></i>
+          <span class="tz-icon-label">
+            <small>Saved</small>
+            <strong>Wishlist</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-wishlist-count data-count="0">0</span>
+        </a>
+
+        <a class="tz-icon-btn" href="cart/cart.html">
+          <i class="bi bi-bag"></i>
+          <span class="tz-icon-label">
+            <small>My Cart</small>
+            <strong>Cart</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-cart-count data-count="0">0</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<main>
+    <div class="container my-5">
+        <h1 class="order-page-title"><span>Order History</span> <strong>&amp; Tracking</strong></h1>
+        <p class="order-page-subtitle">
+            View your previous orders and track your current deliveries.
+        </p>     
+        
+        <h2>My Orders</h2>
+        <div class="order-card">
+            <h3>Order #TZ1001</h3>
+            <p>Order Date: September 10, 2026</p>
+            <p>Total: Rs. 289,990</p>
+            <p>Status: <strong class="status-shipped">Shipped</strong></p>
+            <button class="track-btn" type="button" data-order="TZ1001">Track Order </button>
+        </div>
+
+        <div class="order-card">
+            <h3>Order #TZ1002</h3>
+            <p>Order Date: September 12, 2026</p>
+            <p>Total: Rs. 74,990</p>
+            <p>Status: <strong class="status-delivered">Delivered</strong></p>
+            <button class="track-btn" type="button" data-order="TZ1002">Track Order </button>
+        </div>
+
+        <h2>Track Your Order</h2>
+            <div class="tracking-card" id="trackingSection">
+                <h3>Order #TZ1001</h3>
+                <p>Current Status: <strong>Shipped</strong></p>
+
+           
+
+            <div class="tracking-steps">
+                <div class="step"><i class="bi bi-cart-check"></i> </i><strong>Ordered</strong> </div>
+                <div class="step"><i class="bi bi-check-circle"> </i><strong>Confirmed</strong></div>
+                <div class="step"><i class="bi bi-gear"></i> <strong>Processing</strong></div>
+                <div class="step"><i class="bi bi-truck"></i> <strong>Shipped</strong></div>
+                <div class="step"><i class="bi bi-box-seam"></i> <strong>Out for Delivery</strong></div>
+                <div class="step"><i class="bi bi-check-circle-fill"></i> <strong>Delivered</strong></div>
+
+            </div>
+    </div>
+</div>
+</main>
+<script src="assets/js/order-history.js"></script>
+</body>
+
+</html>

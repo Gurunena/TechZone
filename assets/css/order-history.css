@@ -1,0 +1,120 @@
+body {
+    background-color: #F5F7FA;
+}
+
+.order-page-title span {
+    color: #0B1120;
+}
+
+.order-page-title strong {
+    color: #0c6bdf;
+}
+
+.order-page-title {
+    color: #0B1120;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 42px;
+}
+
+.order-page-subtitle {
+    color: #64748B;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #2D8CFF;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #0B1120;
+    font-weight: 600;
+}
+
+.order-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 15px;
+}
+
+.track-btn {
+    background-color: #092f5e;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.track-btn:hover {
+    background-color: #2D8CFF;
+    border-color: #f7f8f9;
+    color: #FFFFFF;
+}
+
+.tracking-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 15px;
+}
+
+.tracking-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 10px;
+    position: relative;
+}
+
+.tracking-steps::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    right: 8%;
+    height: 3px;
+    background-color: #CBD5E1;
+    z-index: 0;
+}
+
+.tracking-steps .step {
+    position: relative;
+    z-index: 1;
+}
+
+.tracking-steps div {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    background-color: #E2E8F0;
+    color: #64748B;
+    border-radius: 6px;
+}
+
+.tracking-steps div:nth-child(4) {
+    background-color: #092f5e;
+    color: #FFFFFF;
+}
+
+.tracking-steps .completed {
+    background-color: #092f5e;
+    color: #FFFFFF;
+}
+
+.status-shipped {
+    color: #2D8CFF;
+}
+
+.status-delivered {
+    color: #16A34A;
+}
+
