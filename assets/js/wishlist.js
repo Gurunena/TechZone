@@ -11,7 +11,7 @@ const wishlistProducts = [
         oldPrice: 309990,
         rating: 4.8,
         reviews: 24,
-        image: "../assets/images/products/asus-tuf-f15.png",
+        image: "../assets/images/products/ASUS TUF Gaming F15.png",
         description: "Intel i5 / 16GB / 512GB SSD / RTX 4050",
         stock: "In Stock"
     },
@@ -23,7 +23,7 @@ const wishlistProducts = [
         oldPrice: 429990,
         rating: 4.7,
         reviews: 18,
-        image: "../assets/images/products/ibuypower-gaming-pc.png",
+        image: "../assets/images/products/iBUYPOWER Gaming PC.avif",
         description: "Ryzen 5 5600 / 16GB / RTX 3060",
         stock: "In Stock"
     },
@@ -35,7 +35,7 @@ const wishlistProducts = [
         oldPrice: 84990,
         rating: 4.6,
         reviews: 32,
-        image: "../assets/images/products/acer-nitro-27.png",
+        image: "../assets/images/products/Acer Nitro.webp",
         description: "Full HD / 165Hz / 1ms",
         stock: "In Stock"
     },
@@ -47,7 +47,7 @@ const wishlistProducts = [
         oldPrice: 36990,
         rating: 4.9,
         reviews: 41,
-        image: "../assets/images/products/samsung-970-evo-plus.png",
+        image: "../assets/images/products/Samsung 970 EVO Plus.webp",
         description: "1TB NVMe M.2 SSD",
         stock: "In Stock"
     },
@@ -59,7 +59,7 @@ const wishlistProducts = [
         oldPrice: 29990,
         rating: 4.8,
         reviews: 27,
-        image: "../assets/images/products/hyperx-cloud-ii.png",
+        image: "../assets/images/products/HyperX Cloud II.webp",
         description: "Gaming Headset",
         stock: "In Stock"
     }
