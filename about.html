@@ -1,91 +1,444 @@
+<!--
+  ============================================================================
+  ABOUT US PAGE  (about.html)  — root-level page
+  ============================================================================
+  Uses the SHARED header, navigation and footer (same as index.html), so it
+  matches the rest of the TechZone site. Page-only styles live in
+  assets/css/about.css and a small script in assets/js/about.js.
+  Because this file is at the top level, links use "index.html", "products/..."
+  etc. WITHOUT a "../" in front (unlike the pages inside cart/ or account/).
+  ============================================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - TechZone</title>
-  
-  <!-- CSS Order: Bootstrap, Global -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="About TechZone — Sri Lanka's trusted computer shop for laptops, desktops, gaming PCs, components and accessories.">
+  <title>About Us — TechZone</title>
+
+  <!-- Google Fonts (Poppins), shared across the site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 (same version as the rest of the site) + icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Our styles: global first (shared team styles), then this page's styles -->
   <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/about.css">
+
+  <link rel="icon" href="assets/images/logo/favicon.png">
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-navy">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">TechZone</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
+<!-- NOTE: header + navigation below are the SHARED team component (global.css/js). -->
+
+<!-- ============================================================
+     1. TOP HEADER BAR (identical to index.html)
+     ============================================================ -->
+<header class="tz-header">
+  <div class="container">
+    <div class="tz-header-inner">
+
+      <a class="tz-brand" href="index.html">
+        <img src="assets/images/logo/ChatGPT Image Sep 10, 2026, 04_28_41 PM.png" alt="TechZone logo" class="tz-brand-mark">
+        <span class="tz-brand-text">
+          Tech<b>Zone</b>
+          <small>Your PC. Our Passion.</small>
+        </span>
+      </a>
+
+      <button class="tz-mobile-toggle d-lg-none" type="button"
+              data-bs-toggle="collapse" data-bs-target="#tzMainNav"
+              aria-controls="tzMainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+
+      <form class="tz-search" role="search" id="tzSearchForm" autocomplete="off">
+        <label class="visually-hidden" for="tzSearchInput">Search products</label>
+        <input type="search" id="tzSearchInput" class="tz-search-input"
+               placeholder="Search for products, brands and more...">
+        <button class="tz-search-btn" type="submit" aria-label="Search">
+          <i class="bi bi-search"></i>
+        </button>
+        <div class="tz-suggest" id="tzSuggest" role="listbox"></div>
+      </form>
+
+      <div class="tz-actions">
+        <a class="tz-icon-btn" href="account/profile.html">
+          <i class="bi bi-person"></i>
+          <span class="tz-icon-label">
+            <small>Hello, Sign in</small>
+            <strong>Account</strong>
+          </span>
+        </a>
+
+        <a class="tz-icon-btn" href="account/wishlist.html">
+          <i class="bi bi-heart"></i>
+          <span class="tz-icon-label">
+            <small>Saved</small>
+            <strong>Wishlist</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-wishlist-count data-count="0">0</span>
+        </a>
+
+        <a class="tz-icon-btn" href="cart/cart.html">
+          <i class="bi bi-bag"></i>
+          <span class="tz-icon-label">
+            <small>My Cart</small>
+            <strong>Cart</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-cart-count data-count="0">0</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     2. NAVIGATION BAR (identical to index.html)
+     ============================================================ -->
+<nav class="tz-nav" id="tzNav" aria-label="Main navigation">
+  <div class="container">
+    <div class="tz-nav-inner">
+
+      <div class="dropdown tz-allcat">
+        <button class="tz-allcat-btn dropdown-toggle" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-grid-3x3-gap-fill"></i>
+          <span>All Categories</span>
+        </button>
+        <ul class="dropdown-menu tz-allcat-menu">
+          <li><a class="dropdown-item" href="products/laptops.html"><i class="bi bi-laptop"></i> Laptops</a></li>
+          <li><a class="dropdown-item" href="products/desktops.html"><i class="bi bi-pc-display"></i> Desktops</a></li>
+          <li><a class="dropdown-item" href="products/gaming.html"><i class="bi bi-controller"></i> Gaming PCs</a></li>
+          <li><a class="dropdown-item" href="products/components.html"><i class="bi bi-cpu"></i> Components</a></li>
+          <li><a class="dropdown-item" href="products/peripherals.html"><i class="bi bi-keyboard"></i> Peripherals</a></li>
+          <li><a class="dropdown-item" href="products/accessories.html"><i class="bi bi-headphones"></i> Accessories</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="products/gaming.html"><i class="bi bi-lightning-charge"></i> Today's Deals</a></li>
         </ul>
       </div>
-    </div>
-  </nav>
 
-  <!-- About Section -->
-  <section class="container my-5">
-    <div class="row">
-      <div class="col-md-6">
-        <h2 class="fw-bold mb-3">About TechZone</h2>
-        <p class="text-muted">
-          TechZone is your trusted destination for high-performance gaming PCs, laptops, and components. 
-          Founded in 2024, we are committed to bringing the best tech to gamers, creators, and professionals.
-        </p>
-        <p class="text-muted">
-          We offer custom-built rigs, top-brand components, and expert support to help you build your dream setup.
-        </p>
-        <a href="index.html" class="btn btn-primary mt-3">Shop Now</a>
+      <div class="collapse navbar-collapse tz-nav-links" id="tzMainNav">
+        <ul class="tz-nav-list">
+          <li><a class="tz-nav-link" href="index.html">Home</a></li>
+          <li><a class="tz-nav-link" href="products/laptops.html">Laptops</a></li>
+          <li><a class="tz-nav-link" href="products/desktops.html">Desktops</a></li>
+          <li><a class="tz-nav-link" href="products/gaming.html">Gaming</a></li>
+          <li><a class="tz-nav-link" href="products/components.html">Components</a></li>
+          <li><a class="tz-nav-link" href="products/peripherals.html">Peripherals</a></li>
+          <li><a class="tz-nav-link" href="products/accessories.html">Accessories</a></li>
+          <li><a class="tz-nav-link active" href="about.html">Brands</a></li>
+          <li><a class="tz-nav-pill" href="products/gaming.html">Deals</a></li>
+        </ul>
       </div>
-      <div class="col-md-6">
-        <img src="https://via.placeholder.com/500x300/001120/FFFFFF?text=TechZone+Team" class="img-fluid rounded shadow" alt="About TechZone">
-      </div>
-    </div>
-  </section>
 
-  <!-- Mission Cards -->
-  <section class="py-5" style="background-color: var(--color-bg-light);">
+      <div class="tz-delivery">
+        <i class="bi bi-truck"></i>
+        <span>
+          <strong>Free Delivery</strong>
+          <small>Islandwide</small>
+        </span>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- Breadcrumb -->
+  <div class="container">
+    <nav aria-label="breadcrumb" class="tz-crumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">About Us</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- ============================================================
+       HERO — page title + short intro
+       ============================================================ -->
+  <section class="about-hero">
     <div class="container">
-      <h3 class="text-center fw-bold mb-4">Our Mission</h3>
-      <div class="row text-center">
-        <div class="col-md-4 mb-3">
-          <div class="card h-100 border-0 shadow-sm">
-            <div class="card-body">
-              <h5 class="card-title" style="color: var(--color-primary);">Quality</h5>
-              <p class="card-text text-muted">Only genuine products with warranty</p>
-            </div>
-          </div>
+      <span class="about-eyebrow">Since 2024</span>
+      <h1>Powering Sri Lanka's <span class="text-accent-blue">tech dreams</span></h1>
+      <p class="about-hero-sub">
+        TechZone is your trusted destination for gaming PCs, laptops, components and
+        accessories — built by people who love tech as much as you do.
+      </p>
+      <div class="about-hero-actions">
+        <a href="products/laptops.html" class="btn btn-tz"><i class="bi bi-bag"></i> Shop Products</a>
+        <a href="contact.html" class="btn btn-tz-outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STATS — quick numbers (Bootstrap grid of cards)
+       ============================================================ -->
+  <section class="section about-stats-wrap">
+    <div class="container">
+      <div class="row g-3 text-center">
+        <div class="col-6 col-lg-3">
+          <div class="card about-stat"><div class="card-body">
+            <span class="stat-num">10,000+</span>
+            <span class="stat-label">Happy Customers</span>
+          </div></div>
         </div>
-        <div class="col-md-4 mb-3">
-          <div class="card h-100 border-0 shadow-sm">
-            <div class="card-body">
-              <h5 class="card-title" style="color: var(--color-primary);">Support</h5>
-              <p class="card-text text-muted">24/7 customer and technical support</p>
-            </div>
-          </div>
+        <div class="col-6 col-lg-3">
+          <div class="card about-stat"><div class="card-body">
+            <span class="stat-num">500+</span>
+            <span class="stat-label">Products</span>
+          </div></div>
         </div>
-        <div class="col-md-4 mb-3">
-          <div class="card h-100 border-0 shadow-sm">
-            <div class="card-body">
-              <h5 class="card-title" style="color: var(--color-primary);">Innovation</h5>
-              <p class="card-text text-muted">Latest tech and custom builds</p>
-            </div>
+        <div class="col-6 col-lg-3">
+          <div class="card about-stat"><div class="card-body">
+            <span class="stat-num">25</span>
+            <span class="stat-label">Districts Delivered</span>
+          </div></div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="card about-stat"><div class="card-body">
+            <span class="stat-num">24/7</span>
+            <span class="stat-label">Support</span>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       OUR STORY — text + an icon "collage" (no external images)
+       ============================================================ -->
+  <section class="section about-story">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <h2 class="section-title"><span class="title-bar"></span> Our Story</h2>
+          <p class="text-muted-tz">
+            TechZone started in 2024 with one goal: make genuine, high-performance
+            computers easy to buy in Sri Lanka. What began as a small team of PC
+            enthusiasts has grown into a trusted online store serving customers island-wide.
+          </p>
+          <p class="text-muted-tz">
+            We hand-pick every product, offer honest advice, and back it all with local
+            warranty and friendly support — so whether you're a gamer, student, creator
+            or business, you get exactly the right setup.
+          </p>
+          <ul class="about-check-list">
+            <li><i class="bi bi-check-circle-fill"></i> 100% genuine products with local warranty</li>
+            <li><i class="bi bi-check-circle-fill"></i> Free islandwide delivery over Rs. 25,000</li>
+            <li><i class="bi bi-check-circle-fill"></i> Expert help building your custom PC</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <!-- A decorative panel made from icons, so there is no broken image -->
+          <div class="about-collage">
+            <div class="collage-tile t1"><i class="bi bi-pc-display"></i></div>
+            <div class="collage-tile t2"><i class="bi bi-controller"></i></div>
+            <div class="collage-tile t3"><i class="bi bi-laptop"></i></div>
+            <div class="collage-tile t4"><i class="bi bi-cpu"></i></div>
+            <div class="collage-badge"><i class="bi bi-award-fill"></i> Trusted since 2024</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-navy text-white text-center py-3 mt-5">
-    <p class="mb-0">© 2026 TechZone. All rights reserved.</p>
-  </footer>
+  <!-- ============================================================
+       OUR VALUES — 3 Bootstrap cards with icons
+       ============================================================ -->
+  <section class="section about-values">
+    <div class="container">
+      <div class="section-head text-center">
+        <h2 class="section-title justify-content-center"><span class="title-bar"></span> What We Stand For</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card value-card h-100"><div class="card-body">
+            <span class="value-icon vi-blue"><i class="bi bi-patch-check-fill"></i></span>
+            <h3 class="value-title">Quality First</h3>
+            <p class="value-text">Only genuine products from top brands, every one covered by warranty.</p>
+          </div></div>
+        </div>
+        <div class="col-md-4">
+          <div class="card value-card h-100"><div class="card-body">
+            <span class="value-icon vi-green"><i class="bi bi-headset"></i></span>
+            <h3 class="value-title">Real Support</h3>
+            <p class="value-text">Friendly, expert help before and after you buy — 24 hours a day.</p>
+          </div></div>
+        </div>
+        <div class="col-md-4">
+          <div class="card value-card h-100"><div class="card-body">
+            <span class="value-icon vi-purple"><i class="bi bi-lightning-charge-fill"></i></span>
+            <h3 class="value-title">Innovation</h3>
+            <p class="value-text">The latest tech and custom-built rigs, tuned for performance and value.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ============================================================
+       TEAM — cards with initial-avatars (no external images)
+       ============================================================ -->
+  <section class="section about-team">
+    <div class="container">
+      <div class="section-head text-center">
+        <h2 class="section-title justify-content-center"><span class="title-bar"></span> Meet the Team</h2>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-6 col-lg-3">
+          <div class="card team-card h-100"><div class="card-body text-center">
+            <span class="team-avatar av-1">RD</span>
+            <h3 class="team-name">R. Dayananda</h3>
+            <p class="team-role">Founder &amp; Lead</p>
+          </div></div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="card team-card h-100"><div class="card-body text-center">
+            <span class="team-avatar av-2">KV</span>
+            <h3 class="team-name">Kaveesha</h3>
+            <p class="team-role">Customer Care</p>
+          </div></div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="card team-card h-100"><div class="card-body text-center">
+            <span class="team-avatar av-3">SH</span>
+            <h3 class="team-name">Shambavi</h3>
+            <p class="team-role">Content &amp; Support</p>
+          </div></div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="card team-card h-100"><div class="card-body text-center">
+            <span class="team-avatar av-4">LD</span>
+            <h3 class="team-name">Latisha</h3>
+            <p class="team-role">Store &amp; Accounts</p>
+          </div></div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="card team-card h-100"><div class="card-body text-center">
+            <span class="team-avatar av-5">BI</span>
+            <h3 class="team-name">Bineth</h3>
+            <p class="team-role">Web Developer</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA BANNER
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="about-cta">
+        <div>
+          <h2>Ready to build your dream setup?</h2>
+          <p>Browse our latest laptops, gaming rigs and components today.</p>
+        </div>
+        <a href="products/laptops.html" class="btn btn-tz btn-lg">Start Shopping <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER (identical to index.html)
+     ============================================================ -->
+<footer class="tz-footer">
+  <div class="container">
+    <div class="row g-4">
+
+      <div class="col-lg-4 col-md-6">
+        <a class="tz-brand" href="index.html">
+          <img src="assets/images/logo/ChatGPT Image Sep 10, 2026, 04_28_41 PM.png" alt="TechZone logo" class="tz-brand-mark">
+          <span class="tz-brand-text">
+            Tech<b>Zone</b>
+            <small>Your PC. Our Passion.</small>
+          </span>
+        </a>
+        <p class="footer-about">
+          Your trusted computer shop in Sri Lanka. We bring you the best in laptops,
+          desktops, gaming gear and more — all in one place.
+        </p>
+        <div class="tz-social">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-md-6 col-6">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="FAQ.html">FAQs</a></li>
+          <li><a href="returns-refunds.html">Returns &amp; Refunds</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-md-6 col-6">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="products/laptops.html">Laptops</a></li>
+          <li><a href="products/desktops.html">Desktops</a></li>
+          <li><a href="products/components.html">Components</a></li>
+          <li><a href="products/peripherals.html">Peripherals</a></li>
+          <li><a href="products/accessories.html">Accessories</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-md-6">
+        <h4>Customer Service</h4>
+        <ul class="footer-contact">
+          <li><i class="bi bi-telephone"></i> <a href="tel:+94112345678">+94 11 234 5678</a></li>
+          <li><i class="bi bi-envelope"></i> <a href="mailto:support@techzone.lk">support@techzone.lk</a></li>
+          <li><i class="bi bi-clock"></i> <span>Mon–Sat<br>9:00 AM – 6:00 PM</span></li>
+          <li><i class="bi bi-truck"></i> <span>Free islandwide delivery on orders over Rs. 25,000</span></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-md-6">
+        <h4>Payment Methods</h4>
+        <div class="pay-badges">
+          <span class="pay-badge">VISA</span>
+          <span class="pay-badge">Mastercard</span>
+          <span class="pay-badge">Amex</span>
+          <span class="pay-badge">COD</span>
+        </div>
+        <p class="footer-secure"><i class="bi bi-shield-check"></i> Secure checkout</p>
+      </div>
+
+    </div>
+
+    <div class="tz-footer-bottom">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <span>&copy; <span data-tz-year>2025</span> TechZone. All rights reserved.</span>
+        <span class="footer-legal">
+          <a href="privacy-policy.html">Privacy Policy</a> <span class="sep">|</span> <a href="terms-condition.html">Terms &amp; Conditions</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="tz-toast-wrap" id="tzToastWrap" aria-live="polite" aria-atomic="true"></div>
+
+<!-- Scripts: Bootstrap, then global, then this page's script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/global.js"></script>
+<script src="assets/js/about.js"></script>
 </body>
 </html>

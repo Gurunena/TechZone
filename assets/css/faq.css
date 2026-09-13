@@ -1,0 +1,93 @@
+/* ==========================================================================
+   TechZone — faq.css   (styles for the FAQ page ONLY)
+
+   Quick CSS reminder: ".name { ... }" finds elements with class="name" and the
+   part in { } changes how they look. "var(--x)" reuses a shared team colour.
+   Loaded AFTER global.css so it builds on the shared styles.
+   ========================================================================== */
+
+main { padding-bottom: 56px; }
+
+.tz-crumb { padding-top: 20px; margin-bottom: 8px; }
+.tz-crumb .breadcrumb { margin: 0; font-size: .8125rem; }
+.tz-crumb .breadcrumb-item.active { color: var(--color-text-muted); }
+
+/* The little blue line before a title (normally lives in home.css, which this
+   page does not load, so we define it here). */
+.title-bar { width: 4px; height: 26px; border-radius: 999px; background: var(--color-primary); flex: 0 0 auto; }
+
+/* Page heading */
+.faq-head { margin-bottom: 16px; }
+.faq-title { display: flex; align-items: center; gap: 12px; font-size: 1.6rem; margin: 0 0 6px; }
+.faq-head p { margin: 0; font-size: .95rem; }
+
+/* Group titles above each set of questions */
+.faq-group-title {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-size: 1.05rem;
+  margin: 6px 0 12px;
+  color: var(--color-navy-dark);
+}
+.faq-group-title i { color: var(--color-primary); }
+
+/* --------------------------------------------------------------------------
+   ACCORDION (make Bootstrap's accordion match our blue theme)
+   -------------------------------------------------------------------------- */
+.faq-accordion .accordion-item {
+  border: 1px solid var(--tz-border);
+  border-radius: 12px !important;
+  margin-bottom: 10px;
+  overflow: hidden;
+  box-shadow: var(--tz-shadow);
+}
+.faq-accordion .accordion-button {
+  font-weight: 600;
+  font-size: .95rem;
+  color: var(--color-navy-dark);
+  padding: 16px 18px;
+}
+.faq-accordion .accordion-button:not(.collapsed) {
+  color: var(--color-primary);
+  background: #F0F7FF;              /* light blue when open */
+  box-shadow: none;
+}
+.faq-accordion .accordion-button:focus {
+  box-shadow: 0 0 0 3px rgba(45, 140, 255, .15);
+  border-color: var(--color-primary);
+}
+.faq-accordion .accordion-body {
+  font-size: .9rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   SIDE CARDS (quick contact + ask a question)
+   -------------------------------------------------------------------------- */
+.faq-contact-card, .faq-ask-card { padding: 22px; margin-bottom: 20px; }
+.faq-side-title { font-size: 1.05rem; margin: 0 0 14px; }
+
+.faq-contact-list { list-style: none; padding: 0; margin: 0; }
+.faq-contact-list li {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  padding: 8px 0;
+  font-size: .9rem;
+  border-bottom: 1px dashed var(--tz-border);
+}
+.faq-contact-list li:last-child { border-bottom: 0; }
+.faq-contact-list i { color: var(--color-primary); font-size: 1.05rem; }
+
+.faq-form-buttons { display: flex; gap: 10px; }
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE
+   -------------------------------------------------------------------------- */
+@media (max-width: 575.98px) {
+  .faq-title { font-size: 1.35rem; }
+  .faq-form-buttons { flex-direction: column; }
+  .faq-form-buttons .btn { width: 100%; }
+}
