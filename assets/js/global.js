@@ -318,10 +318,17 @@
       e.preventDefault();
       var matches = search(input.value);
       if (matches.length) {
+    var currentPage = window.location.pathname.split('/').pop();
+
+    if (currentPage === 'index.html' || currentPage === '') {
+        window.location.href =
+            base + 'search-result.html?q=' + encodeURIComponent(input.value.trim());
+    } else {
         window.location.href = base + matches[0].url;
-      } else if (input.value.trim()) {
-        toast('No products matched "' + input.value.trim() + '"', 'error');
-      }
+    }
+} else if (input.value.trim()) {
+    toast('No products matched "' + input.value.trim() + '"', 'error');
+}
     });
   }
 
