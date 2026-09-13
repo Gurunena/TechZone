@@ -1,12 +1,24 @@
 /* ==========================================================================
-   TechZone — cart.css
-   Shopping Cart page only: breadcrumb, cart item rows, quantity stepper,
-   order summary card, empty state. Loaded AFTER global.css.
+   TechZone — cart.css   (styles for the Shopping Cart page ONLY)
+
+   WHAT IS CSS? CSS is the "paint and layout" language. HTML builds the boxes;
+   CSS decides their colours, sizes, spacing and how they move on small screens.
+
+   HOW TO READ A RULE:   .cart-title { font-size: 1.6rem; }
+     - ".cart-title"  is the SELECTOR = "find elements with class cart-title".
+     - inside { }      are the STYLES = "make their text 1.6rem big".
+   A "." means a class, a "#" means an id, and "var(--color-primary)" pulls a
+   colour from the shared team palette defined in global.css.
+
+   This file styles: the breadcrumb, the cart item rows, the − / + quantity
+   stepper, the order-summary card, and the empty-cart message.
+   It is loaded AFTER global.css so it can build on the shared styles.
    ========================================================================== */
 
+/* <main> is the middle of the page. This adds space above and below it. */
 main { padding: 28px 0 56px; }
 
-/* Breadcrumb */
+/* ---- Breadcrumb (the small "Home / Shopping Cart" trail at the top) ---- */
 .tz-crumb { margin-bottom: 8px; }
 .tz-crumb .breadcrumb { margin: 0; font-size: .8125rem; }
 .tz-crumb .breadcrumb-item + .breadcrumb-item::before { color: var(--color-text-muted); }
@@ -247,7 +259,11 @@ main { padding: 28px 0 56px; }
 .empty-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
 /* --------------------------------------------------------------------------
-   RESPONSIVE — collapse the table-style rows into stacked cards
+   RESPONSIVE (making it work on small screens)
+   A "@media" block is a set of rules that ONLY apply when the screen matches.
+   "max-width: 767.98px" means "only on phones/small tablets". Here we let each
+   cart row wrap onto multiple lines so it stacks nicely instead of squashing.
+   The ::before rules add little "Price:" / "Total:" labels on phones only.
    -------------------------------------------------------------------------- */
 @media (max-width: 767.98px) {
   .cart-item { flex-wrap: wrap; position: relative; padding: 16px; }

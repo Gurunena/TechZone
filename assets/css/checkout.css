@@ -1,9 +1,17 @@
 /* ==========================================================================
-   TechZone — checkout.css
-   Checkout page only: step indicator, form blocks, delivery/payment option
-   cards, order summary. Loaded AFTER global.css.
+   TechZone — checkout.css   (styles for the Checkout page ONLY)
+
+   Quick CSS reminder:
+     .name { color: red; }   ".name" picks elements with class="name";
+                             the part in { } is what to change about them.
+     "#id" picks one element by its id; "var(--x)" reuses a shared colour.
+
+   This file styles: the Cart→Checkout→Confirmation step bar, the white form
+   blocks, the delivery/payment option cards, and the order summary box.
+   Loaded AFTER global.css so it builds on the shared team styles.
    ========================================================================== */
 
+/* <main> is the middle of the page; this adds space above and below it. */
 main { padding: 28px 0 56px; }
 
 .tz-crumb { margin-bottom: 10px; }
@@ -85,8 +93,11 @@ main { padding: 28px 0 56px; }
   transition: border-color .15s ease, background .15s ease, box-shadow .15s ease;
   margin: 0;
 }
+/* ":hover" = the mouse is over the card. Give it a light blue tint. */
 .option-card:hover { border-color: var(--color-primary); background: #F8FBFF; }
 .option-card .form-check-input { margin: 0; flex: 0 0 auto; }
+/* ":has(...:checked)" = style the card whose radio button is TICKED, so the
+   chosen delivery/payment option gets a blue outline. */
 .option-card:has(.form-check-input:checked) {
   border-color: var(--color-primary);
   background: #F0F7FF;
@@ -98,7 +109,8 @@ main { padding: 28px 0 56px; }
 .option-price { font-weight: 700; font-size: .9rem; color: var(--color-navy-dark); white-space: nowrap; }
 .option-icons { font-size: 1.4rem; color: var(--color-primary); }
 
-/* Card fields */
+/* Card fields: hidden by default (display:none). checkout.js adds the class
+   "show" (which sets display:block) only when the shopper picks Card. */
 .card-fields { display: none; }
 .card-fields.show { display: block; }
 .card-secure { font-size: .75rem; color: var(--color-text-muted); margin: 14px 0 0; display: flex; align-items: center; gap: .4rem; }

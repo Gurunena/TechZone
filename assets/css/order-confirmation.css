@@ -1,6 +1,14 @@
 /* ==========================================================================
-   TechZone — order-confirmation.css
-   Thank-you / order confirmation page. Loaded AFTER global.css.
+   TechZone — order-confirmation.css   (styles for the Thank-You page ONLY)
+
+   Quick CSS reminder: ".name { ... }" finds elements with class="name" and the
+   part in { } changes how they look. "var(--x)" reuses a shared team colour.
+
+   This file styles: the big green success tick (with a little pop animation),
+   the order-number pills, the order table, the delivery timeline, and the
+   action buttons. It also has a @media print block so a printed receipt looks
+   clean (it hides the menu and footer when you print).
+   Loaded AFTER global.css so it builds on the shared team styles.
    ========================================================================== */
 
 main { padding: 32px 0 56px; }
@@ -13,19 +21,23 @@ main { padding: 32px 0 56px; }
   max-width: 720px;
   margin: 0 auto 32px;
 }
+/* The green circle with the tick. "border-radius: 50%" makes a square round.
+   "animation: pop .4s ease" plays the "pop" animation below for 0.4 seconds. */
 .confirm-check {
   width: 84px;
   height: 84px;
   margin: 0 auto 18px;
   border-radius: 50%;
   display: grid;
-  place-items: center;
+  place-items: center;         /* centre the tick both ways */
   background: var(--color-success);
   color: #fff;
   font-size: 2.6rem;
   box-shadow: 0 10px 26px rgba(34, 197, 94, .35);
   animation: pop .4s ease;
 }
+/* @keyframes describes an animation: at 0% it starts tiny and see-through,
+   grows a little past full size at 70%, then settles at full size at 100%. */
 @keyframes pop {
   0% { transform: scale(.4); opacity: 0; }
   70% { transform: scale(1.08); }
@@ -191,6 +203,9 @@ main { padding: 32px 0 56px; }
   .confirm-block { padding: 18px 16px; }
 }
 
+/* "@media print" = special rules used ONLY when the page is printed (or saved
+   as PDF). We hide the menu, footer and buttons so the paper receipt is clean,
+   and remove shadows so it prints crisply. */
 @media print {
   .tz-header, .tz-nav, .tz-footer, .confirm-actions, .help-box, .tz-toast-wrap { display: none !important; }
   body { background: #fff; }

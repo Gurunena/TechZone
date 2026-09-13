@@ -1,7 +1,14 @@
 /* ==========================================================================
-   TechZone — profile.css
-   User Account Dashboard: sidebar, welcome, stat cards, recent orders table,
-   profile form, saved addresses. Loaded AFTER global.css.
+   TechZone — profile.css   (styles for the Account Dashboard page ONLY)
+
+   Quick CSS reminder: ".name { ... }" finds elements with class="name" and the
+   part in { } changes how they look. "#id" targets one element by its id, and
+   "var(--x)" reuses a shared team colour from global.css.
+
+   This file styles: the left account sidebar, the welcome bar, the 4 stat
+   cards, the recent-orders table, the profile form, and the address cards.
+   At the bottom, @media blocks rearrange things so it still looks good on
+   phones. Loaded AFTER global.css so it builds on the shared team styles.
    ========================================================================== */
 
 main { padding: 28px 0 56px; }
@@ -11,7 +18,9 @@ main { padding: 28px 0 56px; }
 .tz-crumb .breadcrumb-item.active { color: var(--color-text-muted); }
 
 /* --------------------------------------------------------------------------
-   SIDEBAR
+   SIDEBAR (the account menu on the left)
+   "position: sticky; top: 90px" makes it stay in view as you scroll the page,
+   parking itself 90px from the top instead of scrolling away.
    -------------------------------------------------------------------------- */
 .account-side { padding: 20px; position: sticky; top: 90px; }
 .side-user {
@@ -167,7 +176,10 @@ main { padding: 28px 0 56px; }
 .addr-actions { display: flex; gap: 8px; }
 
 /* --------------------------------------------------------------------------
-   RESPONSIVE
+   RESPONSIVE (small screens)
+   On tablets and below (max-width 991.98px) the sidebar stops being sticky and
+   its menu links sit in a row. On phones (575.98px) the form buttons stack and
+   go full-width so they are easy to tap.
    -------------------------------------------------------------------------- */
 @media (max-width: 991.98px) {
   .account-side { position: static; margin-bottom: 4px; }

@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--
+  ============================================================================
+  SHOPPING CART PAGE  (cart.html)
+  ============================================================================
+  This page shows everything the shopper has added to their cart. It has:
+     1. The shared header + navigation bar (same on every page).
+     2. A LEFT column: the list of cart items (with − / + and a bin button).
+     3. A RIGHT column: the order summary (promo code + totals + checkout).
+     4. An "empty cart" message that shows when there is nothing in the cart.
+     5. The shared footer.
+  The brain that draws the items and does the maths is assets/js/cart.js.
+  The colours/layout are in assets/css/cart.css.
+  ============================================================================
+-->
+<!DOCTYPE html>            <!-- This is a modern HTML5 page. -->
+<html lang="en">          <!-- The page language is English. -->
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <head> holds settings the visitor does not see directly. -->
+  <meta charset="UTF-8">  <!-- Lets us use any character safely. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Fits phones. -->
   <meta name="description" content="Your TechZone shopping cart — review your items, update quantities and proceed to secure checkout.">
-  <title>Shopping Cart — TechZone</title>
+  <title>Shopping Cart — TechZone</title>   <!-- The browser-tab text. -->
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +37,11 @@
   <link rel="icon" href="../assets/images/logo/favicon.png">
 </head>
 <body>
+<!-- Everything inside <body> is what the visitor actually sees. -->
+
+<!-- NOTE: The header + navigation below are the SHARED team component
+     (from global.css/global.js). I reused the same markup so my page
+     matches the rest of the site. -->
 
 <!-- ============================================================
      1. TOP HEADER BAR (identical to index.html)
@@ -158,14 +178,18 @@
     </div>
 
     <!-- ========================================================
-         CART LAYOUT — items (left) + summary (right)
+         MAIN CART LAYOUT — items (left) + summary (right)
+         Starts hidden ("d-none"). cart.js shows it only when the cart
+         actually has items in it.
          ======================================================== -->
     <div class="row g-4 d-none" id="cartLayout">
 
-      <!-- Items column -->
+      <!-- LEFT column: the list of items (8 of 12 grid columns on desktop) -->
       <div class="col-lg-8">
 
         <div class="tz-card cart-items-card">
+          <!-- The grey heading row (Product / Price / Quantity / Total).
+               "d-none d-md-flex" = hidden on phones, shown on medium+ screens. -->
           <div class="cart-items-head d-none d-md-flex">
             <span class="ci-col-product">Product</span>
             <span class="ci-col-price">Price</span>
@@ -174,7 +198,7 @@
             <span class="ci-col-remove"></span>
           </div>
 
-          <!-- Rows injected by cart.js -->
+          <!-- This box starts empty. cart.js builds one row per item here. -->
           <div id="cartItems"></div>
         </div>
 
@@ -195,18 +219,21 @@
         </div>
       </div>
 
-      <!-- Summary column -->
+      <!-- RIGHT column: the money summary (4 of 12 grid columns) -->
       <div class="col-lg-4">
         <div class="tz-card summary-card">
           <h2 class="summary-title">Order Summary</h2>
 
-          <!-- Promo code (Bootstrap input-group) -->
+          <!-- Promo code box + Apply button sit together (Bootstrap input-group).
+               Try the code TECH10 for 10% off. cart.js checks the code. -->
           <div class="input-group promo-group">
             <input type="text" class="form-control" id="promoInput" placeholder="Promo code" aria-label="Promo code">
             <button class="btn btn-tz-light" type="button" id="promoBtn">Apply</button>
           </div>
-          <div class="promo-msg" id="promoMsg"></div>
+          <div class="promo-msg" id="promoMsg"></div>   <!-- cart.js writes the result here -->
 
+          <!-- The money lines. The "Rs. 0" values are placeholders that cart.js
+               replaces. The Discount line is hidden until a promo is applied. -->
           <ul class="summary-lines">
             <li><span>Subtotal</span><span id="sumSubtotal">Rs. 0</span></li>
             <li id="sumDiscountRow" class="d-none"><span>Discount <span class="badge bg-success" id="sumDiscountTag">-10%</span></span><span id="sumDiscount" class="text-success">- Rs. 0</span></li>
@@ -233,7 +260,9 @@
     </div>
 
     <!-- ========================================================
-         EMPTY CART STATE
+         EMPTY CART MESSAGE
+         Hidden by default ("d-none"). cart.js shows THIS instead of the
+         layout above when the cart has no items.
          ======================================================== -->
     <div class="cart-empty d-none" id="cartEmpty">
       <div class="empty-illustration"><i class="bi bi-cart-x"></i></div>
