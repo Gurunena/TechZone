@@ -24,7 +24,7 @@
     if (!el || typeof bootstrap === 'undefined') { return; }
 
     var carousel = bootstrap.Carousel.getOrCreateInstance(el, {
-      interval: 6000,
+      interval: 3000,
       ride: 'carousel',
       pause: 'hover',
       touch: true,

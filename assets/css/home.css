@@ -19,7 +19,7 @@
 .hero-section {
   position: relative;
   background-image: linear-gradient(90deg, rgba(11, 17, 32, 0.95) 0%, rgba(11, 17, 32, 0.55) 55%, rgba(11, 17, 32, 0.15) 100%),
-                    url('../images/banners/ChatGPT Image Sep 10, 2026, 12_44_55 PM.png');
+                    url('../images/banners/banner_01.png');
   background-size: cover;
   background-position: center right;
   background-repeat: no-repeat;
@@ -33,11 +33,11 @@
 /* Per-slide artwork (slide 1 uses the .hero-section default above) */
 .hero-slide-2 {
   background-image: linear-gradient(90deg, rgba(11, 17, 32, 0.95) 0%, rgba(11, 17, 32, 0.55) 55%, rgba(11, 17, 32, 0.15) 100%),
-                    url('../images/banners/ChatGPT Image Sep 10, 2026, 12_44_55 PM.png');
+                    url('../images/banners/banner_02.png');
 }
 .hero-slide-3 {
   background-image: linear-gradient(90deg, rgba(11, 17, 32, 0.95) 0%, rgba(11, 17, 32, 0.55) 55%, rgba(11, 17, 32, 0.15) 100%),
-                    url('../images/banners/ChatGPT Image Sep 10, 2026, 12_44_55 PM.png');
+                    url('../images/banners/banner_03.png');
 }
 
 /* Bootstrap toggles slides with display:block/none — re-map that to flex so
