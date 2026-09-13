@@ -1,0 +1,183 @@
+/* ==========================================================================
+   TechZone — about.css   (styles for the About Us page ONLY)
+
+   Quick CSS reminder: ".name { ... }" finds elements with class="name" and the
+   part in { } changes how they look. "var(--x)" reuses a shared team colour
+   from global.css. Loaded AFTER global.css so it builds on the shared styles.
+   ========================================================================== */
+
+.tz-crumb { padding-top: 20px; margin-bottom: 4px; }
+.tz-crumb .breadcrumb { margin: 0; font-size: .8125rem; }
+.tz-crumb .breadcrumb-item.active { color: var(--color-text-muted); }
+
+/* Shared section-title look (normally in home.css, redefined here because this
+   page does not load home.css). "title-bar" is the little blue line before it. */
+.section-title { display: flex; align-items: center; gap: 12px; font-size: 1.5rem; margin: 0; }
+.title-bar { width: 4px; height: 26px; border-radius: 999px; background: var(--color-primary); flex: 0 0 auto; }
+
+/* --------------------------------------------------------------------------
+   HERO (dark banner with the page title)
+   -------------------------------------------------------------------------- */
+.about-hero {
+  background: linear-gradient(135deg, var(--color-navy-dark), var(--color-navy-deep));
+  color: #fff;
+  padding: 56px 0 60px;
+  text-align: center;
+}
+.about-eyebrow {
+  display: inline-block;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+}
+.about-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; margin: 0 0 14px; }
+.about-hero-sub { max-width: 620px; margin: 0 auto 26px; color: rgba(255, 255, 255, .75); font-size: 1.05rem; }
+.about-hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* --------------------------------------------------------------------------
+   STATS ROW (four number cards)
+   -------------------------------------------------------------------------- */
+.about-stats-wrap { padding: 40px 0; }
+.about-stat {
+  border: 1px solid var(--tz-border);
+  border-radius: var(--tz-radius);
+  box-shadow: var(--tz-shadow);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.about-stat:hover { transform: translateY(-3px); box-shadow: var(--tz-shadow-lg); }
+.about-stat .stat-num { display: block; font-size: 1.7rem; font-weight: 800; color: var(--color-primary); }
+.about-stat .stat-label { display: block; font-size: .8125rem; color: var(--color-text-muted); margin-top: 4px; }
+
+/* --------------------------------------------------------------------------
+   OUR STORY
+   -------------------------------------------------------------------------- */
+.about-story .section-title { font-size: 1.6rem; margin-bottom: 16px; }
+.about-check-list { list-style: none; padding: 0; margin: 18px 0 0; }
+.about-check-list li { display: flex; align-items: center; gap: .6rem; padding: 6px 0; font-size: .95rem; }
+.about-check-list i { color: var(--color-success); font-size: 1.1rem; }
+
+/* Icon "collage" panel (stands in for a photo, so nothing can break) */
+.about-collage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  background: linear-gradient(135deg, #EAF2FF, #F5F7FA);
+  border: 1px solid var(--tz-border);
+  border-radius: var(--tz-radius);
+  padding: 24px;
+}
+.collage-tile {
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border: 1px solid var(--tz-border);
+  border-radius: 14px;
+  font-size: 2.4rem;
+  color: var(--color-primary);
+  box-shadow: var(--tz-shadow);
+}
+.collage-tile.t2 { color: var(--color-popular); }
+.collage-tile.t3 { color: var(--color-success); }
+.collage-tile.t4 { color: var(--color-accent); }
+.collage-badge {
+  position: absolute;
+  right: 16px;
+  bottom: -14px;
+  background: var(--color-navy-dark);
+  color: #fff;
+  font-size: .8125rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 999px;
+  box-shadow: var(--tz-shadow-lg);
+}
+.collage-badge i { color: var(--tz-star); margin-right: 4px; }
+
+/* --------------------------------------------------------------------------
+   VALUES CARDS
+   -------------------------------------------------------------------------- */
+.section-head { margin-bottom: 26px; }
+.about-values .section-title,
+.about-team .section-title { font-size: 1.5rem; }
+.value-card {
+  border: 1px solid var(--tz-border);
+  border-radius: var(--tz-radius);
+  box-shadow: var(--tz-shadow);
+  text-align: center;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.value-card:hover { transform: translateY(-4px); box-shadow: var(--tz-shadow-lg); }
+.value-card .card-body { padding: 28px 22px; }
+.value-icon {
+  width: 60px; height: 60px;
+  margin: 0 auto 16px;
+  display: grid; place-items: center;
+  border-radius: 16px;
+  font-size: 1.7rem;
+}
+.vi-blue { background: rgba(45, 140, 255, .12); color: var(--color-primary); }
+.vi-green { background: rgba(34, 197, 94, .14); color: var(--color-success); }
+.vi-purple { background: rgba(147, 51, 234, .12); color: var(--color-popular); }
+.value-title { font-size: 1.05rem; margin: 0 0 8px; }
+.value-text { font-size: .875rem; color: var(--color-text-muted); margin: 0; }
+
+/* --------------------------------------------------------------------------
+   TEAM CARDS
+   -------------------------------------------------------------------------- */
+.about-team { background: var(--color-bg-light); }
+.team-card {
+  border: 1px solid var(--tz-border);
+  border-radius: var(--tz-radius);
+  box-shadow: var(--tz-shadow);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.team-card:hover { transform: translateY(-4px); box-shadow: var(--tz-shadow-lg); }
+.team-card .card-body { padding: 24px 14px; }
+.team-avatar {
+  width: 64px; height: 64px;
+  margin: 0 auto 14px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+.av-1 { background: linear-gradient(135deg, #2D8CFF, #1565C0); }
+.av-2 { background: linear-gradient(135deg, #22C55E, #15803D); }
+.av-3 { background: linear-gradient(135deg, #9333EA, #6B21A8); }
+.av-4 { background: linear-gradient(135deg, #F59E0B, #B45309); }
+.av-5 { background: linear-gradient(135deg, #06B6D4, #0E7490); }
+.team-name { font-size: .95rem; margin: 0 0 3px; }
+.team-role { font-size: .8125rem; color: var(--color-text-muted); margin: 0; }
+
+/* --------------------------------------------------------------------------
+   CTA BANNER
+   -------------------------------------------------------------------------- */
+.about-cta {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
+  color: #fff;
+  border-radius: var(--tz-radius);
+  padding: 34px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.about-cta h2 { font-size: 1.5rem; margin: 0 0 6px; }
+.about-cta p { margin: 0; color: rgba(255, 255, 255, .85); }
+.about-cta .btn-tz { background: #fff; color: var(--color-primary); border-color: #fff; }
+.about-cta .btn-tz:hover { background: #F0F7FF; color: var(--color-primary-hover); }
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE
+   -------------------------------------------------------------------------- */
+@media (max-width: 575.98px) {
+  .about-hero { padding: 40px 0 44px; }
+  .about-cta { padding: 26px 22px; text-align: center; justify-content: center; }
+}
