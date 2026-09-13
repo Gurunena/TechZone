@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--
+  ============================================================================
+  ORDER CONFIRMATION / THANK-YOU PAGE  (order-confirmation.html)
+  ============================================================================
+  The shopper lands here right after placing an order. It shows:
+     1. A big green tick + "Thank you" message.
+     2. Three info pills: order number, order date, estimated delivery.
+     3. A table of the items that were bought, with totals.
+     4. A "what happens next" delivery timeline.
+     5. The delivery address + payment method, and action buttons.
+  The brain that fills all of this from the saved order is
+  assets/js/order-confirmation.js. Styles are in order-confirmation.css.
+  ============================================================================
+-->
+<!DOCTYPE html>            <!-- This is a modern HTML5 page. -->
+<html lang="en">          <!-- The page language is English. -->
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <head> holds settings the visitor does not see directly. -->
+  <meta charset="UTF-8">  <!-- Lets us use any character safely. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Fits phones. -->
   <meta name="description" content="Thank you for your order at TechZone. Your order has been confirmed and is being processed.">
-  <title>Order Confirmed — TechZone</title>
+  <title>Order Confirmed — TechZone</title>   <!-- The browser-tab text. -->
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +37,10 @@
   <link rel="icon" href="../assets/images/logo/favicon.png">
 </head>
 <body>
+<!-- Everything inside <body> is what the visitor actually sees. -->
+
+<!-- NOTE: The header + navigation below are the SHARED team component
+     (from global.css/global.js), reused so this page matches the site. -->
 
 <!-- ============================================================
      1. TOP HEADER BAR (identical to index.html)
@@ -141,7 +160,9 @@
   <div class="container">
 
     <!-- ========================================================
-         SUCCESS HERO
+         SUCCESS HERO — the big green tick and thank-you message.
+         The id="..." spots below start as placeholders ("—") and are
+         filled in by order-confirmation.js using the saved order.
          ======================================================== -->
     <section class="confirm-hero">
       <div class="confirm-check"><i class="bi bi-check-lg"></i></div>
@@ -176,7 +197,15 @@
         <div class="tz-card confirm-block">
           <h2 class="block-title"><i class="bi bi-receipt"></i> Order Summary</h2>
 
-          <!-- Bootstrap responsive, striped, bordered, hover table -->
+          <!-- A Bootstrap TABLE showing what was bought.
+               The classes do the styling:
+                 table            = basic table look
+                 table-striped    = shade every other row
+                 table-hover      = highlight the row under the mouse
+                 table-bordered   = draw lines around every cell
+                 table-responsive = let it scroll sideways on small phones
+               <thead> = heading row, <tbody> = the item rows,
+               <tfoot> = the totals at the bottom. -->
           <div class="table-responsive">
             <table class="table table-striped table-hover table-bordered align-middle order-table">
               <thead class="table-dark">
@@ -187,7 +216,8 @@
                   <th scope="col" class="text-end">Total</th>
                 </tr>
               </thead>
-              <tbody id="orderRows"><!-- injected by order-confirmation.js --></tbody>
+              <!-- This starts empty; order-confirmation.js adds one row per item. -->
+              <tbody id="orderRows"></tbody>
               <tfoot>
                 <tr>
                   <th colspan="3" class="text-end">Subtotal</th>

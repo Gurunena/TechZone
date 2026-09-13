@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--
+  ============================================================================
+  ACCOUNT DASHBOARD PAGE  (account/profile.html)
+  ============================================================================
+  This is the shopper's "My Account" home. It has:
+     1. The shared header + navigation bar (same on every page).
+     2. A LEFT sidebar with account menu links.
+     3. A RIGHT main area with: a welcome message, 4 stat cards, a Recent
+        Orders table, an editable Profile form, and Saved Addresses.
+  The brain that fills the numbers, the table and saves the profile is
+  assets/js/profile.js. Styles are in assets/css/profile.css.
+  ============================================================================
+-->
+<!DOCTYPE html>            <!-- This is a modern HTML5 page. -->
+<html lang="en">          <!-- The page language is English. -->
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <head> holds settings the visitor does not see directly. -->
+  <meta charset="UTF-8">  <!-- Lets us use any character safely. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Fits phones. -->
   <meta name="description" content="Your TechZone account dashboard — view recent orders, manage your profile, addresses and saved items.">
-  <title>My Account — TechZone</title>
+  <title>My Account — TechZone</title>   <!-- The browser-tab text. -->
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +36,10 @@
   <link rel="icon" href="../assets/images/logo/favicon.png">
 </head>
 <body>
+<!-- Everything inside <body> is what the visitor actually sees. -->
+
+<!-- NOTE: The header + navigation below are the SHARED team component
+     (from global.css/global.js), reused so this page matches the site. -->
 
 <!-- ============================================================
      1. TOP HEADER BAR (identical to index.html)
@@ -197,13 +215,15 @@
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
 
-        <!-- Stat cards -->
+        <!-- Stat cards: 4 little Bootstrap cards side by side.
+             "col-6 col-lg-3" = 2 per row on phones, 4 per row on desktops.
+             The numbers that start at "0" are filled in by profile.js. -->
         <div class="row g-3 stat-row">
           <div class="col-6 col-lg-3">
             <div class="card stat-card">
               <div class="card-body">
                 <span class="stat-icon si-blue"><i class="bi bi-bag-check"></i></span>
-                <span class="stat-num" id="statOrders">0</span>
+                <span class="stat-num" id="statOrders">0</span>   <!-- profile.js sets this -->
                 <span class="stat-label">Total Orders</span>
               </div>
             </div>
@@ -244,6 +264,8 @@
             <a href="orders.html" class="view-all">View All <i class="bi bi-arrow-right"></i></a>
           </div>
 
+          <!-- A Bootstrap table of past orders (striped rows, hover highlight,
+               and table-responsive so it scrolls sideways on small phones). -->
           <div class="table-responsive">
             <table class="table table-hover table-striped align-middle recent-orders">
               <thead>
@@ -256,7 +278,8 @@
                   <th scope="col" class="text-end">Action</th>
                 </tr>
               </thead>
-              <tbody id="ordersBody"><!-- injected by profile.js --></tbody>
+              <!-- Empty to start; profile.js adds one row per order. -->
+              <tbody id="ordersBody"></tbody>
             </table>
           </div>
         </section>
@@ -267,6 +290,8 @@
             <h2 class="block-title"><i class="bi bi-person-gear"></i> Profile Details</h2>
           </div>
 
+          <!-- The editable profile form. profile.js saves it and refills it.
+               "value=..." gives each box a starting value. -->
           <form id="profileForm" class="row g-3 needs-validation" novalidate>
             <div class="col-md-6">
               <label class="form-label" for="pFirst">First Name</label>
@@ -291,6 +316,8 @@
               </div>
             </div>
             <div class="col-md-6">
+              <!-- type="date" gives a calendar picker. profile.js also sets a
+                   "max" of today so a FUTURE birthday cannot be chosen (bug fix). -->
               <label class="form-label" for="pDob">Date of Birth</label>
               <input type="date" class="form-control" id="pDob" value="2000-05-14">
             </div>
