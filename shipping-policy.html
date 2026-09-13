@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shipping Policy | TechZone</title>
+
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/shipping-policy.css">
+</head>
+
+<body>
+
+<!-- ============================================================
+     1. TOP HEADER BAR — logo / search / account-wishlist-cart
+     ============================================================ -->
+<header class="tz-header">
+  <div class="container">
+    <div class="tz-header-inner">
+
+      <!-- Brand -->
+      <a class="tz-brand" href="index.html">
+        <img src="assets/images/logo/logo.png" alt="TechZone logo" class="tz-brand-mark">
+        <span class="tz-brand-text">
+          Tech<b>Zone</b>
+          <small>Your PC. Our Passion.</small>
+        </span>
+      </a>
+
+      <!-- Mobile toggler (shows nav links on small screens) -->
+      <button class="tz-mobile-toggle d-lg-none" type="button"
+              data-bs-toggle="collapse" data-bs-target="#tzMainNav"
+              aria-controls="tzMainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <!-- Search -->
+      <form class="tz-search" role="search" id="tzSearchForm" autocomplete="off">
+        <label class="visually-hidden" for="tzSearchInput">Search products</label>
+        <input type="search" id="tzSearchInput" class="tz-search-input"
+               placeholder="Search for products, brands and more...">
+        <button class="tz-search-btn" type="submit" aria-label="Search">
+          <i class="bi bi-search"></i>
+        </button>
+        <!-- Live suggestions, filled by global.js -->
+        <div class="tz-suggest" id="tzSuggest" role="listbox"></div>
+      </form>
+
+      <!-- Account / Wishlist / Cart -->
+      <div class="tz-actions">
+        <a class="tz-icon-btn" href="account/profile.html">
+          <i class="bi bi-person"></i>
+          <span class="tz-icon-label">
+            <small>Hello, Sign in</small>
+            <strong>Account</strong>
+          </span>
+        </a>
+
+        <a class="tz-icon-btn" href="account/wishlist.html">
+          <i class="bi bi-heart"></i>
+          <span class="tz-icon-label">
+            <small>Saved</small>
+            <strong>Wishlist</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-wishlist-count data-count="0">0</span>
+        </a>
+
+        <a class="tz-icon-btn" href="cart/cart.html">
+          <i class="bi bi-bag"></i>
+          <span class="tz-icon-label">
+            <small>My Cart</small>
+            <strong>Cart</strong>
+          </span>
+          <span class="tz-badge-count" data-tz-cart-count data-count="0">0</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     2. NAVIGATION BAR — categories dropdown / links / delivery note
+     Sticky on scroll (see .tz-nav in global.css)
+     ============================================================ -->
+<nav class="tz-nav" id="tzNav" aria-label="Main navigation">
+  <div class="container">
+    <div class="tz-nav-inner">
+
+      <!-- All Categories dropdown -->
+      <div class="dropdown tz-allcat">
+        <button class="tz-allcat-btn dropdown-toggle" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="bi bi-grid-3x3-gap-fill"></i>
+          <span>All Categories</span>
+        </button>
+        <ul class="dropdown-menu tz-allcat-menu">
+          <li><a class="dropdown-item" href="products/laptops.html"><i class="bi bi-laptop"></i> Laptops</a></li>
+          <li><a class="dropdown-item" href="products/desktops.html"><i class="bi bi-pc-display"></i> Desktops</a></li>
+          <li><a class="dropdown-item" href="products/gaming.html"><i class="bi bi-controller"></i> Gaming PCs</a></li>
+          <li><a class="dropdown-item" href="products/components.html"><i class="bi bi-cpu"></i> Components</a></li>
+          <li><a class="dropdown-item" href="products/peripherals.html"><i class="bi bi-keyboard"></i> Peripherals</a></li>
+          <li><a class="dropdown-item" href="products/accessories.html"><i class="bi bi-headphones"></i> Accessories</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="products/gaming.html"><i class="bi bi-lightning-charge"></i> Today's Deals</a></li>
+        </ul>
+      </div>
+
+      <!-- Main links (collapse on mobile) -->
+      <div class="collapse navbar-collapse tz-nav-links" id="tzMainNav">
+        <ul class="tz-nav-list">
+          <li><a class="tz-nav-link active" href="index.html">Home</a></li>
+          <li><a class="tz-nav-link" href="products/laptops.html">Laptops</a></li>
+          <li><a class="tz-nav-link" href="products/desktops.html">Desktops</a></li>
+          <li><a class="tz-nav-link" href="products/gaming.html">Gaming</a></li>
+          <li><a class="tz-nav-link" href="products/components.html">Components</a></li>
+          <li><a class="tz-nav-link" href="products/peripherals.html">Peripherals</a></li>
+          <li><a class="tz-nav-link" href="products/accessories.html">Accessories</a></li>
+          <li><a class="tz-nav-link" href="about.html">Brands</a></li>
+          <li><a class="tz-nav-pill" href="products/gaming.html">Deals</a></li>
+        </ul>
+      </div>
+
+      <!-- Delivery note -->
+      <div class="tz-delivery">
+        <i class="bi bi-truck"></i>
+        <span>
+          <strong>Free Delivery</strong>
+          <small>Islandwide</small>
+        </span>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<section class="policy-header">
+    <div class="container text-center">
+
+        <div class="policy-icon">
+            
+        </div>
+
+        <h1>Shipping Policy</h1>
+
+        <p>
+            Everything you need to know about how TechZone
+            delivers your computer products.
+        </p>
+
+        <span class="badge bg-primary">
+            Last Updated: <span id="lastUpdated">2026</span>
+        </span>
+
+    </div>
+</section>
+
+
+<!-- Main Content -->
+<main class="container py-5">
+
+    <div class="row g-4">
+
+        <!-- Sidebar -->
+        <div class="col-lg-3">
+
+            <div class="policy-menu">
+
+                <h5>Legal Information</h5>
+
+                <a class="active"
+                   href="shipping-policy.html">
+                    Shipping Policy
+                </a>
+
+                <a href="returns-refunds.html">
+                    Returns & Refunds
+                </a>
+
+                <a href="privacy-policy.html">
+                    Privacy Policy
+                </a>
+
+                <a href="terms-conditions.html">
+                    Terms & Conditions
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Content -->
+        <div class="col-lg-9">
+
+            <div class="policy-content">
+
+                <div class="alert alert-primary">
+                    <strong>Important:</strong>
+                    Please review our shipping information before
+                    placing your order with TechZone.
+                </div>
+
+
+                <section class="policy-section">
+                    <h2>1. Shipping Methods</h2>
+
+                    <p>
+                        TechZone provides reliable delivery options
+                        for computer hardware, laptops, desktops,
+                        gaming products, components and accessories.
+                    </p>
+
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+                            <div class="info-card">
+                                <h5>Standard Delivery</h5>
+                                <p>
+                                    Suitable for normal product orders
+                                    and general deliveries.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="info-card">
+                                <h5>Express Delivery</h5>
+                                <p>
+                                    Faster delivery may be available
+                                    for selected locations and products.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+
+                <section class="policy-section">
+                    <h2>2. Delivery Areas</h2>
+
+                    <p>
+                        TechZone delivers products to available
+                        locations within Sri Lanka. Delivery
+                        availability may depend on the customer's
+                        address and courier service coverage.
+                    </p>
+                </section>
+
+
+                <section class="policy-section">
+                    <h2>3. Estimated Delivery Time</h2>
+
+                    <div class="table-responsive">
+
+                        <table class="table table-bordered table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Delivery Type</th>
+                                    <th>Estimated Time</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Standard Delivery</td>
+                                    <td>2 – 5 Business Days</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Express Delivery</td>
+                                    <td>1 – 2 Business Days</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </section>
+
+
+                <section class="policy-section">
+                    <h2>4. Shipping Charges</h2>
+
+                    <p>
+                        Shipping charges may vary depending on the
+                        delivery location, product size, weight and
+                        selected delivery method. Applicable charges
+                        will be displayed during checkout.
+                    </p>
+                </section>
+
+
+                <section class="policy-section">
+                    <h2>5. Order Tracking</h2>
+
+                    <p>
+                        Once your order has been dispatched, tracking
+                        information may be provided through the order
+                        details or through the selected delivery service.
+                    </p>
+                </section>
+
+
+                <section class="policy-section">
+                    <h2>6. Delayed or Lost Orders</h2>
+
+                    <p>
+                        Delivery times may occasionally be affected by
+                        weather conditions, public holidays, courier
+                        delays or other circumstances outside our control.
+                        Customers should contact TechZone if an order
+                        has not arrived within the expected delivery period.
+                    </p>
+                </section>
+
+
+                <section class="policy-section">
+                    <h2>7. Contact Us</h2>
+
+                    <p>
+                        If you have questions regarding shipping or
+                        delivery, please contact our support team.
+                    </p>
+
+                    <a href="../contact.html"
+                       class="btn btn-primary">
+                        Contact TechZone
+                    </a>
+                </section>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- ============================================================
+     7. FOOTER
+     ============================================================ -->
+<footer class="tz-footer">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Column 1 — About -->
+      <div class="col-lg-4 col-md-6">
+        <a class="tz-brand" href="index.html">
+          <img src="assets/images/logo/logo.png" alt="TechZone logo" class="tz-brand-mark">
+          <span class="tz-brand-text">
+            Tech<b>Zone</b>
+            <small>Your PC. Our Passion.</small>
+          </span>
+        </a>
+        <p class="footer-about">
+          Your trusted computer shop in Sri Lanka. We bring you the best in laptops,
+          desktops, gaming gear and more — all in one place.
+        </p>
+        <div class="tz-social">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+
+      <!-- Column 2 — Quick Links -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html#faqs">FAQs</a></li>
+          <li><a href="contact.html#returns">Returns &amp; Refunds</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3 — Categories -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="products/laptops.html">Laptops</a></li>
+          <li><a href="products/desktops.html">Desktops</a></li>
+          <li><a href="products/components.html">Components</a></li>
+          <li><a href="products/peripherals.html">Peripherals</a></li>
+          <li><a href="products/accessories.html">Accessories</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4 — Customer Service -->
+      <div class="col-lg-2 col-md-6">
+        <h4>Customer Service</h4>
+        <ul class="footer-contact">
+          <li><i class="bi bi-telephone"></i> <a href="tel:+94112345678">+94 11 234 5678</a></li>
+          <li><i class="bi bi-envelope"></i> <a href="mailto:support@techzone.lk">support@techzone.lk</a></li>
+          <li><i class="bi bi-clock"></i> <span>Mon–Sat<br>9:00 AM – 6:00 PM</span></li>
+          <li><i class="bi bi-truck"></i> <span>Free islandwide delivery on orders over Rs. 25,000</span></li>
+        </ul>
+      </div>
+
+      <!-- Column 5 — Payment Methods -->
+      <div class="col-lg-2 col-md-6">
+        <h4>Payment Methods</h4>
+        <div class="pay-badges">
+          <span class="pay-badge">VISA</span>
+          <span class="pay-badge">Mastercard</span>
+          <span class="pay-badge">Amex</span>
+          <span class="pay-badge">COD</span>
+        </div>
+        <p class="footer-secure"><i class="bi bi-shield-check"></i> Secure checkout</p>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="tz-footer-bottom">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <span>&copy; <span data-tz-year>2025</span> TechZone. All rights reserved.</span>
+        <span class="footer-legal">
+          <a href="#">Privacy Policy</a> <span class="sep">|</span> <a href="#">Terms &amp; Conditions</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/global.js"></script>
+<script src="../assets/js/shipping-policy.js"></script>
+
+</body>
+</html>
