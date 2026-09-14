@@ -63,6 +63,16 @@
     });
   }
 
+  /* Fix an image path so it works from THIS page (the "cart" folder).
+     The homepage saves "assets/images/..." while product pages save
+     "../assets/images/...". We always rebuild it as "../assets/images/...". */
+  function normImg(src) {
+    if (!src) { return ''; }
+    var i = src.indexOf('assets/images/');
+    if (i === -1) { return src; }
+    return '../' + src.slice(i);
+  }
+
   /* If a product picture is missing, show a neat box icon instead. */
   function fixThumbs(sel, cls) {
     $$(sel).forEach(function (img) {
@@ -111,7 +121,7 @@
     var rows = order.items.map(function (item) {
       var line = (Number(item.price) || 0) * (Number(item.qty) || 0);   // price × amount
       var img = item.image
-        ? '<img src="' + escapeHtml(item.image) + '" alt="' + escapeHtml(item.name) + '" class="ot-thumb">'
+        ? '<img src="' + escapeHtml(normImg(item.image)) + '" alt="' + escapeHtml(item.name) + '" class="ot-thumb">'
         : '<span class="ot-thumb img-ph"><i class="bi bi-box-seam"></i></span>';
       /* Each <tr> is one table row; each <td> is one cell. */
       return '' +

@@ -141,12 +141,13 @@
 .team-avatar {
   width: 64px; height: 64px;
   margin: 0 auto 14px;
-  display: grid; place-items: center;
+  display: grid; place-items: end center;   /* figure sits at the bottom of the circle */
   border-radius: 50%;
+  overflow: hidden;                          /* clip the shoulders to a neat circle */
   color: #fff;
-  font-weight: 700;
-  font-size: 1.25rem;
 }
+/* The little male/female avatar figure drawn with SVG (white on the colour). */
+.av-fig { width: 82%; height: 82%; display: block; }
 .av-1 { background: linear-gradient(135deg, #2D8CFF, #1565C0); }
 .av-2 { background: linear-gradient(135deg, #22C55E, #15803D); }
 .av-3 { background: linear-gradient(135deg, #9333EA, #6B21A8); }

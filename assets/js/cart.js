@@ -69,6 +69,19 @@
     });
   }
 
+  /* Fix an image path so it works from THIS page.
+     Different pages save the image path differently:
+       - the homepage (top level) saves "assets/images/products/X.png"
+       - a product page (in a sub-folder) saves "../assets/images/products/X.png"
+     This page lives in the "cart" folder, so it always needs "../assets/...".
+     We cut the path down to the "assets/images/..." part and add one "../". */
+  function normImg(src) {
+    if (!src) { return ''; }
+    var i = src.indexOf('assets/images/');
+    if (i === -1) { return src; }        // unknown shape — leave it as-is
+    return '../' + src.slice(i);
+  }
+
   /* If a product picture is missing, show a neat box icon instead of a
      broken image, so the page still looks tidy. */
   function fixThumbs(sel, cls) {
@@ -89,7 +102,7 @@
   function itemRow(item) {
     var line = (Number(item.price) || 0) * (Number(item.qty) || 0);   // price × amount
     var img = item.image
-      ? '<img src="' + escapeHtml(item.image) + '" alt="' + escapeHtml(item.name) + '" class="ci-thumb">'
+      ? '<img src="' + escapeHtml(normImg(item.image)) + '" alt="' + escapeHtml(item.name) + '" class="ci-thumb">'
       : '<span class="ci-thumb img-ph"><i class="bi bi-box-seam"></i></span>';
 
     /* data-id="..." quietly stores the item's id on the row, so later we
