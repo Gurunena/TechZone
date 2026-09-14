@@ -1,13 +1,3 @@
-/* ==========================================================================
-   TechZone — global.css
-   Shared across every page: colour tokens, typography, buttons,
-   header, navigation, product cards, forms, toasts, footer.
-   Load order:  bootstrap.min.css  →  global.css  →  [page-name].css
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   1. THEME TOKENS
-   -------------------------------------------------------------------------- */
 :root {
   --color-navy-dark: #0B1120;
   --color-navy-deep: #0D1B2A;
