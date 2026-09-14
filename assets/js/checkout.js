@@ -58,6 +58,16 @@
     });
   }
 
+  /* Fix an image path so it works from THIS page (the "cart" folder).
+     The homepage saves "assets/images/..." while product pages save
+     "../assets/images/...". We always rebuild it as "../assets/images/...". */
+  function normImg(src) {
+    if (!src) { return ''; }
+    var i = src.indexOf('assets/images/');
+    if (i === -1) { return src; }
+    return '../' + src.slice(i);
+  }
+
   /* If a product picture is missing (not uploaded yet), swap the broken
      image for a neat little box icon so the page still looks tidy. */
   function fixThumbs(sel, cls) {
@@ -105,7 +115,7 @@
     wrap.innerHTML = cart.map(function (item) {
       var line = (Number(item.price) || 0) * (Number(item.qty) || 0);  // price × quantity
       var img = item.image
-        ? '<img src="' + escapeHtml(item.image) + '" alt="' + escapeHtml(item.name) + '" class="si-thumb">'
+        ? '<img src="' + escapeHtml(normImg(item.image)) + '" alt="' + escapeHtml(item.name) + '" class="si-thumb">'
         : '<span class="si-thumb img-ph"><i class="bi bi-box-seam"></i></span>';
       return '' +
         '<li class="summary-item">' +
