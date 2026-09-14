@@ -1,15 +1,3 @@
-/* ==========================================================================
-   TechZone — home.js
-   Homepage-only behaviour:
-     • hero carousel controls (pause on hover, keyboard arrows, swipe)
-     • scroll-reveal animation for category / product / promo cards
-     • category strip drag-to-scroll on touch devices
-
-   The slide transitions themselves are handled by Bootstrap's carousel
-   component; this file only layers extra controls on top of it.
-   Loaded AFTER global.js.
-   ========================================================================== */
-
 (function () {
   'use strict';
 
@@ -57,10 +45,7 @@
     }
   }
 
-  /* ------------------------------------------------------------------
-     SCROLL REVEAL
-     Adds .reveal to card wrappers, then .is-visible as they scroll in.
-     ------------------------------------------------------------------ */
+  
   function initReveal() {
     var targets = []
       .concat($$('.category-tile'))

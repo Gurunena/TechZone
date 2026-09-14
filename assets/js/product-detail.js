@@ -1,20 +1,3 @@
-/* ==========================================================================
-   TechZone — product-detail.js
-   Single product page behaviour:
-     • thumbnail click swaps the main gallery image
-     • quantity -/+ stepper, clamped to 1..stock
-     • Add to Cart confirmation ("Added ✓" for 1.5s)
-     • Buy Now — adds to the cart, then goes to checkout
-     • "(24 reviews)" link opens the Reviews tab and scrolls to it
-     • Write a Review form appends to the list (client-side only)
-
-   Tab switching is Bootstrap's own pill JS — no code needed for it here.
-   The wishlist heart is handled by global.js, which owns wishlist state and
-   keeps the icon's filled/outline state in sync across every page.
-
-   Loaded AFTER global.js.
-   ========================================================================== */
-
 (function () {
   'use strict';
 
@@ -76,11 +59,7 @@
     }
   }
 
-  /* ------------------------------------------------------------------
-     QUANTITY STEPPER
-     The chosen quantity is mirrored onto the Add to Cart button's
-     data-qty, which is what global.js reads when it fires.
-     ------------------------------------------------------------------ */
+
   var qtyInput = $('[data-qty-input]');
   var addBtn = $('[data-tz-add-to-cart]', root);
 
@@ -115,11 +94,7 @@
     syncQty();
   }
 
-  /* ------------------------------------------------------------------
-     ADD TO CART CONFIRMATION
-     global.js does the actual adding (and its own toast); this only
-     flips the button label briefly so the click has local feedback.
-     ------------------------------------------------------------------ */
+  
   function initAddFeedback() {
     if (!addBtn) { return; }
 
