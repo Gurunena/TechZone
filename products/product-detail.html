@@ -147,20 +147,7 @@
 
 <main>
 
-  <!-- ============================================================
-       3. BREADCRUMB
-       ============================================================ -->
-  <div class="tz-breadcrumb">
-    <div class="container">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb mb-0">
-          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
-          <li class="breadcrumb-item"><a href="laptops.html">Laptops</a></li>
-          <li class="breadcrumb-item active" aria-current="page">ASUS TUF Gaming F15</li>
-        </ol>
-      </nav>
-    </div>
-  </div>
+ 
 
   <!-- ============================================================
        4. MAIN PRODUCT SECTION — gallery left, info right
@@ -180,8 +167,10 @@
           <div class="gallery">
 
             <div class="gallery-main">
+              <!-- ASSIGNMENT REQUIREMENT: image utility — img-fluid + rounded-3 -->
               <img src="../assets/images/products/ASUS TUF Gaming F15.png"
-                   alt="ASUS TUF Gaming F15" id="galleryMain" data-gallery-main>
+                   alt="ASUS TUF Gaming F15" id="galleryMain" data-gallery-main
+                   class="img-fluid rounded-3">
 
               <!-- Wishlist heart, floating over the main image -->
               <button class="gallery-wish" type="button" data-tz-wish="asus-tuf-f15"
@@ -191,30 +180,31 @@
             </div>
 
             <!-- Thumbnails — click swaps the main image (product-detail.js) -->
+            <!-- ASSIGNMENT REQUIREMENT: image utility — img-thumbnail on gallery thumbs -->
             <div class="gallery-thumbs">
             <button class="gallery-thumb is-active" type="button"
                     data-gallery-thumb
                     data-full="../assets/images/products/ASUS TUF Gaming F15.png"
                     aria-label="View image 1 of 4">
-              <img src="../assets/images/products/ASUS TUF Gaming F15.png" alt="ASUS TUF Gaming F15 — front view">
+              <img src="../assets/images/products/ASUS TUF Gaming F15.png" alt="ASUS TUF Gaming F15 — front view" class="img-thumbnail">
             </button>
             <button class="gallery-thumb" type="button"
                     data-gallery-thumb
                     data-full="../assets/images/products/asus-tuf-f15-2.png"
                     aria-label="View image 2 of 4">
-              <img src="../assets/images/products/asus-tuf-f15-2.png" alt="ASUS TUF Gaming F15 — keyboard close-up">
+              <img src="../assets/images/products/ASUS TUF Gaming F15.png" alt="ASUS TUF Gaming F15 — keyboard close-up" class="img-thumbnail">
             </button>
             <button class="gallery-thumb" type="button"
                     data-gallery-thumb
                     data-full="../assets/images/products/asus-tuf-f15-3.png"
                     aria-label="View image 3 of 4">
-              <img src="../assets/images/products/asus-tuf-f15-3.png" alt="ASUS TUF Gaming F15 — side ports">
+              <img src="../assets/images/products/ASUS TUF Gaming F15.png" alt="ASUS TUF Gaming F15 — side ports" class="img-thumbnail">
             </button>
             <button class="gallery-thumb" type="button"
                     data-gallery-thumb
                     data-full="../assets/images/products/asus-tuf-f15-4.png"
                     aria-label="View image 4 of 4">
-              <img src="../assets/images/products/asus-tuf-f15-4.png" alt="ASUS TUF Gaming F15 — rear view">
+              <img src="../assets/images/products/ASUS TUF Gaming F15.png" alt="ASUS TUF Gaming F15 — rear view" class="img-thumbnail">
             </button>
             </div>
 
@@ -384,51 +374,60 @@
           <!-- ---------- Specifications ---------- -->
           <div class="tab-pane fade" id="pane-specs" role="tabpanel"
                aria-labelledby="tab-specs" tabindex="0">
-            <table class="table spec-table">
-              <caption class="visually-hidden">Full specifications for the ASUS TUF Gaming F15</caption>
-              <tbody>
-                <tr>
-                  <th scope="row">Processor</th>
-                  <td>Intel Core i5-12500H (12 cores, up to 4.5GHz)</td>
-                </tr>
-                <tr>
-                  <th scope="row">RAM</th>
-                  <td>16GB DDR4 3200MHz (2 x 8GB, expandable to 32GB)</td>
-                </tr>
-                <tr>
-                  <th scope="row">Storage</th>
-                  <td>512GB PCIe 4.0 NVMe M.2 SSD (1 spare slot)</td>
-                </tr>
-                <tr>
-                  <th scope="row">Graphics</th>
-                  <td>NVIDIA GeForce RTX 4050 6GB GDDR6</td>
-                </tr>
-                <tr>
-                  <th scope="row">Display</th>
-                  <td>15.6" FHD (1920 x 1080) IPS, 144Hz, 250 nits, 45% NTSC</td>
-                </tr>
-                <tr>
-                  <th scope="row">Battery</th>
-                  <td>56WHrs, 4-cell Li-ion, 200W AC adapter</td>
-                </tr>
-                <tr>
-                  <th scope="row">Weight</th>
-                  <td>2.20 kg</td>
-                </tr>
-                <tr>
-                  <th scope="row">Operating System</th>
-                  <td>Windows 11 Home (pre-installed)</td>
-                </tr>
-                <tr>
-                  <th scope="row">Ports</th>
-                  <td>1x USB 3.2 Gen 1 Type-A, 2x USB 3.2 Gen 2 Type-A, 1x USB 3.2 Gen 2 Type-C (DisplayPort / Power Delivery), 1x HDMI 2.1, 1x RJ45 LAN, 1x 3.5mm combo audio</td>
-                </tr>
-                <tr>
-                  <th scope="row">Warranty</th>
-                  <td>2 years international warranty (local service in Sri Lanka)</td>
-                </tr>
-              </tbody>
-            </table>
+            <!-- ASSIGNMENT REQUIREMENT: Bootstrap Table (responsive / striped / hover / dark header) -->
+            <div class="table-responsive">
+              <table class="table table-striped table-hover align-middle spec-table">
+                <caption class="visually-hidden">Full specifications for the ASUS TUF Gaming F15</caption>
+                <thead class="table-dark">
+                  <tr>
+                    <th scope="col">Specification</th>
+                    <th scope="col">Details</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Processor</th>
+                    <td>Intel Core i5-12500H (12 cores, up to 4.5GHz)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">RAM</th>
+                    <td>16GB DDR4 3200MHz (2 x 8GB, expandable to 32GB)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Storage</th>
+                    <td>512GB PCIe 4.0 NVMe M.2 SSD (1 spare slot)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Graphics</th>
+                    <td>NVIDIA GeForce RTX 4050 6GB GDDR6</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Display</th>
+                    <td>15.6" FHD (1920 x 1080) IPS, 144Hz, 250 nits, 45% NTSC</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Battery</th>
+                    <td>56WHrs, 4-cell Li-ion, 200W AC adapter</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Weight</th>
+                    <td>2.20 kg</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Operating System</th>
+                    <td>Windows 11 Home (pre-installed)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Ports</th>
+                    <td>1x USB 3.2 Gen 1 Type-A, 2x USB 3.2 Gen 2 Type-A, 1x USB 3.2 Gen 2 Type-C (DisplayPort / Power Delivery), 1x HDMI 2.1, 1x RJ45 LAN, 1x 3.5mm combo audio</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Warranty</th>
+                    <td>2 years international warranty (local service in Sri Lanka)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <!-- ---------- Reviews ---------- -->
@@ -498,36 +497,53 @@
 
                 <!-- Simple client-side form — adds to the list below, nothing is sent anywhere -->
                 <div class="collapse" id="reviewForm">
-                  <form class="review-form" data-review-form>
-                    <h4>Write a review</h4>
-                    <div class="row g-2">
-                      <div class="col-sm-6">
-                        <label class="form-label" for="reviewName">Your name</label>
-                        <input type="text" class="form-control" id="reviewName" required>
+                  <!-- ASSIGNMENT REQUIREMENT: Form — text input, email input,
+                       radio group, textarea and submit button (5 control types) -->
+                  <form class="review-form" id="reviewForm" data-review-form>
+                    <h4>Write a Review</h4>
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <label class="form-label" for="reviewName">Your Name</label>
+                        <input type="text" class="form-control" id="reviewName"
+                               placeholder="Enter your name" required>
                       </div>
-                      <div class="col-sm-6">
-                        <label class="form-label" for="reviewRating">Rating</label>
-                        <select class="form-select" id="reviewRating">
-                          <option value="5">5 &#9733; Excellent</option>
-                          <option value="4">4 &#9733; Good</option>
-                          <option value="3">3 &#9733; Average</option>
-                          <option value="2">2 &#9733; Poor</option>
-                          <option value="1">1 &#9733; Terrible</option>
-                        </select>
+                      <div class="col-md-6">
+                        <label class="form-label" for="reviewEmail">Your Email</label>
+                        <input type="email" class="form-control" id="reviewEmail"
+                               placeholder="Enter your email" required>
                       </div>
                       <div class="col-12">
-                        <label class="form-label" for="reviewBody">Your review</label>
-                        <textarea class="form-control" id="reviewBody" rows="3" required></textarea>
+                        <label class="form-label d-block">Rating</label>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="rating" id="r5" value="5" checked>
+                          <label class="form-check-label" for="r5">5 &#9733;</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="rating" id="r4" value="4">
+                          <label class="form-check-label" for="r4">4 &#9733;</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="rating" id="r3" value="3">
+                          <label class="form-check-label" for="r3">3 &#9733;</label>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <label class="form-label" for="reviewBody">Your Review</label>
+                        <textarea class="form-control" id="reviewBody" rows="3"
+                                  placeholder="Share your experience with this product..." required></textarea>
+                      </div>
+                      <div class="col-12">
+                        <button class="btn btn-tz" type="submit">Submit Review</button>
                       </div>
                     </div>
-                    <button class="btn btn-tz mt-3" type="submit">Submit Review</button>
                   </form>
                 </div>
 
                 <div class="review-list" data-review-list>
               <article class="review">
+                <!-- ASSIGNMENT REQUIREMENT: image utility — rounded-circle avatar -->
                 <div class="review-head">
-                  <div class="review-avatar">N</div>
+                  <div class="review-avatar rounded-circle">N</div>
                   <div>
                     <h4>Nuwan Perera</h4>
                     <div class="review-meta">
@@ -541,7 +557,7 @@
               </article>
               <article class="review">
                 <div class="review-head">
-                  <div class="review-avatar">T</div>
+                  <div class="review-avatar rounded-circle">T</div>
                   <div>
                     <h4>Tharindu Silva</h4>
                     <div class="review-meta">
@@ -555,7 +571,7 @@
               </article>
               <article class="review">
                 <div class="review-head">
-                  <div class="review-avatar">A</div>
+                  <div class="review-avatar rounded-circle">A</div>
                   <div>
                     <h4>Amaya Rathnayake</h4>
                     <div class="review-meta">
@@ -569,7 +585,7 @@
               </article>
               <article class="review">
                 <div class="review-head">
-                  <div class="review-avatar">K</div>
+                  <div class="review-avatar rounded-circle">K</div>
                   <div>
                     <h4>Kasun Fernando</h4>
                     <div class="review-meta">

@@ -70,7 +70,7 @@
 
         
       <!--Order history-->
-        <a class="tz-icon-btn" href="order-history.html">
+        <a class="tz-icon-btn" href="../order-history.html">
           <i class="bi bi-box-seam"></i>
           <span class="tz-icon-label">
             <small>My Orders</small>
@@ -169,6 +169,14 @@
           <li class="breadcrumb-item active" aria-current="page">Laptops</li>
         </ol>
       </nav>
+    </div>
+  </div>
+
+  <!-- ASSIGNMENT REQUIREMENT: Bootstrap Alert (dismissible) -->
+  <div class="container">
+    <div class="alert alert-success alert-dismissible fade show text-center mb-4" role="alert">
+      <i class="bi bi-truck"></i> Free islandwide delivery on all orders above Rs. 50,000!
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   </div>
 
@@ -792,6 +800,8 @@
                    data-reviews="38"
                    data-added="6">
             <a class="product-thumb" href="product-detail.html?id=acer-aspire-5" tabindex="-1" aria-hidden="true">
+              <!-- ASSIGNMENT REQUIREMENT: badge bg-secondary (out-of-stock state) -->
+              <span class="product-badges"><span class="badge bg-secondary">Out of Stock</span></span>
               <img src="../assets/images/products/Acer Aspire 5 laptop.jpg" alt="Acer Aspire 5 laptop">
             </a>
             <div class="product-body">
@@ -807,14 +817,8 @@
                 <span class="price-now">Rs. 132,990</span>
               </div>
               <div class="product-actions">
-                <button class="btn btn-tz" type="button"
-                        data-tz-add-to-cart
-                        data-id="acer-aspire-5"
-                        data-name="Acer Aspire 5"
-                        data-price="132990"
-                        data-image="../assets/images/products/Acer Aspire 5 laptop.jpg">
-                  <i class="bi bi-bag-plus"></i> Add to Cart
-                </button>
+                <!-- ASSIGNMENT REQUIREMENT: btn-danger + disabled state -->
+                <button class="btn btn-danger" type="button" disabled>Out of Stock</button>
                 <button class="btn btn-wish" type="button" data-tz-wish="acer-aspire-5" aria-label="Add Acer Aspire 5 to wishlist">
                   <i class="bi bi-heart"></i>
                 </button>
