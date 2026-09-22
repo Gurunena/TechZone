@@ -181,6 +181,7 @@
 
             <!-- Thumbnails — click swaps the main image (product-detail.js) -->
             <!-- ASSIGNMENT REQUIREMENT: image utility — img-thumbnail on gallery thumbs -->
+            <!-- jQuery Requirement 3: .attr('src') source elements -->
             <div class="gallery-thumbs">
             <button class="gallery-thumb is-active" type="button"
                     data-gallery-thumb
@@ -485,8 +486,8 @@
               </div>
 
                   <button class="btn btn-tz w-100 mt-3" type="button"
-                          data-bs-toggle="collapse" data-bs-target="#reviewForm"
-                          aria-expanded="false" aria-controls="reviewForm">
+                          data-bs-toggle="collapse" data-bs-target="#reviewFormPanel"
+                          aria-expanded="false" aria-controls="reviewFormPanel">
                     Write a Review
                   </button>
                 </div>
@@ -496,9 +497,10 @@
               <div class="col-lg-8">
 
                 <!-- Simple client-side form — adds to the list below, nothing is sent anywhere -->
-                <div class="collapse" id="reviewForm">
+                <div class="collapse" id="reviewFormPanel">
                   <!-- ASSIGNMENT REQUIREMENT: Form — text input, email input,
                        radio group, textarea and submit button (5 control types) -->
+                  <!-- jQuery Requirement 2: DOM Modification — .prepend() into .review-list -->
                   <form class="review-form" id="reviewForm" data-review-form>
                     <h4>Write a Review</h4>
                     <div class="row g-3">
@@ -648,7 +650,8 @@
                           data-image="../assets/images/products/dell-xps-13-plus.png">
                     <i class="bi bi-bag-plus"></i> Add to Cart
                   </button>
-                  <button class="btn btn-wish" type="button" data-tz-wish="dell-xps-13-plus" aria-label="Add Dell XPS 13 Plus to wishlist">
+                  <!-- jQuery Requirement 1: DOM Traversal target -->
+                <button class="btn btn-wish" type="button" data-tz-wish="dell-xps-13-plus" aria-label="Add Dell XPS 13 Plus to wishlist">
                     <i class="bi bi-heart"></i>
                   </button>
                 </div>
@@ -684,7 +687,8 @@
                           data-image="../assets/images/products/HP Victus 16 laptop.jpeg">
                     <i class="bi bi-bag-plus"></i> Add to Cart
                   </button>
-                  <button class="btn btn-wish" type="button" data-tz-wish="hp-victus-16" aria-label="Add HP Victus 16 to wishlist">
+                  <!-- jQuery Requirement 1: DOM Traversal target -->
+                <button class="btn btn-wish" type="button" data-tz-wish="hp-victus-16" aria-label="Add HP Victus 16 to wishlist">
                     <i class="bi bi-heart"></i>
                   </button>
                 </div>
@@ -719,7 +723,8 @@
                           data-image="../assets/images/products/Lenovo Legion Pro 5 laptop.webp">
                     <i class="bi bi-bag-plus"></i> Add to Cart
                   </button>
-                  <button class="btn btn-wish" type="button" data-tz-wish="lenovo-legion-pro-5" aria-label="Add Lenovo Legion Pro 5 to wishlist">
+                  <!-- jQuery Requirement 1: DOM Traversal target -->
+                <button class="btn btn-wish" type="button" data-tz-wish="lenovo-legion-pro-5" aria-label="Add Lenovo Legion Pro 5 to wishlist">
                     <i class="bi bi-heart"></i>
                   </button>
                 </div>
@@ -753,7 +758,8 @@
                           data-image="../assets/images/products/Acer Predator Helios Neo laptop.webp">
                     <i class="bi bi-bag-plus"></i> Add to Cart
                   </button>
-                  <button class="btn btn-wish" type="button" data-tz-wish="acer-predator-helios-neo" aria-label="Add Acer Predator Helios Neo to wishlist">
+                  <!-- jQuery Requirement 1: DOM Traversal target -->
+                <button class="btn btn-wish" type="button" data-tz-wish="acer-predator-helios-neo" aria-label="Add Acer Predator Helios Neo to wishlist">
                     <i class="bi bi-heart"></i>
                   </button>
                 </div>
@@ -793,6 +799,15 @@
           <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
           <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
         </div>
+
+        <!-- jQuery Requirement 6: newsletter form — .on('submit') target -->
+        <form class="footer-newsletter" id="newsletterForm">
+          <label class="visually-hidden" for="newsletterEmail">Email address</label>
+          <input type="email" id="newsletterEmail" class="form-control"
+                 placeholder="Your email for deals" required>
+          <button class="btn btn-tz" type="submit">Subscribe</button>
+          <p class="newsletter-msg" id="newsletterMsg" hidden></p>
+        </form>
       </div>
 
       <!-- Column 2 — Quick Links -->
@@ -860,9 +875,18 @@
 <!-- Toast host for "added to cart" messages -->
 <div class="tz-toast-wrap" id="tzToastWrap" aria-live="polite" aria-atomic="true"></div>
 
+<!-- jQuery Requirement 5b: fadeIn/delay/fadeOut target -->
+<div id="jqueryNotice" role="status">
+  <i class="bi bi-check-circle-fill"></i> <span>Added to cart with jQuery!</span>
+</div>
+
 <!-- Scripts: Bootstrap, then global, then page-specific -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- jQuery must load before any script that uses $ -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="../assets/js/global.js"></script>
 <script src="../assets/js/product-detail.js"></script>
+<!-- jQuery assignment demos — loads last so it can see the vanilla JS -->
+<script src="../assets/js/jquery-demo.js"></script>
 </body>
 </html>
