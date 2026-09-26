@@ -1,13 +1,3 @@
-/* ==========================================================================
-   TechZone — global.css
-   Shared across every page: colour tokens, typography, buttons,
-   header, navigation, product cards, forms, toasts, footer.
-   Load order:  bootstrap.min.css  →  global.css  →  [page-name].css
-   ========================================================================== */
-
-/* --------------------------------------------------------------------------
-   1. THEME TOKENS
-   -------------------------------------------------------------------------- */
 :root {
   --color-navy-dark: #0B1120;
   --color-navy-deep: #0D1B2A;
@@ -604,4 +594,69 @@ img { max-width: 100%; }
   .tz-delivery small { display: none; }
   .tz-toast-wrap { left: 16px; right: 16px; bottom: 16px; }
   .tz-toast { min-width: 0; max-width: none; }
+}
+
+/* ==========================================================================
+   jQUERY ASSIGNMENT DEMOS
+   Styling for the elements jquery-demo.js drives. Shared across the three
+   pages that load it, so it lives here rather than in a page stylesheet.
+   ========================================================================== */
+
+/* Requirement 1 — class added to the whole card by .closest() traversal */
+.product-card.favorited {
+  border-color: var(--color-discount);
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, .18);
+}
+
+/* Requirement 5b — fadeIn/delay/fadeOut notice. Starts hidden; jQuery fades
+   it in. Uses display:none rather than [hidden] so .fadeIn() controls it. */
+#jqueryNotice {
+  display: none;
+  position: fixed;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
+  z-index: 1090;
+  background: var(--color-navy-dark);
+  color: var(--color-white);
+  border: 1px solid var(--color-success);
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: .875rem;
+  font-weight: 500;
+  box-shadow: var(--tz-shadow-lg);
+  white-space: nowrap;
+  max-width: calc(100vw - 32px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#jqueryNotice i { color: var(--color-success); margin-right: .4rem; }
+
+/* Requirement 6.4 — footer newsletter form */
+.footer-newsletter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+  max-width: 340px;
+}
+.footer-newsletter .form-control {
+  flex: 1 1 170px;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .16);
+  color: var(--color-white);
+  font-size: .8125rem;
+}
+.footer-newsletter .form-control::placeholder { color: rgba(255, 255, 255, .45); }
+.footer-newsletter .form-control:focus {
+  background: rgba(255, 255, 255, .12);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
+.footer-newsletter .btn { flex: 0 0 auto; font-size: .8125rem; padding: .5rem 1rem; }
+.newsletter-msg {
+  flex: 1 1 100%;
+  margin: 2px 0 0;
+  font-size: .75rem;
+  color: var(--color-success);
 }

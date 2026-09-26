@@ -183,3 +183,21 @@
   .about-hero { padding: 40px 0 44px; }
   .about-cta { padding: 26px 22px; text-align: center; justify-content: center; }
 }
+
+/* --------------------------------------------------------------------------
+   TEAM PHOTOS
+   Scoped to img.team-avatar. The .team-avatar class is shared with the <span>
+   wrappers used elsewhere, so an unscoped rule would restyle those too.
+   -------------------------------------------------------------------------- */
+img.team-avatar {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid var(--color-bg-light);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+  /* kept from the span it replaced, so the gap above the name is unchanged */
+  margin: 0 auto 14px;
+  display: block;
+}

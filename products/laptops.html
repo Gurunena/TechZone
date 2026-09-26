@@ -68,6 +68,17 @@
           </span>
         </a>
 
+        
+      <!--Order history-->
+        <a class="tz-icon-btn" href="../order-history.html">
+          <i class="bi bi-box-seam"></i>
+          <span class="tz-icon-label">
+            <small>My Orders</small>
+            <strong>Order History</strong>
+          </span>
+        </a>
+
+
         <a class="tz-icon-btn" href="../account/wishlist.html">
           <i class="bi bi-heart"></i>
           <span class="tz-icon-label">
@@ -161,6 +172,14 @@
     </div>
   </div>
 
+  <!-- ASSIGNMENT REQUIREMENT: Bootstrap Alert (dismissible) -->
+  <div class="container">
+    <div class="alert alert-success alert-dismissible fade show text-center mb-4" role="alert">
+      <i class="bi bi-truck"></i> Free islandwide delivery on all orders above Rs. 50,000!
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </div>
+
   <!-- ============================================================
        4. PAGE TITLE BAR + SORT
        ============================================================ -->
@@ -225,6 +244,16 @@
                   <h2>Filters</h2>
                   <button type="button" class="clear-all" data-clear-filters>Clear All</button>
                 </div>
+
+                <!-- jQuery Requirement 5a: .slideToggle() target.
+                     Desktop only — below lg the sidebar is a Bootstrap offcanvas,
+                     and sliding it as well would fight the offcanvas animation. -->
+                <button type="button" class="btn btn-tz-outline w-100 mb-3 d-none d-lg-block"
+                        id="jqFilterToggle">
+                  <i class="bi bi-chevron-up"></i> Hide Filters
+                </button>
+
+                <div id="jqFilterBody">
 
                 <div class="accordion" id="filterAccordion">
         <div class="accordion-item">
@@ -400,6 +429,8 @@
         </div>
                 </div>
 
+                </div><!-- /#jqFilterBody -->
+
                 <button type="button" class="btn btn-tz-outline w-100 mt-3 d-lg-none" data-clear-filters>
                   Clear All Filters
                 </button>
@@ -454,6 +485,7 @@
                         data-image="../assets/images/products/ASUS TUF Gaming F15.png">
                   <i class="bi bi-bag-plus"></i> Add to Cart
                 </button>
+                <!-- jQuery Requirement 1: DOM Traversal target -->
                 <button class="btn btn-wish" type="button" data-tz-wish="asus-tuf-f15" aria-label="Add ASUS TUF Gaming F15 to wishlist">
                   <i class="bi bi-heart"></i>
                 </button>
@@ -497,6 +529,7 @@
                         data-image="../assets/images/products/ASUS Vivobook 15 laptop.jpg">
                   <i class="bi bi-bag-plus"></i> Add to Cart
                 </button>
+                <!-- jQuery Requirement 1: DOM Traversal target -->
                 <button class="btn btn-wish" type="button" data-tz-wish="asus-vivobook-15" aria-label="Add ASUS Vivobook 15 to wishlist">
                   <i class="bi bi-heart"></i>
                 </button>
@@ -542,6 +575,7 @@
                         data-image="../assets/images/products/Dell Inspiron 15 laptop.webp">
                   <i class="bi bi-bag-plus"></i> Add to Cart
                 </button>
+                <!-- jQuery Requirement 1: DOM Traversal target -->
                 <button class="btn btn-wish" type="button" data-tz-wish="dell-inspiron-15" aria-label="Add Dell Inspiron 15 to wishlist">
                   <i class="bi bi-heart"></i>
                 </button>
@@ -586,6 +620,7 @@
                         data-image="../assets/images/products/dell-xps-13-plus.png">
                   <i class="bi bi-bag-plus"></i> Add to Cart
                 </button>
+                <!-- jQuery Requirement 1: DOM Traversal target -->
                 <button class="btn btn-wish" type="button" data-tz-wish="dell-xps-13-plus" aria-label="Add Dell XPS 13 Plus to wishlist">
                   <i class="bi bi-heart"></i>
                 </button>
@@ -629,6 +664,7 @@
                         data-image="../assets/images/products/HP Pavilion 14 laptop.webp">
                   <i class="bi bi-bag-plus"></i> Add to Cart
                 </button>
+                <!-- jQuery Requirement 1: DOM Traversal target -->
                 <button class="btn btn-wish" type="button" data-tz-wish="hp-pavilion-14" aria-label="Add HP Pavilion 14 to wishlist">
                   <i class="bi bi-heart"></i>
                 </button>
@@ -674,6 +710,7 @@
                         data-image="../assets/images/products/HP Victus 16 laptop.jpeg">
                   <i class="bi bi-bag-plus"></i> Add to Cart
                 </button>
+                <!-- jQuery Requirement 1: DOM Traversal target -->
                 <button class="btn btn-wish" type="button" data-tz-wish="hp-victus-16" aria-label="Add HP Victus 16 to wishlist">
                   <i class="bi bi-heart"></i>
                 </button>
@@ -717,6 +754,7 @@
                         data-image="../assets/images/products/Lenovo IdeaPad Slim 3 laptop.jpeg">
                   <i class="bi bi-bag-plus"></i> Add to Cart
                 </button>
+                <!-- jQuery Requirement 1: DOM Traversal target -->
                 <button class="btn btn-wish" type="button" data-tz-wish="lenovo-ideapad-slim-3" aria-label="Add Lenovo IdeaPad Slim 3 to wishlist">
                   <i class="bi bi-heart"></i>
                 </button>
@@ -761,6 +799,7 @@
                         data-image="../assets/images/products/Lenovo Legion Pro 5 laptop.webp">
                   <i class="bi bi-bag-plus"></i> Add to Cart
                 </button>
+                <!-- jQuery Requirement 1: DOM Traversal target -->
                 <button class="btn btn-wish" type="button" data-tz-wish="lenovo-legion-pro-5" aria-label="Add Lenovo Legion Pro 5 to wishlist">
                   <i class="bi bi-heart"></i>
                 </button>
@@ -781,6 +820,8 @@
                    data-reviews="38"
                    data-added="6">
             <a class="product-thumb" href="product-detail.html?id=acer-aspire-5" tabindex="-1" aria-hidden="true">
+              <!-- ASSIGNMENT REQUIREMENT: badge bg-secondary (out-of-stock state) -->
+              <span class="product-badges"><span class="badge bg-secondary">Out of Stock</span></span>
               <img src="../assets/images/products/Acer Aspire 5 laptop.jpg" alt="Acer Aspire 5 laptop">
             </a>
             <div class="product-body">
@@ -796,14 +837,9 @@
                 <span class="price-now">Rs. 132,990</span>
               </div>
               <div class="product-actions">
-                <button class="btn btn-tz" type="button"
-                        data-tz-add-to-cart
-                        data-id="acer-aspire-5"
-                        data-name="Acer Aspire 5"
-                        data-price="132990"
-                        data-image="../assets/images/products/Acer Aspire 5 laptop.jpg">
-                  <i class="bi bi-bag-plus"></i> Add to Cart
-                </button>
+                <!-- ASSIGNMENT REQUIREMENT: btn-danger + disabled state -->
+                <button class="btn btn-danger" type="button" disabled>Out of Stock</button>
+                <!-- jQuery Requirement 1: DOM Traversal target -->
                 <button class="btn btn-wish" type="button" data-tz-wish="acer-aspire-5" aria-label="Add Acer Aspire 5 to wishlist">
                   <i class="bi bi-heart"></i>
                 </button>
@@ -847,6 +883,7 @@
                         data-image="../assets/images/products/Acer Predator Helios Neo laptop.webp">
                   <i class="bi bi-bag-plus"></i> Add to Cart
                 </button>
+                <!-- jQuery Requirement 1: DOM Traversal target -->
                 <button class="btn btn-wish" type="button" data-tz-wish="acer-predator-helios-neo" aria-label="Add Acer Predator Helios Neo to wishlist">
                   <i class="bi bi-heart"></i>
                 </button>
@@ -892,7 +929,53 @@
                         data-image="../assets/images/products/MSI Modern 14 laptop.webp">
                   <i class="bi bi-bag-plus"></i> Add to Cart
                 </button>
+                <!-- jQuery Requirement 1: DOM Traversal target -->
                 <button class="btn btn-wish" type="button" data-tz-wish="msi-modern-14" aria-label="Add MSI Modern 14 to wishlist">
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+        <div class="col">
+          <article class="product-card" data-product
+                   data-id="msi-katana-15"
+                   data-brand="msi"
+                   data-cpu="i7"
+                   data-ram="16"
+                   data-storage="512"
+                   data-price="259990"
+                   data-rating="4"
+                   data-reviews="17"
+                   data-added="1">
+            <a class="product-thumb" href="product-detail.html?id=msi-katana-15" tabindex="-1" aria-hidden="true">
+              <img src="../assets/images/products/MSI Katana 15 laptop.webp" alt="MSI Katana 15 laptop">
+            </a>
+            <div class="product-body">
+              <h3 class="product-title">
+                <a class="stretched-link" href="product-detail.html?id=msi-katana-15">MSI Katana 15</a>
+              </h3>
+              <p class="product-spec">Intel i7 / 16GB / 512GB SSD / RTX 4050</p>
+              <div class="product-rating">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                <span>(17)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-now">Rs. 259,990</span>
+              </div>
+              <div class="product-actions">
+                <button class="btn btn-tz" type="button"
+                        data-tz-add-to-cart
+                        data-id="msi-katana-15"
+                        data-name="MSI Katana 15"
+                        data-price="259990"
+                        data-image="../assets/images/products/MSI Katana 15 laptop.webp">
+                  <i class="bi bi-bag-plus"></i> Add to Cart
+                </button>
+                <!-- jQuery Requirement 1: DOM Traversal target -->
+                <button class="btn btn-wish" type="button" data-tz-wish="msi-katana-15" aria-label="Add MSI Katana 15 to wishlist">
                   <i class="bi bi-heart"></i>
                 </button>
               </div>
@@ -935,6 +1018,7 @@
                         data-image="../assets/images/products/MSI Katana 15 laptop.webp">
                   <i class="bi bi-bag-plus"></i> Add to Cart
                 </button>
+                <!-- jQuery Requirement 1: DOM Traversal target -->
                 <button class="btn btn-wish" type="button" data-tz-wish="msi-katana-15" aria-label="Add MSI Katana 15 to wishlist">
                   <i class="bi bi-heart"></i>
                 </button>
@@ -970,6 +1054,8 @@
 
         </div>
 
+        
+
       </div>
     </div>
   </section>
@@ -1002,6 +1088,15 @@
           <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
           <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
         </div>
+
+        <!-- jQuery Requirement 6: newsletter form — .on('submit') target -->
+        <form class="footer-newsletter" id="newsletterForm">
+          <label class="visually-hidden" for="newsletterEmail">Email address</label>
+          <input type="email" id="newsletterEmail" class="form-control"
+                 placeholder="Your email for deals" required>
+          <button class="btn btn-tz" type="submit">Subscribe</button>
+          <p class="newsletter-msg" id="newsletterMsg" hidden></p>
+        </form>
       </div>
 
       <!-- Column 2 — Quick Links -->
@@ -1069,9 +1164,18 @@
 <!-- Toast host for "added to cart" messages -->
 <div class="tz-toast-wrap" id="tzToastWrap" aria-live="polite" aria-atomic="true"></div>
 
+<!-- jQuery Requirement 5b: fadeIn/delay/fadeOut target -->
+<div id="jqueryNotice" role="status">
+  <i class="bi bi-check-circle-fill"></i> <span>Added to cart with jQuery!</span>
+</div>
+
 <!-- Scripts: Bootstrap, then global, then page-specific -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- jQuery must load before any script that uses $ -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="../assets/js/global.js"></script>
 <script src="../assets/js/laptops.js"></script>
+<!-- jQuery assignment demos — loads last so it can see the vanilla JS -->
+<script src="../assets/js/jquery-demo.js"></script>
 </body>
 </html>
