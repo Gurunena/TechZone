@@ -33,7 +33,7 @@
   <link rel="stylesheet" href="../assets/css/global.css">
   <link rel="stylesheet" href="../assets/css/profile.css">
 
-  <link rel="icon" href="../assets/images/logo/logo.png">
+  <link rel="icon" href="../assets/images/logo/favicon.png">
 </head>
 <body>
 <!-- Everything inside <body> is what the visitor actually sees. -->
@@ -49,7 +49,7 @@
     <div class="tz-header-inner">
 
       <a class="tz-brand" href="../index.html">
-        <img src="../assets/images/logo/logo.png" alt="TechZone logo" class="tz-brand-mark">
+        <img src="../assets/images/logo/ChatGPT Image Sep 10, 2026, 04_28_41 PM.png" alt="TechZone logo" class="tz-brand-mark">
         <span class="tz-brand-text">
           Tech<b>Zone</b>
           <small>Your PC. Our Passion.</small>
@@ -249,6 +249,96 @@
           </div>
         </div>
 
+        <!-- ============================================================
+             jQUERY FEATURES DEMO  (Class Task 4)
+             Every button below shows ONE of the six required jQuery skills.
+             The matching, commented code is in assets/js/jquery-demo.js.
+             Click a button and watch the "Result" area change.
+             ============================================================ -->
+        <section class="tz-card account-block" id="jquery-demo">
+          <div class="block-head">
+            <h2 class="block-title"><i class="bi bi-magic"></i> jQuery Features Demo</h2>
+            <span class="badge bg-primary">Class Task 4</span>
+          </div>
+
+          <p class="text-muted mb-4">
+            Each card below demonstrates one required jQuery technique. Click the
+            button to run it. Every technique is labelled so I can point to it in
+            the Q&amp;A.
+          </p>
+
+          <div class="row g-3">
+
+            <!-- 1) DOM TRAVERSAL -->
+            <div class="col-md-6 col-lg-4">
+              <div class="border rounded p-3 h-100">
+                <span class="badge bg-secondary mb-2">1 · DOM Traversal</span>
+                <p class="small mb-2">Move from one element to related ones (parent, siblings, children).</p>
+                <ul class="list-group list-group-flush mb-3" id="jqTravList">
+                  <li class="list-group-item">Laptops</li>
+                  <li class="list-group-item">Desktops</li>
+                  <li class="list-group-item">Peripherals</li>
+                </ul>
+                <button type="button" class="btn btn-sm btn-tz" id="jqTravBtn">Highlight middle item's siblings</button>
+              </div>
+            </div>
+
+            <!-- 2) DOM MODIFICATION -->
+            <div class="col-md-6 col-lg-4">
+              <div class="border rounded p-3 h-100">
+                <span class="badge bg-secondary mb-2">2 · DOM Modification</span>
+                <p class="small mb-2">Add and remove elements on the page.</p>
+                <ul class="list-group list-group-flush mb-3" id="jqModList">
+                  <li class="list-group-item">Item 1</li>
+                </ul>
+                <button type="button" class="btn btn-sm btn-tz" id="jqAddBtn">Add item</button>
+                <button type="button" class="btn btn-sm btn-tz-light" id="jqRemoveBtn">Remove last</button>
+              </div>
+            </div>
+
+            <!-- 3) DOM ATTRIBUTE MODIFICATION -->
+            <div class="col-md-6 col-lg-4">
+              <div class="border rounded p-3 h-100">
+                <span class="badge bg-secondary mb-2">3 · Attribute Modification</span>
+                <p class="small mb-2">Change an element's attribute (here: a link's <code>href</code> and target).</p>
+                <p class="mb-3"><a href="#" id="jqAttrLink" target="_self">This link goes nowhere yet</a></p>
+                <button type="button" class="btn btn-sm btn-tz" id="jqAttrBtn">Set link to TechZone home</button>
+              </div>
+            </div>
+
+            <!-- 4) CSS MANIPULATION -->
+            <div class="col-md-6 col-lg-4">
+              <div class="border rounded p-3 h-100">
+                <span class="badge bg-secondary mb-2">4 · CSS Manipulation</span>
+                <p class="small mb-2">Change styles like colour directly with jQuery.</p>
+                <p class="mb-3 fs-5 fw-semibold" id="jqCssText">Change my colour!</p>
+                <button type="button" class="btn btn-sm btn-tz" id="jqCssBtn">Change colour</button>
+              </div>
+            </div>
+
+            <!-- 5) JAVASCRIPT EFFECTS -->
+            <div class="col-md-6 col-lg-4">
+              <div class="border rounded p-3 h-100">
+                <span class="badge bg-secondary mb-2">5 · JavaScript Effects</span>
+                <p class="small mb-2">Animate elements (fade / slide).</p>
+                <div class="alert alert-success mb-3" id="jqEffectBox">Surprise! You can hide me. 🎉</div>
+                <button type="button" class="btn btn-sm btn-tz" id="jqEffectBtn">Slide toggle</button>
+              </div>
+            </div>
+
+            <!-- 6) HTML EVENTS -->
+            <div class="col-md-6 col-lg-4">
+              <div class="border rounded p-3 h-100">
+                <span class="badge bg-secondary mb-2">6 · HTML Events</span>
+                <p class="small mb-2">React to events like typing (keyup).</p>
+                <input type="text" class="form-control mb-2" id="jqEventInput" placeholder="Type your name…">
+                <p class="mb-0">Hello, <span class="fw-semibold" id="jqEventOut">stranger</span>!</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
         <!-- Recent orders -->
         <section class="tz-card account-block">
           <div class="block-head">
@@ -386,7 +476,7 @@
 
       <div class="col-lg-4 col-md-6">
         <a class="tz-brand" href="../index.html">
-          <img src="../assets/images/logo/logo.png" alt="TechZone logo" class="tz-brand-mark">
+          <img src="../assets/images/logo/ChatGPT Image Sep 10, 2026, 04_28_41 PM.png" alt="TechZone logo" class="tz-brand-mark">
           <span class="tz-brand-text">
             Tech<b>Zone</b>
             <small>Your PC. Our Passion.</small>
@@ -410,9 +500,8 @@
           <li><a href="../index.html">Home</a></li>
           <li><a href="../about.html">About Us</a></li>
           <li><a href="../contact.html">Contact Us</a></li>
-          <li><a href="../FAQ.html">FAQs</a></li>
-          <li><a href="../returns-refunds.html">Returns &amp; Refunds</a></li>
-          <li><a href="../shipping-policy.html">Shipping Policy</a></li>
+          <li><a href="../contact.html#faqs">FAQs</a></li>
+          <li><a href="../contact.html#returns">Returns &amp; Refunds</a></li>
         </ul>
       </div>
 
@@ -454,7 +543,7 @@
       <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
         <span>&copy; <span data-tz-year>2025</span> TechZone. All rights reserved.</span>
         <span class="footer-legal">
-          <a href="../privacy-policy.html">Privacy Policy</a> <span class="sep">|</span> <a href="../terms-conditions.html">Terms &amp; Conditions</a>
+          <a href="../privacy-policy.html">Privacy Policy</a> <span class="sep">|</span> <a href="../terms-condition.html">Terms &amp; Conditions</a>
         </span>
       </div>
     </div>
@@ -463,9 +552,14 @@
 
 <div class="tz-toast-wrap" id="tzToastWrap" aria-live="polite" aria-atomic="true"></div>
 
-<!-- Scripts: Bootstrap, then global, then page-specific -->
+<!-- Scripts: Bootstrap, then jQuery, then global, then page-specific -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- jQuery library (Class Task 4). This one line loads jQuery from a CDN so
+     that the $(...) shortcut used in jquery-demo.js is available. -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 <script src="../assets/js/global.js"></script>
 <script src="../assets/js/profile.js"></script>
+<!-- All my jQuery demo code lives in this file, heavily commented. -->
+<script src="../assets/js/jquery-demo.js"></script>
 </body>
 </html>
