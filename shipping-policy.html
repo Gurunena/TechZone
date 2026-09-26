@@ -189,8 +189,13 @@
 
             <div class="policy-menu">
 
-                <h5>Legal Information</h5>
+                <h5 id="legalInfoToggle" style="cursor: pointer;">
+                  Legal Information
+                  <i class="bi bi-chevron-down ms-2"></i>
+                </h5>
 
+                <div id="legalInfoLinks">
+              
                 <a class="active"
                    href="shipping-policy.html">
                     Shipping Policy
@@ -207,6 +212,7 @@
                 <a href="terms-conditions.html">
                     Terms & Conditions
                 </a>
+            </div>
 
             </div>
 
@@ -216,7 +222,9 @@
         <!-- Content -->
         <div class="col-lg-9">
 
-            <div class="policy-content">
+            <div class="policy-content" id="shippingContent">
+
+            <div id="shippingDetails"> 
 
                 <div class="alert alert-primary">
                     <strong>Important:</strong>
@@ -347,7 +355,8 @@
                     </p>
 
                     <a href="contact.html"
-                       class="btn btn-primary">
+                       class="btn btn-primary"
+                       id="shippingContactBtn">
                         Contact TechZone
                     </a>
                 </section>
@@ -454,6 +463,7 @@
 
 <!-- Scripts: Bootstrap, then global, then page-specific -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="assets/js/global.js"></script>
 <script src="assets/js/shipping-policy.js"></script>
 
