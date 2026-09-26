@@ -210,7 +210,7 @@
       if (window.TZ) { window.TZ.toast('Review submitted successfully!', 'success'); }
 
       if (typeof bootstrap !== 'undefined') {
-        var box = document.getElementById('reviewForm');
+        var box = document.getElementById('reviewFormPanel');
         if (box) { bootstrap.Collapse.getOrCreateInstance(box).hide(); }
       }
     });

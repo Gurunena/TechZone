@@ -383,6 +383,7 @@
                         data-image="assets/images/products/ASUS TUF Gaming F15.png">
                   <i class="bi bi-bag-plus"></i> Add to Cart
                 </button>
+                <!-- jQuery Requirement 1: DOM Traversal target -->
                 <button class="btn btn-wish" type="button" data-tz-wish="asus-tuf-f15" aria-label="Add to wishlist">
                   <i class="bi bi-heart"></i>
                 </button>
@@ -419,6 +420,7 @@
                         data-image="assets/images/products/iBUYPOWER Gaming PC.avif">
                   <i class="bi bi-bag-plus"></i> Add to Cart
                 </button>
+                <!-- jQuery Requirement 1: DOM Traversal target -->
                 <button class="btn btn-wish" type="button" data-tz-wish="ibuypower-gaming-pc" aria-label="Add to wishlist">
                   <i class="bi bi-heart"></i>
                 </button>
@@ -456,6 +458,7 @@
                         data-image="assets/images/products/Acer Nitro.webp">
                   <i class="bi bi-bag-plus"></i> Add to Cart
                 </button>
+                <!-- jQuery Requirement 1: DOM Traversal target -->
                 <button class="btn btn-wish" type="button" data-tz-wish="acer-nitro-27" aria-label="Add to wishlist">
                   <i class="bi bi-heart"></i>
                 </button>
@@ -492,6 +495,7 @@
                         data-image="assets/images/products/Samsung 970 EVO Plus.webp">
                   <i class="bi bi-bag-plus"></i> Add to Cart
                 </button>
+                <!-- jQuery Requirement 1: DOM Traversal target -->
                 <button class="btn btn-wish" type="button" data-tz-wish="samsung-970-evo-plus" aria-label="Add to wishlist">
                   <i class="bi bi-heart"></i>
                 </button>
@@ -529,6 +533,7 @@
                         data-image="assets/images/products/HyperX Cloud II.webp">
                   <i class="bi bi-bag-plus"></i> Add to Cart
                 </button>
+                <!-- jQuery Requirement 1: DOM Traversal target -->
                 <button class="btn btn-wish" type="button" data-tz-wish="hyperx-cloud-ii" aria-label="Add to wishlist">
                   <i class="bi bi-heart"></i>
                 </button>
@@ -619,6 +624,15 @@
           <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
           <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
         </div>
+
+        <!-- jQuery Requirement 6: newsletter form — .on('submit') target -->
+        <form class="footer-newsletter" id="newsletterForm">
+          <label class="visually-hidden" for="newsletterEmail">Email address</label>
+          <input type="email" id="newsletterEmail" class="form-control"
+                 placeholder="Your email for deals" required>
+          <button class="btn btn-tz" type="submit">Subscribe</button>
+          <p class="newsletter-msg" id="newsletterMsg" hidden></p>
+        </form>
       </div>
 
       <!-- Column 2 — Quick Links -->
@@ -686,9 +700,18 @@
 
 <div class="tz-toast-wrap" id="tzToastWrap" aria-live="polite" aria-atomic="true"></div>
 
+<!-- jQuery Requirement 5b: fadeIn/delay/fadeOut target -->
+<div id="jqueryNotice" role="status">
+  <i class="bi bi-check-circle-fill"></i> <span>Added to cart with jQuery!</span>
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- jQuery must load before any script that uses $ -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="assets/js/global.js"></script>
 <script src="assets/js/home.js"></script>
+<!-- jQuery assignment demos — loads last so it can see the vanilla JS -->
+<script src="assets/js/jquery-demo.js"></script>
 </body>
 </html>
