@@ -501,3 +501,114 @@ if (clearWishlistBtn) {
    ----------------------------------------- */
 
 renderWishlist();
+
+// ============================================
+// ASSIGNMENT 2 - REQUIREMENT 1
+// DOM TRAVERSAL USING jQuery
+// ============================================
+
+$(document).ready(function () {
+
+    // Select the first Wishlist product card
+    const firstCard = $(".wishlist-card").first();
+
+    // Traverse from the product card to its <h3> element
+    const productTitle = firstCard.find("h3").text().trim();
+
+    // Display the product name in the browser console
+    console.log("First Wishlist Product:", productTitle);
+
+});
+
+// ============================================
+// ASSIGNMENT 2 - REQUIREMENT 2
+// DOM MODIFICATION USING jQuery
+// ============================================
+
+$(document).ready(function () {
+
+    // Select the Wishlist page heading
+    const wishlistHeading = $(".wishlist-header h1");
+
+    // Modify the existing heading text
+    wishlistHeading.html('My <span> Wishlist</span>');
+
+});
+
+// ============================================
+// ASSIGNMENT 2 - REQUIREMENT 3
+// ATTRIBUTE MODIFICATION USING jQuery
+// ============================================
+
+$(document).ready(function () {
+
+    // Select the first Wishlist product image
+    const firstImage = $(".wishlist-product-image").first();
+
+    // Modify the alt attribute of the image
+    firstImage.attr(
+        "alt",
+        "TechZone Wishlist Product"
+    );
+
+    // Display the updated attribute in the console
+    console.log(
+        "Updated Image Alt:",
+        firstImage.attr("alt")
+    );
+
+});
+
+// ============================================
+// ASSIGNMENT 2 - REQUIREMENT 4
+// CSS MANIPULATION USING jQuery
+// ============================================
+
+$(document).ready(function () {
+
+    // Select the Wishlist page heading
+    const wishlistHeading = $(".wishlist-header h1");
+
+    // Modify the CSS using jQuery
+    wishlistHeading.css("letter-spacing", "1px");
+
+    // Display a confirmation in the console
+    console.log("CSS Manipulation Applied: Letter spacing changed.");
+
+});
+
+// ============================================
+// ASSIGNMENT 2 - REQUIREMENT 5
+// JAVASCRIPT EFFECTS USING jQuery
+// ============================================
+
+$(document).ready(function () {
+
+    // Select the Wishlist page header
+    const wishlistHeader = $(".wishlist-header");
+
+    // Apply a fade-in effect when the Wishlist page loads
+    wishlistHeader.hide().fadeIn(800);
+
+    // Display a confirmation in the console
+    console.log("jQuery Effect Applied: Wishlist header faded in.");
+
+});
+
+// ============================================
+// ASSIGNMENT 2 - REQUIREMENT 6
+// HTML EVENTS USING jQuery
+// ============================================
+
+$(document).ready(function () {
+
+    // Attach a click event to the existing
+    // Clear Wishlist button
+    $("#clearWishlistBtn").on("click", function () {
+
+        // Display a message when the button is clicked
+        console.log("Clear Wishlist button clicked.");
+
+    });
+
+});
