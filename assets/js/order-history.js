@@ -42,3 +42,125 @@ steps.forEach(function(step, index) {
     });
 });
 
+// ============================================
+// REQUIREMENT 1
+// DOM TRAVERSAL USING jQuery
+// ============================================
+
+$(document).ready(function () {
+
+    // Select the first order card
+    const firstOrder = $(".order-card").first();
+
+    // Traverse from the order card to find the order number
+    const orderNumber = firstOrder.find("h3").text().trim();
+
+    // Display the order number in the console
+    console.log("First Order:", orderNumber);
+
+});
+
+// ============================================
+//  REQUIREMENT 2
+// DOM MODIFICATION USING jQuery
+// ============================================
+
+$(document).ready(function () {
+
+    // Select the Order History page heading
+    const orderHeading = $(".order-page-title");
+
+    // Modify the existing heading using jQuery
+    orderHeading.html('<span>Order History</span> <strong>&amp; Tracking</strong>');
+
+    // Display a confirmation in the console
+    console.log("DOM Modification Applied: Order heading updated.");
+
+});
+
+// ============================================
+// REQUIREMENT 3
+// ATTRIBUTE MODIFICATION USING jQuery
+// ============================================
+
+$(document).ready(function () {
+
+    // Select the first Track Order button
+    const firstTrackButton = $(".track-btn").first();
+
+    // Modify the button's title attribute
+    firstTrackButton.attr(
+        "title",
+        "Track your TechZone order"
+    );
+
+    // Display the updated attribute in the console
+    console.log(
+        "Updated Button Title:",
+        firstTrackButton.attr("title")
+    );
+
+});
+
+// ============================================
+// REQUIREMENT 4
+// CSS MANIPULATION USING jQuery
+// ============================================
+
+$(document).ready(function () {
+
+    // Select the Order History page heading
+    const orderHeading = $(".order-page-title");
+
+    // Modify the CSS using jQuery
+    orderHeading.css("letter-spacing", "1px");
+
+    // Display a confirmation in the console
+    console.log(
+        "CSS Manipulation Applied: Letter spacing changed."
+    );
+
+});
+
+// ============================================
+// REQUIREMENT 5
+// JAVASCRIPT EFFECTS USING jQuery
+// ============================================
+
+$(document).ready(function () {
+
+    // Select the Order History page header
+    const orderHeader = $(".order-page-title");
+
+    // Apply a fade-in effect when the page loads
+    orderHeader.hide().fadeIn(800);
+
+    // Display a confirmation in the console
+    console.log(
+        "jQuery Effect Applied: Order History heading faded in."
+    );
+
+});
+
+// ============================================
+//  REQUIREMENT 6
+// HTML EVENTS USING jQuery
+// ============================================
+
+$(document).ready(function () {
+
+    // Attach a click event to the existing Track Order buttons
+    $(".track-btn").on("click", function () {
+
+        // Get the order number from the button
+        const orderNumber = $(this).data("order");
+
+        // Display a message when the button is clicked
+        console.log(
+            "Track Order button clicked for:",
+            orderNumber
+        );
+
+    });
+
+});
