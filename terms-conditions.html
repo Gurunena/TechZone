@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The terms and conditions governing your use of the TechZone website and services.">
-  <title>Terms &amp; Conditions | TechZone</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts -->
+    <title>Shipping Policy | TechZone</title>
+
+    <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
@@ -18,13 +17,14 @@
 
   <!-- Site styles: global first, then page-specific -->
   <link rel="stylesheet" href="assets/css/global.css">
-  <link rel="stylesheet" href="assets/css/terms-conditions.css">
 
   <link rel="icon" href="assets/images/logo/logo.png">
+
+    <link rel="stylesheet" href="assets/css/shipping-policy.css">
 </head>
-<!-- ============================================================
-     1. TOP HEADER BAR — logo / search / account-wishlist-cart
-     ============================================================ -->
+
+<body>
+
 <header class="tz-header">
   <div class="container">
     <div class="tz-header-inner">
@@ -102,7 +102,8 @@
 </header>
 
 <!-- ============================================================
-     2. NAVIGATION BAR (identical to index.html)
+     2. NAVIGATION BAR — categories dropdown / links / delivery note
+     Sticky on scroll (see .tz-nav in global.css)
      ============================================================ -->
 <nav class="tz-nav" id="tzNav" aria-label="Main navigation">
   <div class="container">
@@ -130,7 +131,7 @@
       <!-- Main links (collapse on mobile) -->
       <div class="collapse navbar-collapse tz-nav-links" id="tzMainNav">
         <ul class="tz-nav-list">
-          <li><a class="tz-nav-link" href="index.html">Home</a></li>
+          <li><a class="tz-nav-link active" href="index.html">Home</a></li>
           <li><a class="tz-nav-link" href="products/laptops.html">Laptops</a></li>
           <li><a class="tz-nav-link" href="products/desktops.html">Desktops</a></li>
           <li><a class="tz-nav-link" href="products/gaming.html">Gaming</a></li>
@@ -154,50 +155,36 @@
     </div>
   </div>
 </nav>
-<body>
 
-
-<!-- Navbar -->
-
-
-
-
-<!-- Header -->
-
+<!-- Page Header -->
 <section class="policy-header">
-
     <div class="container text-center">
 
         <div class="policy-icon">
             
         </div>
 
-        <h1>Terms & Conditions</h1>
+        <h1>Shipping Policy</h1>
 
         <p>
-            Please read these terms before using TechZone
-            and purchasing our products.
+            Everything you need to know about how TechZone
+            delivers your computer products.
         </p>
 
         <span class="badge bg-primary">
-            Last Updated:
-            <span id="lastUpdated">2026</span>
+            Last Updated: <span id="lastUpdated">2026</span>
         </span>
 
     </div>
-
 </section>
 
 
-<!-- Main -->
-
+<!-- Main Content -->
 <main class="container py-5">
 
     <div class="row g-4">
 
-
         <!-- Sidebar -->
-
         <div class="col-lg-3">
 
             <div class="policy-menu">
@@ -207,22 +194,25 @@
                   <i class="bi bi-chevron-down ms-2"></i>
                 </h5>
 
-                <a href="shipping-policy.html">
+                <div id="legalInfoLinks">
+              
+                <a class="active"
+                   href="shipping-policy.html">
                     Shipping Policy
                 </a>
 
                 <a href="returns-refunds.html">
-                     Returns & Refunds
+                    Returns & Refunds
                 </a>
 
                 <a href="privacy-policy.html">
-                     Privacy Policy
+                    Privacy Policy
                 </a>
 
-                <a class="active"
-                   href="terms-conditions.html">
-                     Terms & Conditions
+                <a href="terms-conditions.html">
+                    Terms & Conditions
                 </a>
+              </div>
 
             </div>
 
@@ -232,190 +222,153 @@
 
 
         <!-- Content -->
-
         <div class="col-lg-9">
 
-            <div class="policy-content" id="termsContent">
+            <div class="policy-content" id="shippingContent">
 
-              <div id="termsDetails">
+            <div id="shippingDetails"> 
 
                 <div class="alert alert-primary">
-
-                    By using the TechZone website, you agree
-                    to follow the terms and conditions described
-                    on this page.
-
+                    <strong>Important:</strong>
+                    Please review our shipping information before
+                    placing your order with TechZone.
                 </div>
 
-                <section class="policy-section">
 
-                    <h2>1. Website Usage</h2>
+                <section class="policy-section">
+                    <h2>1. Shipping Methods</h2>
 
                     <p>
-                        TechZone provides this website for browsing
-                        products, accessing information and placing
-                        orders. Users should use the website in a
-                        responsible and lawful manner.
+                        TechZone provides reliable delivery options
+                        for computer hardware, laptops, desktops,
+                        gaming products, components and accessories.
                     </p>
 
+                    <div class="row g-3">
+
+                        <div class="col-md-6">
+                            <div class="info-card">
+                                <h5>Standard Delivery</h5>
+                                <p>
+                                    Suitable for normal product orders
+                                    and general deliveries.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="info-card">
+                                <h5>Express Delivery</h5>
+                                <p>
+                                    Faster delivery may be available
+                                    for selected locations and products.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
                 </section>
 
 
                 <section class="policy-section">
-
-                    <h2>2. Product Information</h2>
+                    <h2>2. Delivery Areas</h2>
 
                     <p>
-                        TechZone aims to provide accurate product
-                        descriptions, specifications, images and
-                        pricing. Product information may be updated
-                        when necessary.
+                        TechZone delivers products to available
+                        locations within Sri Lanka. Delivery
+                        availability may depend on the customer's
+                        address and courier service coverage.
                     </p>
-
                 </section>
 
 
                 <section class="policy-section">
+                    <h2>3. Estimated Delivery Time</h2>
 
-                    <h2>3. Product Prices</h2>
+                    <div class="table-responsive">
 
-                    <p>
-                        Product prices displayed on the website may
-                        change without prior notice. The applicable
-                        price during checkout will be used for the
-                        order.
-                    </p>
+                        <table class="table table-bordered table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Delivery Type</th>
+                                    <th>Estimated Time</th>
+                                </tr>
+                            </thead>
 
+                            <tbody>
+                                <tr>
+                                    <td>Standard Delivery</td>
+                                    <td>2 – 5 Business Days</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Express Delivery</td>
+                                    <td>1 – 2 Business Days</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
                 </section>
 
 
                 <section class="policy-section">
-
-                    <h2>4. Orders</h2>
+                    <h2>4. Shipping Charges</h2>
 
                     <p>
-                        Placing an order through the website represents
-                        a request to purchase the selected products.
-                        TechZone may review order information before
-                        confirming an order.
+                        Shipping charges may vary depending on the
+                        delivery location, product size, weight and
+                        selected delivery method. Applicable charges
+                        will be displayed during checkout.
                     </p>
-
                 </section>
 
 
                 <section class="policy-section">
-
-                    <h2>5. Payments</h2>
+                    <h2>5. Order Tracking</h2>
 
                     <p>
-                        Customers are responsible for providing
-                        accurate payment information when completing
-                        a purchase. Available payment methods may
-                        depend on the checkout options provided by
-                        TechZone.
+                        Once your order has been dispatched, tracking
+                        information may be provided through the order
+                        details or through the selected delivery service.
                     </p>
-
                 </section>
 
 
                 <section class="policy-section">
-
-                    <h2>6. Delivery</h2>
+                    <h2>6. Delayed or Lost Orders</h2>
 
                     <p>
-                        Delivery is subject to the conditions described
-                        in the TechZone Shipping Policy. Delivery times
-                        may vary depending on location and external
-                        circumstances.
+                        Delivery times may occasionally be affected by
+                        weather conditions, public holidays, courier
+                        delays or other circumstances outside our control.
+                        Customers should contact TechZone if an order
+                        has not arrived within the expected delivery period.
                     </p>
-
                 </section>
 
 
                 <section class="policy-section">
-
-                    <h2>7. Returns and Refunds</h2>
-
-                    <p>
-                        Product returns, replacements and refunds are
-                        subject to the TechZone Returns & Refunds Policy.
-                        Customers should review that policy before
-                        requesting a return.
-                    </p>
-
-                    <a href="returns-refunds.html"
-                       class="btn btn-outline-primary">
-                        View Returns Policy
-                    </a>
-
-                </section>
-
-
-                <section class="policy-section">
-
-                    <h2>8. User Accounts</h2>
+                    <h2>7. Contact Us</h2>
 
                     <p>
-                        Customers are responsible for maintaining the
-                        confidentiality of their account information
-                        and for providing accurate information when
-                        creating an account.
-                    </p>
-
-                </section>
-
-
-                <section class="policy-section">
-
-                    <h2>9. Intellectual Property</h2>
-
-                    <p>
-                        Website content including text, graphics,
-                        logos and other materials should not be
-                        copied, reproduced or redistributed without
-                        appropriate permission.
-                    </p>
-
-                </section>
-
-
-                <section class="policy-section">
-
-                    <h2>10. Changes to These Terms</h2>
-
-                    <p>
-                        TechZone may update these terms and conditions
-                        when necessary. Updated terms will be made
-                        available on this page.
-                    </p>
-
-                </section>
-
-
-                <section class="policy-section">
-
-                    <h2>11. Contact Us</h2>
-
-                    <p>
-                        If you have questions about these Terms &
-                        Conditions, please contact TechZone.
+                        If you have questions regarding shipping or
+                        delivery, please contact our support team.
                     </p>
 
                     <a href="contact.html"
                        class="btn btn-primary"
-                       id="termsContactBtn">
+                       id="shippingContactBtn">
                         Contact TechZone
                     </a>
-
                 </section>
-
 
             </div>
 
         </div>
 
-      </div>
-
+    </div>
+    
 
 </main>
 
@@ -495,9 +448,8 @@
         </div>
         <p class="footer-secure"><i class="bi bi-shield-check"></i> Secure checkout</p>
       </div>
-    </div>
-  </div>
 
+    </div>
 
     <!-- Bottom bar -->
     <div class="tz-footer-bottom">
@@ -508,6 +460,7 @@
         </span>
       </div>
     </div>
+  </div>
 </footer>
 
 
@@ -515,8 +468,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="assets/js/global.js"></script>
-<script src="assets/js/terms-conditions.js"></script>
+<script src="assets/js/shipping-policy.js"></script>
 
 </body>
-
 </html>
