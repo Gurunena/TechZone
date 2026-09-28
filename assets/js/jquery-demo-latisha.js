@@ -1,159 +1,179 @@
 /* ==========================================================================
-   TechZone — jquery-demo.js   (Class Task 4: jQuery)
+   TechZone — jquery-demo-latisha.js   (Class Task 4: jQuery)   by Latisha
 
    ~~~ READ ME LIKE A STORY ~~~
 
    WHAT IS jQUERY?
-   Imagine the web page is a big box of LEGO. Every button, every word,
-   every picture is one LEGO brick. jQuery is like a magic hand that can
-   grab any brick and change it — its colour, where it is, or make it
-   disappear.
+   Think of the web page as a big box of LEGO. Every button, word and picture
+   is one LEGO brick. jQuery is a magic hand that can grab any brick and change
+   it — its colour, where it is, or make it appear and disappear.
 
    THE MAGIC WORD IS  $
-   $ means "jQuery, go grab something for me."
-     $("#hello")   = grab the ONE brick whose id is "hello"   (# means id)
-     $(".box")     = grab EVERY brick with the class "box"     (. means class)
-   After you grab a brick, you tell it what to do with a dot:
-     $("#hello").hide();   =  grab #hello, then hide it.
+     $("#hello")  = grab the ONE brick whose id is "hello"   (# means id)
+     $(".box")    = grab EVERY brick with the class "box"     (. means class)
+   Then you add a dot and say what to do:   $("#hello").hide();
 
-   THIS PAGE HAS 6 LITTLE TOYS. Each toy shows one thing the teacher asked
-   for. Click a button and watch what happens. The 6 things are:
-     1. DOM Traversal            (walk to a brick's neighbours)
-     2. DOM Modification         (add or remove bricks)
-     3. Attribute Modification   (change a setting inside a brick)
-     4. CSS Manipulation         (change how a brick looks, like colour)
-     5. JavaScript Effects       (make bricks slide and fade like magic)
-     6. HTML Events              (do something when the user clicks or types)
+   HOW THIS IS BUILT
+   All my jQuery is added to the REAL parts of my website (stat cards, orders
+   table, addresses, profile form, cart items). That's how real sites use
+   jQuery — it quietly makes real features nicer. It is NOT a fake demo box.
 
-   ONE MORE THING:
-     $(function () { ...your code... });
-   This means: "Wait until the WHOLE page has finished loading, THEN start."
-   If we didn't wait, our magic hand might reach for a LEGO brick that isn't
-   on the table yet, and grab nothing.
+   ============ THE 6 REQUIREMENTS — AND WHERE TO FIND EACH ONE ============
+   Tip: press Ctrl+F and search "REQUIREMENT 1", "REQUIREMENT 2" ... to jump
+   straight to any one during the Q&A.
+
+     REQUIREMENT 1 — DOM TRAVERSAL          -> Recent Orders table (hover a row)
+     REQUIREMENT 2 — DOM MODIFICATION       -> "Add New" address button
+     REQUIREMENT 3 — ATTRIBUTE MODIFICATION -> "Lock / Unlock" profile form
+     REQUIREMENT 4 — CSS MANIPULATION       -> dashboard stat cards (hover)
+     REQUIREMENT 5 — JAVASCRIPT EFFECTS     -> Saved Addresses (click heading)
+     REQUIREMENT 6 — HTML EVENTS            -> used everywhere (hover + click)
+   =========================================================================
+
+   $(function () { ... }) means "wait until the page has fully loaded, THEN run
+   my code", so every LEGO brick is on the table before the magic hand reaches.
    ========================================================================== */
 
 $(function () {
 
-  /* ====================================================================
-     TOY 1 — DOM TRAVERSAL   ("walk to the neighbours")
-
-     "Traversal" is a big word that just means WALKING from one brick to
-     the bricks next to it — like standing on a stair and stepping to the
-     stairs above and below, without knowing their names.
-
-     Our list has 3 items. When you click the button:
-       - .eq(1)      -> stand on the MIDDLE item.
-                        (computers count 0,1,2 — so 1 is the 2nd = middle)
-       - .siblings() -> WALK to the items next to it (its brothers/sisters)
-       - .css(...)   -> paint those neighbours so you can see who they are
-     ==================================================================== */
-  $("#jqTravBtn").on("click", function () {
-    var middle = $("#jqTravList li").eq(1);      // stand on the middle item
-    middle.siblings().css({                       // walk to its neighbours...
-      "background-color": "#eaf1ff",              // ...and paint them light blue
-      "font-weight": "600"
+  /* ############################################################
+     ##  REQUIREMENT 4 — CSS MANIPULATION                       ##
+     ##  REQUIREMENT 6 — HTML EVENTS  (hover)                    ##
+     ##  Real feature: the 4 dashboard stat cards               ##
+     ############################################################
+     WHAT THIS DOES (easy words):
+       - "hover" is an EVENT = something the user does with the mouse.
+         mouseenter = mouse came ON the card. mouseleave = mouse went OFF.
+       - .css(...) changes how the card LOOKS.
+       So: move the mouse onto a card and it lifts up with a soft blue shadow;
+       move off and it goes back to normal.
+       $(this) always means "the exact card the mouse is on right now". */
+  $(".stat-card")
+    .on("mouseenter", function () {                 // REQUIREMENT 6: an event
+      $(this).css({                                 // REQUIREMENT 4: change look
+        "transform": "translateY(-4px)",            //   lift the card up
+        "box-shadow": "0 10px 24px rgba(45, 108, 255, .18)"  // soft blue shadow
+      });
+    })
+    .on("mouseleave", function () {                 // REQUIREMENT 6: an event
+      $(this).css({ "transform": "", "box-shadow": "" });    // put it back
     });
-    middle.css({ "background-color": "#fff3cd" }); // paint the middle one yellow
+
+
+  /* ############################################################
+     ##  REQUIREMENT 1 — DOM TRAVERSAL                          ##
+     ##  Real feature: the "Recent Orders" table               ##
+     ############################################################
+     WHAT THIS DOES (easy words):
+       "Traversal" = WALKING from one brick to the bricks next to it.
+       When you hover one order row, we light it up, then .siblings() WALKS to
+       the OTHER rows and fades them, so the one you're looking at stands out.
+       (We anchor on "#ordersBody" because profile.js adds the rows in later —
+        this way even new rows still get the effect.) */
+  $("#ordersBody")
+    .on("mouseenter", "tr", function () {
+      $(this).css("background-color", "#eaf1ff");   // light up THIS row
+      $(this).siblings().css("opacity", "0.5");     // REQUIREMENT 1: walk to the
+                                                    //   other rows and fade them
+    })
+    .on("mouseleave", "tr", function () {
+      $(this).css("background-color", "");          // undo the highlight
+      $(this).siblings().css("opacity", "1");       // undo the fade
+    });
+
+
+  /* ############################################################
+     ##  REQUIREMENT 2 — DOM MODIFICATION                       ##
+     ##  Real feature: the "Add New" address button            ##
+     ############################################################
+     WHAT THIS DOES (easy words):
+       Modification = ADDING or REMOVING things on the page.
+       Before, "Add New" did nothing. Now each click .append()s (adds) a brand
+       new address card to the addresses row. The card's Remove button then
+       .remove()s (deletes) that card. A real, working feature. */
+  var newAddressCount = 0;
+  $("#addresses").on("click", ".btn-tz-outline", function () {
+    newAddressCount = newAddressCount + 1;
+    // Build one new address card (a Bootstrap column with a card inside):
+    var card =
+      '<div class="col-md-6">' +
+        '<div class="address-card">' +
+          '<span class="badge bg-secondary addr-tag">New</span>' +
+          '<h3><i class="bi bi-geo-alt"></i> New Address ' + newAddressCount + '</h3>' +
+          '<p>Tap Edit to fill in this address.</p>' +
+          '<div class="addr-actions">' +
+            '<button type="button" class="btn btn-sm btn-tz-light">Edit</button>' +
+            '<button type="button" class="btn btn-sm btn-outline-danger addr-remove">Remove</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    $("#addresses .row").append(card);              // REQUIREMENT 2: ADD the card
+  });
+
+  $("#addresses").on("click", ".addr-remove", function () {
+    // .closest() walks UP to the whole column, then .remove() deletes it.
+    $(this).closest(".col-md-6").remove();          // REQUIREMENT 2: REMOVE the card
   });
 
 
-  /* ====================================================================
-     TOY 2 — DOM MODIFICATION   ("add or take away bricks")
+  /* ############################################################
+     ##  REQUIREMENT 3 — DOM ATTRIBUTE MODIFICATION            ##
+     ##  Real feature: a "Lock / Unlock" button on my form     ##
+     ############################################################
+     WHAT THIS DOES (easy words):
+       An "attribute" is a setting inside a tag. "readonly" is a setting that
+       means "you can look but not type here."
+       We ADD a Lock button, and clicking it uses .attr() to switch the
+       "readonly" setting ON or OFF for every text box — so you can lock your
+       details to stop accidental edits, then unlock to change them. */
+  var locked = false;
+  $("#profileForm .form-buttons").append(           // (also adds a real button)
+    '<button type="button" class="btn btn-tz-light" id="lockBtn">' +
+    '<i class="bi bi-lock"></i> Lock details</button>'
+  );
 
-     Modification means CHANGING what is on the page by ADDING new bricks
-     or REMOVING bricks.
-       - .append("<li>...</li>") -> stick a NEW item on the END of the list
-       - .remove()               -> take an item AWAY
-
-     "itemCount" is just a number we keep so each new item gets the next
-     number (Item 2, Item 3, ...). It starts at 1 because the page already
-     shows "Item 1".
-     ==================================================================== */
-  var itemCount = 1;
-
-  $("#jqAddBtn").on("click", function () {
-    itemCount = itemCount + 1;                    // next number
-    // Build a brand-new list item and stick it on the end of the list.
-    $("#jqModList").append('<li class="list-group-item">Item ' + itemCount + "</li>");
-  });
-
-  $("#jqRemoveBtn").on("click", function () {
-    // Only remove if there is at least one item left (so we don't error).
-    if ($("#jqModList li").length > 0) {          // .length = how many items
-      $("#jqModList li:last-child").remove();      // take away the LAST one
-      if (itemCount > 0) itemCount = itemCount - 1;
-    }
+  $("#profileForm").on("click", "#lockBtn", function () {
+    locked = !locked;                               // flip between true/false
+    $("#profileForm input").attr("readonly", locked); // REQUIREMENT 3: change the
+                                                    //   "readonly" attribute
+    $(this).html(locked
+      ? '<i class="bi bi-unlock"></i> Unlock to edit'
+      : '<i class="bi bi-lock"></i> Lock details');  // update the button words
   });
 
 
-  /* ====================================================================
-     TOY 3 — ATTRIBUTE MODIFICATION   ("change a setting inside a brick")
-
-     An "attribute" is a little setting written inside a tag. For a link
-     <a href="..."> the href is the setting that says WHERE the link goes.
-       - .attr("href", "...")  -> change WHERE the link goes
-       - .attr("target","_blank") -> make it open in a NEW tab
-       - .text("...")          -> change the words you can read
-     ==================================================================== */
-  $("#jqAttrBtn").on("click", function () {
-    $("#jqAttrLink")
-      .attr("href", "../index.html")              // now it goes to the home page
-      .attr("target", "_blank")                   // open in a new tab
-      .text("Now I open TechZone home ↗");   // change the visible words
-  });
-
-
-  /* ====================================================================
-     TOY 4 — CSS MANIPULATION   ("change how a brick LOOKS")
-
-     CSS is the "look" of things — colour, size, spacing. jQuery can change
-     the look straight away with .css("what", "value").
-       - .css("color", "red")  -> make the text red
-
-     We keep a little list of colours. Each click moves to the NEXT colour,
-     and when we reach the end it loops back to the start.
-     ==================================================================== */
-  var colours = ["#2d6cff", "#1f9d55", "#e0245e", "#7a3fe0", "#131a2b"];
-  var colourIndex = 0;
-
-  $("#jqCssBtn").on("click", function () {
-    colourIndex = (colourIndex + 1) % colours.length;   // step to next colour
-    $("#jqCssText").css("color", colours[colourIndex]);  // paint the words
-  });
+  /* ############################################################
+     ##  REQUIREMENT 5 — JAVASCRIPT EFFECTS                     ##
+     ##  Real feature: the "Saved Addresses" heading           ##
+     ############################################################
+     WHAT THIS DOES (easy words):
+       jQuery effects are little animations: .slideUp(), .slideDown(), .fadeIn()
+       .slideToggle() folds the section SHUT if it's open, or OPENS it if shut.
+       So clicking the heading neatly folds your addresses away and back.
+       (400 = the speed of the animation in milliseconds.) */
+  $("#addresses .block-title")
+    .css("cursor", "pointer")                       // show it's clickable
+    .on("click", function () {                      // REQUIREMENT 6: click event
+      $("#addresses .row").slideToggle(400);        // REQUIREMENT 5: the effect
+    });
 
 
-  /* ====================================================================
-     TOY 5 — JAVASCRIPT EFFECTS   ("magic sliding and fading")
-
-     jQuery has built-in "effects" — little animations it does for you:
-       .hide()  .show()  .fadeIn()  .fadeOut()  .slideUp()  .slideDown()
-       .slideToggle()  -> if the box is open it slides shut; if shut, it
-                          slides open. "Toggle" means "flip to the opposite".
-     The 400 is the SPEED in milliseconds (400 = a bit under half a second).
-     ==================================================================== */
-  $("#jqEffectBtn").on("click", function () {
-    $("#jqEffectBox").slideToggle(400);           // slide the box open/shut
-  });
-
-
-  /* ====================================================================
-     TOY 6 — HTML EVENTS   ("do something WHEN the user does something")
-
-     An "event" is a thing the user DOES: click a button, move the mouse,
-     or type on the keyboard. .on("event", function(){...}) says
-     "WHEN this event happens, run this code."
-
-     Every button above already uses the "click" event. Here we use a
-     DIFFERENT one: "keyup" happens each time you lift a finger off a key.
-     So as you type your name, the greeting changes on every letter.
-       - $(this) -> the box the user is typing in (the one that fired the event)
-       - .val()  -> read the text inside that box
-       - .text() -> put words into the greeting
-     ==================================================================== */
-  $("#jqEventInput").on("keyup", function () {
-    var typed = $(this).val();                    // read what they typed
-    // If the box is empty, say "stranger"; otherwise say their name.
-    $("#jqEventOut").text(typed === "" ? "stranger" : typed);
-  });
+  /* ############################################################
+     ##  BONUS — the same techniques on the SHOPPING CART page  ##
+     ##  Real feature: the cart items list                      ##
+     ############################################################
+     Uses HTML Events (hover) + CSS Manipulation (shadow) + DOM Traversal
+     (.siblings) together: hover one cart item to spotlight it and gently fade
+     the others. We anchor on "#cartItems" because cart.js draws the items in
+     later, so this keeps working for every item. */
+  $("#cartItems")
+    .on("mouseenter", ".cart-item", function () {
+      $(this).css("box-shadow", "0 6px 18px rgba(45, 108, 255, .15)");
+      $(this).siblings(".cart-item").css("opacity", "0.6");  // traverse + fade
+    })
+    .on("mouseleave", ".cart-item", function () {
+      $(this).css("box-shadow", "");
+      $(this).siblings(".cart-item").css("opacity", "1");
+    });
 
 });
