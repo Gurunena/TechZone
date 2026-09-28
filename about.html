@@ -449,53 +449,47 @@
 
 <div class="tz-toast-wrap" id="tzToastWrap" aria-live="polite" aria-atomic="true"></div>
 
-<!-- Scripts: Bootstrap, then global, then this page's script -->
+<!-- Scripts: each library loaded ONCE, jQuery first, then Bootstrap, then site scripts -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/global.js"></script>
 <script src="assets/js/about.js"></script>
 
-<!-- jQuery CDN (Include before other JS scripts) -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-<!-- Scripts: Bootstrap, global, and your jQuery implementation -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Embedded jQuery Script strictly fulfilling Class Task 4 requirements -->
+<!-- ============================================================
+     jQuery IMPLEMENTATION (Task 4) - Meet the Team section
+     Click a team avatar (RD, KV, SH, LD, BI) to see all six topics.
+     ============================================================ -->
 <script>
-  $(document).ready(function() {
+  $(document).ready(function () {
 
-    // 1. HTML Event: Click Event on Team Member Avatar
-    $('.team-avatar').on('click', function() {
-      
-      // 2. DOM Traversal: Find the parent card and title from clicked image
+    // TOPIC 6 - HTML EVENTS: click event on a team member avatar
+    $('.team-avatar').on('click', function () {
+
+      // TOPIC 1 - DOM TRAVERSAL: from the clicked avatar go UP to its card
+      // (closest), then DOWN to the member's name (find)
       var $card = $(this).closest('.team-card');
       var memberName = $card.find('.team-name').text();
 
-      // 3. CSS Manipulation: Change border and add temporary highlight effect
-      $card.css({
-        'border': '2px solid #0d6efd',
-        'transition': 'all 0.3s ease'
-      });
-
-      // 4. DOM Attribute Modification: Update image alt text dynamically
-      $(this).attr('alt', memberName + ' - Selected Team Member');
-
-      // 5. DOM Modification: Append a dynamic badge to card body if not present
       if ($card.find('.active-badge').length === 0) {
-        $card.find('.card-body').append('<span class="badge bg-primary active-badge mt-2 display-block">Active Member</span>');
+
+        // TOPIC 2 - DOM MODIFICATION: append a new badge element to the card
+        $card.find('.card-body').append('<span class="badge bg-primary active-badge mt-2">Active Member</span>');
+
+        // TOPIC 3 - DOM ATTRIBUTE MODIFICATION: set the avatar's title attribute
+        $(this).attr('title', memberName + ' - Selected Team Member');
+
+        // TOPIC 4 - CSS MANIPULATION: change the card's border colour
+        $card.css('border-color', '#0d6efd');
+
+        // TOPIC 5 - JAVASCRIPT EFFECT: fade the new badge in
+        $card.find('.active-badge').hide().fadeIn(400);
+
+      } else {
+        // Second click undoes the selection (fade out, then remove the badge)
+        $card.find('.active-badge').fadeOut(300, function () { $(this).remove(); });
+        $(this).removeAttr('title');
+        $card.css('border-color', '');
       }
-
-      // 6. JS Effect: Fade effect on the badge
-      $card.find('.active-badge').hide().fadeIn(400);
-    });
-
-    // Bonus JS Effect + HTML Event: Hover effect on "What We Stand For" Value Cards
-    $('.value-card').on('mouseenter', function() {
-      // CSS Manipulation + DOM Traversal
-      $(this).find('.value-title').css('color', '#0d6efd');
-    }).on('mouseleave', function() {
-      $(this).find('.value-title').css('color', '');
     });
 
   });
