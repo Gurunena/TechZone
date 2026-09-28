@@ -19,7 +19,7 @@
 .hero-section {
   position: relative;
   background-image: linear-gradient(90deg, rgba(11, 17, 32, 0.95) 0%, rgba(11, 17, 32, 0.55) 55%, rgba(11, 17, 32, 0.15) 100%),
-                    url('../images/banners/ChatGPT Image Sep 10, 2026, 12_44_55 PM.png');
+                    url('../images/banners/banner_01.png');
   background-size: cover;
   background-position: center right;
   background-repeat: no-repeat;
@@ -33,11 +33,11 @@
 /* Per-slide artwork (slide 1 uses the .hero-section default above) */
 .hero-slide-2 {
   background-image: linear-gradient(90deg, rgba(11, 17, 32, 0.95) 0%, rgba(11, 17, 32, 0.55) 55%, rgba(11, 17, 32, 0.15) 100%),
-                    url('../images/banners/ChatGPT Image Sep 10, 2026, 12_44_55 PM.png');
+                    url('../images/banners/banner_02.png');
 }
 .hero-slide-3 {
   background-image: linear-gradient(90deg, rgba(11, 17, 32, 0.95) 0%, rgba(11, 17, 32, 0.55) 55%, rgba(11, 17, 32, 0.15) 100%),
-                    url('../images/banners/ChatGPT Image Sep 10, 2026, 12_44_55 PM.png');
+                    url('../images/banners/banner_03.png');
 }
 
 /* Bootstrap toggles slides with display:block/none — re-map that to flex so
@@ -385,10 +385,59 @@
 @media (max-width: 575.98px) {
   .hero-section { min-height: 460px; }
   .hero-trust { flex-direction: column; align-items: flex-start; gap: 14px; }
-  .hero-script { font-size: 1.4rem; bottom: 10px; right: 10px; }
   .hero-arrow { width: 38px; height: 38px; font-size: 1rem; }
   .section-title { font-size: 1.2rem; }
   .promo-card { min-height: 180px; padding: 22px 20px; }
   .promo-copy { max-width: 100%; }
   .promo-img { opacity: .18; width: 60%; }
+}
+
+/* --------------------------------------------------------------------------
+   HERO — PHONES (< 768px)
+   Nothing inside the hero may exceed the viewport width here. The container
+   owns the side padding, and the one shrink-to-fit element (.hero-script) is
+   removed rather than left to be clipped.
+   Placed last so it wins over the 991.98px / 768px / 575.98px blocks above.
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  /* Belt and braces — .hero already clips, this stops a stray child from
+     widening this slide before the clip happens. */
+  .hero-section { overflow-x: hidden; }
+
+  /* Side padding lives on the container so it is not added on top of
+     Bootstrap's own .container gutters. */
+  .hero-section > .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero-copy { max-width: 100%; text-align: left; }
+
+  /* Long single words ("Components") break instead of pushing past the edge. */
+  .hero-title {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    line-height: 1.2;
+    overflow-wrap: break-word;
+  }
+
+  .hero-label { font-size: .6875rem; letter-spacing: .14em; }
+  .hero-sub { font-size: .95rem; }
+
+  /* Decorative cursive tagline. Absolutely positioned with white-space:
+     nowrap, so it sizes to its own text and grows leftwards from right:10px —
+     the one element in the hero that can outrun a 375px screen. */
+  .hero-script { display: none; }
+
+  /* Trust badges: one per row, flush with the text block above them. */
+  .hero-trust {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  /* Arrows sit inside the slide, not against the viewport edge. */
+  .hero-arrow { width: 36px; height: 36px; font-size: .95rem; }
+  .carousel-control-prev.hero-arrow { left: 8px; }
+  .carousel-control-next.hero-arrow { right: 8px; }
 }
