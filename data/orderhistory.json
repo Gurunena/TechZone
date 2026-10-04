@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "orderNumber": "TZ1001",
+        "productName": "ASUS TUF Gaming F15",
+        "category": "Laptops",
+        "brand": "ASUS",
+        "price": 289990,
+        "quantity": 1,
+        "status": "Shipped",
+        "orderDate": "2026-09-10"
+    },
+    {
+        "id": 2,
+        "orderNumber": "TZ1002",
+        "productName": "HyperX Cloud II",
+        "category": "Peripherals",
+        "brand": "HyperX",
+        "price": 74990,
+        "quantity": 1,
+        "status": "Delivered",
+        "orderDate": "2026-09-12"
+    },
+    {
+        "id": 3,
+        "orderNumber": "TZ1003",
+        "productName": "Logitech G Pro Mouse",
+        "category": "Peripherals",
+        "brand": "Logitech",
+        "price": 35000,
+        "quantity": 1,
+        "status": "Processing",
+        "orderDate": "2026-10-04"
+    }
+]
