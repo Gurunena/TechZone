@@ -1,7 +1,8 @@
 /* ==========================================================================
    TechZone — laptops.js
-   Product listing: filter, sort and paginate the cards already in the DOM.
-   No backend — every product is rendered server-side/statically, and this
+   Product listing: filter, sort and paginate the product cards in the DOM.
+   The cards are created by products-ajax.js from api/get_products.php;
+   once they are rendered it calls window.TZListing.refresh(), and this
    file only shows, hides and reorders them.
 
    GENERIC BY DESIGN. Nothing here mentions laptops, so desktops.js and
@@ -36,7 +37,9 @@
   /* ------------------------------------------------------------------
      Elements
      ------------------------------------------------------------------ */
-  var cards = Array.prototype.slice.call(grid.querySelectorAll('[data-product]'));
+  // Re-read by refresh() each time AJAX replaces the cards.
+  var cards = collectCards();
+  function collectCards() { return Array.prototype.slice.call(grid.querySelectorAll('[data-product]')); }
   var filterInputs = Array.prototype.slice.call(document.querySelectorAll('[data-filter]'));
   var sortSelect = document.querySelector('[data-sort]');
   var pagination = document.querySelector('[data-pagination]');
@@ -121,7 +124,10 @@
     var mode = sortSelect ? sortSelect.value : 'popularity';
     var sorter = SORTERS[mode] || SORTERS.popularity;
 
-    cards.slice().sort(sorter).forEach(function (card) {
+    // Keep the array in sorted order too, so update() paginates the
+    // cards in the order they are shown.
+    cards = cards.slice().sort(sorter);
+    cards.forEach(function (card) {
       grid.appendChild(wrapperOf(card));       // appending moves it to the end
     });
   }
@@ -338,9 +344,24 @@
       });
     }
 
-    applySort();
-    update();
+    // Nothing to filter until the AJAX cards arrive — running update() on
+    // an empty grid would flash the "No products match" message.
+    if (cards.length) {
+      applySort();
+      update();
+    }
   }
+
+  /* Called by products-ajax.js after it renders (or re-renders) the cards,
+     so filtering and sorting always run against the loaded data. */
+  window.TZListing = {
+    refresh: function () {
+      cards = collectCards();
+      currentPage = 1;
+      applySort();
+      update();
+    }
+  };
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

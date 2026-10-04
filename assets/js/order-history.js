@@ -78,10 +78,9 @@ $(document).ready(function () {
 
 });
 
-// ============================================
-// REQUIREMENT 3
+
+
 // ATTRIBUTE MODIFICATION USING jQuery
-// ============================================
 
 $(document).ready(function () {
 
@@ -102,10 +101,9 @@ $(document).ready(function () {
 
 });
 
-// ============================================
-// REQUIREMENT 4
+
+
 // CSS MANIPULATION USING jQuery
-// ============================================
 
 $(document).ready(function () {
 
@@ -122,10 +120,9 @@ $(document).ready(function () {
 
 });
 
-// ============================================
-// REQUIREMENT 5
+
 // JAVASCRIPT EFFECTS USING jQuery
-// ============================================
+
 
 $(document).ready(function () {
 
@@ -142,10 +139,9 @@ $(document).ready(function () {
 
 });
 
-// ============================================
-//  REQUIREMENT 6
+
 // HTML EVENTS USING jQuery
-// ============================================
+
 
 $(document).ready(function () {
 

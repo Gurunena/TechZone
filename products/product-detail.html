@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="ASUS TUF Gaming F15 — Intel i5, 16GB RAM, 512GB SSD, RTX 4050. Buy online at TechZone with free islandwide delivery.">
-  <title>ASUS TUF Gaming F15 — TechZone</title>
+  <!-- Replaced with the product's name once the AJAX request finishes -->
+  <title>Product Details — TechZone</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -152,15 +153,22 @@
   <!-- ============================================================
        4. MAIN PRODUCT SECTION — gallery left, info right
        ============================================================ -->
+  <!-- AJAX: everything marked data-field / data-detail-* below is filled in by
+       product-detail-ajax.js from api/get_product.php?id=X (X comes from
+       this page's URL, e.g. product-detail.html?id=3). -->
   <section class="section product-main"
            data-product-detail
-           data-id="asus-tuf-f15"
-           data-name="ASUS TUF Gaming F15"
-           data-price="289990"
+           data-id=""
+           data-name=""
+           data-price=""
            data-stock="8"
-           data-image="../assets/images/products/ASUS TUF Gaming F15.png">
+           data-image="">
     <div class="container">
-      <div class="row g-4 g-lg-5">
+
+      <!-- AJAX: loading spinner / error message -->
+      <div data-detail-status></div>
+
+      <div class="row g-4 g-lg-5" data-detail-content>
 
         <!-- ---------- LEFT: IMAGE GALLERY ---------- -->
         <div class="col-lg-6">
@@ -168,13 +176,12 @@
 
             <div class="gallery-main">
               <!-- ASSIGNMENT REQUIREMENT: image utility — img-fluid + rounded-3 -->
-              <img src="../assets/images/products/ASUS TUF Gaming F15.png"
-                   alt="ASUS TUF Gaming F15" id="galleryMain" data-gallery-main
+              <img alt="" id="galleryMain" data-gallery-main
                    class="img-fluid rounded-3">
 
               <!-- Wishlist heart, floating over the main image -->
-              <button class="gallery-wish" type="button" data-tz-wish="asus-tuf-f15"
-                      aria-label="Add ASUS TUF Gaming F15 to wishlist">
+              <button class="gallery-wish" type="button" data-tz-wish=""
+                      aria-label="Add to wishlist">
                 <i class="bi bi-heart"></i>
               </button>
             </div>
@@ -183,29 +190,31 @@
             <!-- ASSIGNMENT REQUIREMENT: image utility — img-thumbnail on gallery thumbs -->
             <!-- jQuery Requirement 3: .attr('src') source elements -->
             <div class="gallery-thumbs">
+            <!-- AJAX: src / data-full are set to the product's image; the
+                 "— front view" etc. part of each alt is kept. -->
             <button class="gallery-thumb is-active" type="button"
                     data-gallery-thumb
-                    data-full="../assets/images/products/ASUS TUF Gaming F15.png"
+                    data-full=""
                     aria-label="View image 1 of 4">
-              <img src="../assets/images/products/ASUS TUF Gaming F15.png" alt="ASUS TUF Gaming F15 — front view" class="img-thumbnail">
+              <img alt="Product — front view" class="img-thumbnail">
             </button>
             <button class="gallery-thumb" type="button"
                     data-gallery-thumb
-                    data-full="../assets/images/products/asus-tuf-f15-2.png"
+                    data-full=""
                     aria-label="View image 2 of 4">
-              <img src="../assets/images/products/ASUS TUF Gaming F15.png" alt="ASUS TUF Gaming F15 — keyboard close-up" class="img-thumbnail">
+              <img alt="Product — keyboard close-up" class="img-thumbnail">
             </button>
             <button class="gallery-thumb" type="button"
                     data-gallery-thumb
-                    data-full="../assets/images/products/asus-tuf-f15-3.png"
+                    data-full=""
                     aria-label="View image 3 of 4">
-              <img src="../assets/images/products/ASUS TUF Gaming F15.png" alt="ASUS TUF Gaming F15 — side ports" class="img-thumbnail">
+              <img alt="Product — side ports" class="img-thumbnail">
             </button>
             <button class="gallery-thumb" type="button"
                     data-gallery-thumb
-                    data-full="../assets/images/products/asus-tuf-f15-4.png"
+                    data-full=""
                     aria-label="View image 4 of 4">
-              <img src="../assets/images/products/ASUS TUF Gaming F15.png" alt="ASUS TUF Gaming F15 — rear view" class="img-thumbnail">
+              <img alt="Product — rear view" class="img-thumbnail">
             </button>
             </div>
 
@@ -216,55 +225,50 @@
         <div class="col-lg-6">
           <div class="product-info">
 
-            <span class="tz-badge tz-badge-best">Best Seller</span>
+            <!-- AJAX: badge text + colour come from the product's "badge" field -->
+            <span class="tz-badge" data-detail-badge hidden></span>
 
-            <h1 class="product-name">ASUS TUF Gaming F15</h1>
+            <h1 class="product-name" data-field="name">Loading product...</h1>
 
             <div class="info-rating">
-              <span class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span>
-              <a href="#reviews" data-scroll-reviews>(24 reviews)</a>
+              <span class="stars" data-detail-stars></span>
+              <a href="#reviews" data-scroll-reviews>(<span data-field="reviews">0</span> reviews)</a>
             </div>
 
-            <!-- Price -->
+            <!-- Price — "was" and "save" are hidden when there is no oldPrice -->
             <div class="info-price">
-              <span class="price-current">Rs. 289,990</span>
-              <span class="price-was">Rs. 319,990</span>
-              <span class="price-save">Save Rs. 30,000</span>
+              <span class="price-current" data-detail-price></span>
+              <span class="price-was" data-detail-old-price hidden></span>
+              <span class="price-save" data-detail-save hidden></span>
             </div>
 
-            <p class="info-desc">
-              The ASUS TUF Gaming F15 pairs a 12th-gen Intel Core i5 with an NVIDIA RTX 4050 to
-              run modern titles comfortably at 1080p. Its 144Hz IPS panel keeps fast-paced games
-              looking sharp, while the military-grade chassis and self-cleaning cooling system
-              are built to survive daily travel. A spare M.2 slot and upgradable memory mean it
-              grows with you.
-            </p>
+            <p class="info-desc" data-field="description"></p>
 
-            <!-- Key specs -->
+            <!-- Key specs — each <li> is hidden if the product has no value for it -->
             <ul class="key-specs">
               <li>
                 <span class="spec-icon"><i class="bi bi-cpu"></i></span>
-                <span class="spec-text"><small>Processor</small><strong>Intel Core i5-12500H</strong></span>
+                <span class="spec-text"><small>Processor</small><strong data-field="processor"></strong></span>
               </li>
               <li>
                 <span class="spec-icon"><i class="bi bi-memory"></i></span>
-                <span class="spec-text"><small>RAM</small><strong>16GB DDR4 3200MHz</strong></span>
+                <span class="spec-text"><small>RAM</small><strong data-field="ram"></strong></span>
               </li>
               <li>
                 <span class="spec-icon"><i class="bi bi-device-hdd"></i></span>
-                <span class="spec-text"><small>Storage</small><strong>512GB PCIe NVMe SSD</strong></span>
+                <span class="spec-text"><small>Storage</small><strong data-field="storage"></strong></span>
               </li>
               <li>
                 <span class="spec-icon"><i class="bi bi-gpu-card"></i></span>
-                <span class="spec-text"><small>Graphics</small><strong>NVIDIA GeForce RTX 4050 6GB</strong></span>
+                <span class="spec-text"><small>Graphics</small><strong data-field="gpu"></strong></span>
               </li>
               <li>
                 <span class="spec-icon"><i class="bi bi-display"></i></span>
-                <span class="spec-text"><small>Display</small><strong>15.6" FHD 144Hz IPS</strong></span>
+                <span class="spec-text"><small>Display</small><strong data-field="display"></strong></span>
               </li>
               <li>
                 <span class="spec-icon"><i class="bi bi-battery-half"></i></span>
-                <span class="spec-text"><small>Battery</small><strong>56WHrs, up to 6 hours</strong></span>
+                <span class="spec-text"><small>Battery</small><strong data-field="battery"></strong></span>
               </li>
             </ul>
 
@@ -284,12 +288,13 @@
                 </button>
               </div>
 
+              <!-- AJAX: data-id / name / price / image are set from the product -->
               <button class="btn btn-tz btn-buy" type="button"
                       data-tz-add-to-cart
-                      data-id="asus-tuf-f15"
-                      data-name="ASUS TUF Gaming F15"
-                      data-price="289990"
-                      data-image="../assets/images/products/ASUS TUF Gaming F15.png"
+                      data-id=""
+                      data-name=""
+                      data-price=""
+                      data-image=""
                       data-qty="1">
                 <i class="bi bi-bag-plus"></i> <span data-add-label>Add to Cart</span>
               </button>
@@ -349,27 +354,10 @@
           <!-- ---------- Description ---------- -->
           <div class="tab-pane fade show active" id="pane-description" role="tabpanel"
                aria-labelledby="tab-description" tabindex="0">
-            <h3>About the ASUS TUF Gaming F15</h3>
-            <p>
-              The TUF Gaming F15 is ASUS's durability-first take on the mainstream gaming laptop.
-              Inside sits a 12th-generation Intel Core i5-12500H with twelve cores, paired with an
-              NVIDIA GeForce RTX 4050 running at up to 140W total graphics power. That combination
-              is comfortably enough for 1080p gaming at high settings in most current titles, and
-              DLSS 3 support gives you extra headroom in the ones that ask more.
-            </p>
-            <p>
-              The 15.6-inch panel runs at 144Hz with an IPS-level coating, so fast movement stays
-              readable rather than smearing. Cooling is handled by self-cleaning dual fans that
-              push dust out through anti-dust tunnels — a genuinely useful feature in Sri Lanka's
-              humidity, where laptop intakes clog faster than most manufacturers plan for.
-            </p>
-            <p>
-              Build quality is where the TUF line earns its name. The chassis is MIL-STD-810H
-              rated for drops, vibration and temperature swings, and the keyboard is tested to
-              20 million keystrokes. With 16GB of memory across two slots and a spare M.2 bay
-              alongside the 512GB SSD, it is straightforward to upgrade later instead of
-              replacing the whole machine.
-            </p>
+            <!-- AJAX: heading + paragraphs come from the product's "details"
+                 (or "description") field -->
+            <h3 data-detail-about>About this product</h3>
+            <div data-detail-details></div>
           </div>
 
           <!-- ---------- Specifications ---------- -->
@@ -378,7 +366,7 @@
             <!-- ASSIGNMENT REQUIREMENT: Bootstrap Table (responsive / striped / hover / dark header) -->
             <div class="table-responsive">
               <table class="table table-striped table-hover align-middle spec-table">
-                <caption class="visually-hidden">Full specifications for the ASUS TUF Gaming F15</caption>
+                <caption class="visually-hidden" data-detail-caption>Full specifications</caption>
                 <thead class="table-dark">
                   <tr>
                     <th scope="col">Specification</th>
@@ -386,46 +374,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">Processor</th>
-                    <td>Intel Core i5-12500H (12 cores, up to 4.5GHz)</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">RAM</th>
-                    <td>16GB DDR4 3200MHz (2 x 8GB, expandable to 32GB)</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Storage</th>
-                    <td>512GB PCIe 4.0 NVMe M.2 SSD (1 spare slot)</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Graphics</th>
-                    <td>NVIDIA GeForce RTX 4050 6GB GDDR6</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Display</th>
-                    <td>15.6" FHD (1920 x 1080) IPS, 144Hz, 250 nits, 45% NTSC</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Battery</th>
-                    <td>56WHrs, 4-cell Li-ion, 200W AC adapter</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Weight</th>
-                    <td>2.20 kg</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Operating System</th>
-                    <td>Windows 11 Home (pre-installed)</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Ports</th>
-                    <td>1x USB 3.2 Gen 1 Type-A, 2x USB 3.2 Gen 2 Type-A, 1x USB 3.2 Gen 2 Type-C (DisplayPort / Power Delivery), 1x HDMI 2.1, 1x RJ45 LAN, 1x 3.5mm combo audio</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Warranty</th>
-                    <td>2 years international warranty (local service in Sri Lanka)</td>
-                  </tr>
+                  <!-- AJAX: one <tr> per specification, built from the product JSON -->
                 </tbody>
               </table>
             </div>
@@ -541,65 +490,15 @@
                   </form>
                 </div>
 
-                <div class="review-list" data-review-list>
-              <article class="review">
-                <!-- ASSIGNMENT REQUIREMENT: image utility — rounded-circle avatar -->
-                <div class="review-head">
-                  <div class="review-avatar rounded-circle">N</div>
-                  <div>
-                    <h4>Nuwan Perera</h4>
-                    <div class="review-meta">
-                      <span class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
-                      <span class="review-date">28 August 2025</span>
-                    </div>
-                  </div>
-                  <span class="review-verified"><i class="bi bi-patch-check-fill"></i> Verified purchase</span>
-                </div>
-                <p>Excellent machine for the price. Handles Valorant and Warzone on high settings without breaking a sweat, and the 144Hz screen makes a real difference. Delivery to Kandy took three days.</p>
-              </article>
-              <article class="review">
-                <div class="review-head">
-                  <div class="review-avatar rounded-circle">T</div>
-                  <div>
-                    <h4>Tharindu Silva</h4>
-                    <div class="review-meta">
-                      <span class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span>
-                      <span class="review-date">14 August 2025</span>
-                    </div>
-                  </div>
-                  <span class="review-verified"><i class="bi bi-patch-check-fill"></i> Verified purchase</span>
-                </div>
-                <p>Great performance and build quality. The fans do get loud under heavy load, but the cooling keeps temperatures reasonable. Battery life is average — expect around 4 hours of normal use.</p>
-              </article>
-              <article class="review">
-                <div class="review-head">
-                  <div class="review-avatar rounded-circle">A</div>
-                  <div>
-                    <h4>Amaya Rathnayake</h4>
-                    <div class="review-meta">
-                      <span class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span>
-                      <span class="review-date">2 August 2025</span>
-                    </div>
-                  </div>
-                  <span class="review-verified"><i class="bi bi-patch-check-fill"></i> Verified purchase</span>
-                </div>
-                <p>Bought this for design work and light gaming. The RTX 4050 handles Premiere Pro renders nicely. Would have liked a brighter display, but at this price it is hard to complain.</p>
-              </article>
-              <article class="review">
-                <div class="review-head">
-                  <div class="review-avatar rounded-circle">K</div>
-                  <div>
-                    <h4>Kasun Fernando</h4>
-                    <div class="review-meta">
-                      <span class="review-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i></span>
-                      <span class="review-date">19 July 2025</span>
-                    </div>
-                  </div>
-                  <span class="review-verified"><i class="bi bi-patch-check-fill"></i> Verified purchase</span>
-                </div>
-                <p>Solid laptop, but mine arrived with only 8GB of RAM installed and TechZone sorted out a replacement quickly. Good service, just check your unit on arrival.</p>
-              </article>
-                </div>
+                <!-- AJAX: status line while the reviews load / if they fail -->
+                <div data-reviews-status></div>
+
+                <!-- AJAX: the reviews are rendered here from
+                     api/get_reviews.php?productId=X by product-detail-ajax.js.
+                     The four reviews that used to be hard-coded now live in
+                     data/reviews.json. jquery-demo.js still .prepend()s a new
+                     review into this same list for instant feedback. -->
+                <div class="review-list" data-review-list></div>
               </div>
 
             </div>
@@ -625,13 +524,13 @@
 
           <div class="col">
             <article class="product-card">
-              <a class="product-thumb" href="product-detail.html?id=dell-xps-13-plus" tabindex="-1" aria-hidden="true">
+              <a class="product-thumb" href="product-detail.html?id=14" tabindex="-1" aria-hidden="true">
               <span class="product-badges"><span class="tz-badge tz-badge-popular">Popular</span></span>
                 <img src="../assets/images/products/Dell Inspiron 15 laptop.webp" alt="Dell XPS 13 Plus laptop">
               </a>
               <div class="product-body">
                 <h3 class="product-title">
-                  <a class="stretched-link" href="product-detail.html?id=dell-xps-13-plus">Dell XPS 13 Plus</a>
+                  <a class="stretched-link" href="product-detail.html?id=14">Dell XPS 13 Plus</a>
                 </h3>
                 <p class="product-spec">Intel i7 / 16GB / 512GB SSD</p>
                 <div class="product-rating">
@@ -661,13 +560,13 @@
 
           <div class="col">
             <article class="product-card">
-              <a class="product-thumb" href="product-detail.html?id=hp-victus-16" tabindex="-1" aria-hidden="true">
+              <a class="product-thumb" href="product-detail.html?id=13" tabindex="-1" aria-hidden="true">
               <span class="product-badges"><span class="tz-badge tz-badge-discount">-8%</span></span>
                 <img src="../assets/images/products/HP Victus 16 laptop.jpeg" alt="HP Victus 16 laptop">
               </a>
               <div class="product-body">
                 <h3 class="product-title">
-                  <a class="stretched-link" href="product-detail.html?id=hp-victus-16">HP Victus 16</a>
+                  <a class="stretched-link" href="product-detail.html?id=13">HP Victus 16</a>
                 </h3>
                 <p class="product-spec">AMD Ryzen 7 / 16GB / 1TB SSD / RTX 4060</p>
                 <div class="product-rating">
@@ -698,13 +597,13 @@
 
           <div class="col">
             <article class="product-card">
-              <a class="product-thumb" href="product-detail.html?id=lenovo-legion-pro-5" tabindex="-1" aria-hidden="true">
+              <a class="product-thumb" href="product-detail.html?id=16" tabindex="-1" aria-hidden="true">
               <span class="product-badges"><span class="tz-badge tz-badge-new">New</span></span>
                 <img src="../assets/images/products/Lenovo Legion Pro 5 laptop.webp" alt="Lenovo Legion Pro 5 laptop">
               </a>
               <div class="product-body">
                 <h3 class="product-title">
-                  <a class="stretched-link" href="product-detail.html?id=lenovo-legion-pro-5">Lenovo Legion Pro 5</a>
+                  <a class="stretched-link" href="product-detail.html?id=16">Lenovo Legion Pro 5</a>
                 </h3>
                 <p class="product-spec">Intel i9 / 32GB / 1TB SSD / RTX 4070</p>
                 <div class="product-rating">
@@ -734,12 +633,12 @@
 
           <div class="col">
             <article class="product-card">
-              <a class="product-thumb" href="product-detail.html?id=acer-predator-helios-neo" tabindex="-1" aria-hidden="true">
+              <a class="product-thumb" href="product-detail.html?id=15" tabindex="-1" aria-hidden="true">
                 <img src="../assets/images/products/Acer Predator Helios Neo laptop.webp" alt="Acer Predator Helios Neo laptop">
               </a>
               <div class="product-body">
                 <h3 class="product-title">
-                  <a class="stretched-link" href="product-detail.html?id=acer-predator-helios-neo">Acer Predator Helios Neo</a>
+                  <a class="stretched-link" href="product-detail.html?id=15">Acer Predator Helios Neo</a>
                 </h3>
                 <p class="product-spec">Intel i7 / 16GB / 1TB SSD / RTX 4060</p>
                 <div class="product-rating">
@@ -886,6 +785,8 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="../assets/js/global.js"></script>
 <script src="../assets/js/product-detail.js"></script>
+<!-- AJAX: loads this product from api/get_product.php?id=X -->
+<script src="../assets/js/product-detail-ajax.js"></script>
 <!-- jQuery assignment demos — loads last so it can see the vanilla JS -->
 <script src="../assets/js/jquery-demo.js"></script>
 </body>

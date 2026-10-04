@@ -502,10 +502,10 @@ if (clearWishlistBtn) {
 
 renderWishlist();
 
-// ============================================
-// ASSIGNMENT 2 - REQUIREMENT 1
+
+
 // DOM TRAVERSAL USING jQuery
-// ============================================
+
 
 $(document).ready(function () {
 
@@ -520,10 +520,9 @@ $(document).ready(function () {
 
 });
 
-// ============================================
-// ASSIGNMENT 2 - REQUIREMENT 2
+
 // DOM MODIFICATION USING jQuery
-// ============================================
+
 
 $(document).ready(function () {
 
@@ -535,10 +534,8 @@ $(document).ready(function () {
 
 });
 
-// ============================================
-// ASSIGNMENT 2 - REQUIREMENT 3
+
 // ATTRIBUTE MODIFICATION USING jQuery
-// ============================================
 
 $(document).ready(function () {
 
@@ -559,10 +556,9 @@ $(document).ready(function () {
 
 });
 
-// ============================================
-// ASSIGNMENT 2 - REQUIREMENT 4
+
 // CSS MANIPULATION USING jQuery
-// ============================================
+
 
 $(document).ready(function () {
 
@@ -577,10 +573,10 @@ $(document).ready(function () {
 
 });
 
-// ============================================
-// ASSIGNMENT 2 - REQUIREMENT 5
+
+
 // JAVASCRIPT EFFECTS USING jQuery
-// ============================================
+
 
 $(document).ready(function () {
 
@@ -595,10 +591,9 @@ $(document).ready(function () {
 
 });
 
-// ============================================
-// ASSIGNMENT 2 - REQUIREMENT 6
+
 // HTML EVENTS USING jQuery
-// ============================================
+
 
 $(document).ready(function () {
 

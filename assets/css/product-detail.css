@@ -325,6 +325,15 @@
 .review-stars { color: var(--tz-star); font-size: .8125rem; }
 .review-date { font-size: .75rem; color: var(--color-text-muted); }
 
+/* A review that was shown by jQuery but could not be saved to the server
+   (the AJAX POST to api/add_review.php failed), so it will not survive a
+   refresh. Dimmed and dashed to make that obvious. */
+.review.is-unsaved {
+  opacity: .65;
+  border-left: 3px dashed var(--color-discount);
+  padding-left: 12px;
+}
+
 .review-verified {
   margin-left: auto;
   font-size: .6875rem;
