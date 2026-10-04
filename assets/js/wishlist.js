@@ -502,10 +502,10 @@ if (clearWishlistBtn) {
 
 renderWishlist();
 
-// ============================================
-// ASSIGNMENT 2 - REQUIREMENT 1
+
+
 // DOM TRAVERSAL USING jQuery
-// ============================================
+
 
 $(document).ready(function () {
 
@@ -520,10 +520,9 @@ $(document).ready(function () {
 
 });
 
-// ============================================
-// ASSIGNMENT 2 - REQUIREMENT 2
+
 // DOM MODIFICATION USING jQuery
-// ============================================
+
 
 $(document).ready(function () {
 
@@ -535,10 +534,8 @@ $(document).ready(function () {
 
 });
 
-// ============================================
-// ASSIGNMENT 2 - REQUIREMENT 3
+
 // ATTRIBUTE MODIFICATION USING jQuery
-// ============================================
 
 $(document).ready(function () {
 
@@ -559,10 +556,9 @@ $(document).ready(function () {
 
 });
 
-// ============================================
-// ASSIGNMENT 2 - REQUIREMENT 4
+
 // CSS MANIPULATION USING jQuery
-// ============================================
+
 
 $(document).ready(function () {
 
@@ -577,10 +573,10 @@ $(document).ready(function () {
 
 });
 
-// ============================================
-// ASSIGNMENT 2 - REQUIREMENT 5
+
+
 // JAVASCRIPT EFFECTS USING jQuery
-// ============================================
+
 
 $(document).ready(function () {
 
@@ -595,10 +591,9 @@ $(document).ready(function () {
 
 });
 
-// ============================================
-// ASSIGNMENT 2 - REQUIREMENT 6
+
 // HTML EVENTS USING jQuery
-// ============================================
+
 
 $(document).ready(function () {
 
@@ -610,5 +605,184 @@ $(document).ready(function () {
         console.log("Clear Wishlist button clicked.");
 
     });
+
+});
+
+// ============================================
+// CLASS TASK 5 - JSON + AJAX
+// WISHLIST SERVER DATA
+// ============================================
+
+
+// --------------------------------------------
+// 1. GET ALL WISHLIST RECORDS
+// --------------------------------------------
+
+function loadWishlistFromServer() {
+
+    $.ajax({
+        url: "../api/wishlist.php",
+        method: "GET",
+        dataType: "json",
+
+        success: function (response) {
+
+            if (response.success) {
+
+                console.log("All Wishlist Records:", response.data);
+
+            } else {
+
+                console.log("Error:", response.message);
+
+            }
+        },
+
+        error: function (xhr) {
+
+            console.log("AJAX Error:", xhr.responseText);
+
+        }
+    });
+}
+
+
+// --------------------------------------------
+// 2. GET ONE WISHLIST RECORD
+// --------------------------------------------
+
+function getWishlistItem(id) {
+
+    $.ajax({
+        url: "../api/wishlist.php?id=" + id,
+        method: "GET",
+        dataType: "json",
+
+        success: function (response) {
+
+            if (response.success) {
+
+                console.log("Single Wishlist Record:", response.data);
+
+            } else {
+
+                console.log("Error:", response.message);
+
+            }
+        },
+
+        error: function (xhr) {
+
+            console.log("AJAX Error:", xhr.responseText);
+
+        }
+    });
+}
+
+
+// --------------------------------------------
+// 3. POST - ADD NEW WISHLIST RECORD
+// --------------------------------------------
+
+function addWishlistItem() {
+
+    const wishlistData = {
+
+        productName: $("#wishlistProductName").val(),
+
+        category: $("#wishlistCategory").val(),
+
+        brand: $("#wishlistBrand").val(),
+
+        price: $("#wishlistPrice").val(),
+
+        quantity: $("#wishlistQuantity").val(),
+
+        availability: $("#wishlistAvailability").val()
+
+    };
+
+
+    $.ajax({
+
+        url: "../api/wishlist.php",
+
+        method: "POST",
+
+        contentType: "application/json",
+
+        data: JSON.stringify(wishlistData),
+
+        dataType: "json",
+
+        success: function (response) {
+
+            if (response.success) {
+
+                $("#wishlistServerMessage")
+                    .text(response.message)
+                    .removeClass("text-danger")
+                    .addClass("text-success");
+
+                console.log(
+                    "New Wishlist Record:",
+                    response.data
+                );
+
+                // Clear form
+                $("#wishlistServerForm")[0].reset();
+
+                // Reload all records
+                loadWishlistFromServer();
+
+            } else {
+
+                $("#wishlistServerMessage")
+                    .text(response.message)
+                    .removeClass("text-success")
+                    .addClass("text-danger");
+            }
+        },
+
+        error: function (xhr) {
+
+            console.log("AJAX Error:", xhr.responseText);
+
+            $("#wishlistServerMessage")
+                .text("Unable to connect to the server.")
+                .removeClass("text-success")
+                .addClass("text-danger");
+
+        }
+
+    });
+
+}
+
+
+// --------------------------------------------
+// 4. FORM SUBMIT EVENT
+// --------------------------------------------
+
+$(document).ready(function () {
+
+    $("#wishlistServerForm").on("submit", function (event) {
+
+        event.preventDefault();
+
+        addWishlistItem();
+
+    });
+
+});
+
+
+// --------------------------------------------
+// 5. LOAD ALL RECORDS WHEN PAGE LOADS
+// --------------------------------------------
+
+$(document).ready(function () {
+
+    loadWishlistFromServer();
 
 });

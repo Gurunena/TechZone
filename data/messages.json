@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "fullName": "Kasun Perera",
+        "email": "kasun@gmail.com",
+        "inquiryType": "General Inquiry",
+        "message": "I need more information about your products.",
+        "date": "2026-09-29"
+    },
+    {
+        "id": 2,
+        "fullName": "Nimal Silva",
+        "email": "nimal@gmail.com",
+        "inquiryType": "Technical Support",
+        "message": "I need help with my laptop.",
+        "date": "2026-09-29"
+    },
+    {
+        "id": 3,
+        "fullName": "test user",
+        "email": "test@gmail.com",
+        "inquiryType": "General Inquiry",
+        "message": "it is the text message",
+        "date": "2026-10-03"
+    }
+]

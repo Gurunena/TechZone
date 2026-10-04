@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "productName": "ASUS TUF Gaming F15",
+        "category": "Laptops",
+        "brand": "ASUS",
+        "price": 289990,
+        "quantity": 1,
+        "availability": "In Stock",
+        "dateAdded": "2026-10-03"
+    },
+    {
+        "id": 2,
+        "productName": "HyperX Cloud II",
+        "category": "Peripherals",
+        "brand": "HyperX",
+        "price": 24990,
+        "quantity": 1,
+        "availability": "In Stock",
+        "dateAdded": "2026-10-03"
+    },
+    {
+        "id": 3,
+        "productName": "Samsung 970 EVO Plus",
+        "category": "Components",
+        "brand": "Samsung",
+        "price": 45990,
+        "quantity": 1,
+        "availability": "In Stock",
+        "dateAdded": "2026-10-04"
+    },
+    {
+        "id": 4,
+        "productName": "Logitech G Pro Mouse",
+        "category": "Peripherals",
+        "brand": "Logitech",
+        "price": 35000,
+        "quantity": 1,
+        "availability": "In Stock",
+        "dateAdded": "2026-10-04"
+    }
+]
