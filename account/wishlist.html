@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+My Wish<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -558,6 +558,185 @@
             </button>
 
         </div>
+
+        <!-- ============================================
+     CLASS TASK 5 - WISHLIST AJAX FORM
+     ============================================ -->
+
+<section class="container my-5">
+
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            <h2 class="h4 mb-3">
+                Add Wishlist Item
+            </h2>
+
+            <p class="text-muted">
+                Add a new wishlist record using AJAX.
+            </p>
+
+            <form id="wishlistServerForm">
+
+                <div class="row g-3">
+
+                    <!-- Product Name -->
+                    <div class="col-md-6">
+
+                        <label
+                            for="wishlistProductName"
+                            class="form-label">
+                            Product Name
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="wishlistProductName"
+                            placeholder="Enter product name"
+                            required>
+
+                    </div>
+
+
+                    <!-- Category -->
+                    <div class="col-md-6">
+
+                        <label
+                            for="wishlistCategory"
+                            class="form-label">
+                            Category
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="wishlistCategory"
+                            placeholder="e.g. Laptops"
+                            required>
+
+                    </div>
+
+
+                    <!-- Brand -->
+                    <div class="col-md-6">
+
+                        <label
+                            for="wishlistBrand"
+                            class="form-label">
+                            Brand
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="wishlistBrand"
+                            placeholder="e.g. ASUS"
+                            required>
+
+                    </div>
+
+
+                    <!-- Price -->
+                    <div class="col-md-3">
+
+                        <label
+                            for="wishlistPrice"
+                            class="form-label">
+                            Price
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="wishlistPrice"
+                            placeholder="289990"
+                            min="1"
+                            required>
+
+                    </div>
+
+
+                    <!-- Quantity -->
+                    <div class="col-md-3">
+
+                        <label
+                            for="wishlistQuantity"
+                            class="form-label">
+                            Quantity
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="wishlistQuantity"
+                            value="1"
+                            min="1"
+                            required>
+
+                    </div>
+
+
+                    <!-- Availability -->
+                    <div class="col-md-6">
+
+                        <label
+                            for="wishlistAvailability"
+                            class="form-label">
+                            Availability
+                        </label>
+
+                        <select
+                            class="form-select"
+                            id="wishlistAvailability"
+                            required>
+
+                            <option value="In Stock">
+                                In Stock
+                            </option>
+
+                            <option value="Out of Stock">
+                                Out of Stock
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Submit -->
+                    <div class="col-md-6 d-flex align-items-end">
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary w-100">
+
+                            <i class="bi bi-plus-circle"></i>
+                            Add to Server Wishlist
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+
+            <!-- AJAX Response Message -->
+
+            <div
+                id="wishlistServerMessage"
+                class="mt-3"
+                role="alert">
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 
 
