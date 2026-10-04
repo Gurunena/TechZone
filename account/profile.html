@@ -256,8 +256,9 @@
             <a href="orders.html" class="view-all">View All <i class="bi bi-arrow-right"></i></a>
           </div>
 
-          <!-- A Bootstrap table of past orders (striped rows, hover highlight,
-               and table-responsive so it scrolls sideways on small phones). -->
+          <!-- A Bootstrap table of past orders. These rows are loaded LIVE from
+               the server (orders.php -> data/orders.json) using AJAX — Class Task 5.
+               If XAMPP is off, profile.js shows offline sample rows instead. -->
           <div class="table-responsive">
             <table class="table table-hover table-striped align-middle recent-orders">
               <thead>
@@ -270,10 +271,30 @@
                   <th scope="col" class="text-end">Action</th>
                 </tr>
               </thead>
-              <!-- Empty to start; profile.js adds one row per order. -->
+              <!-- Filled by AJAX from the server (orders-ajax.js). -->
               <tbody id="ordersBody"></tbody>
             </table>
           </div>
+          <div id="ajaxNote" class="mb-2"></div>
+
+          <!-- Task 5: find ONE order from the server (AJAX GET ?id=) -->
+          <label class="form-label fw-semibold mt-2">Find an order by its number:</label>
+          <div class="input-group mb-2" style="max-width:420px">
+            <input type="text" class="form-control" id="findOrderInput" placeholder="e.g. ORD-1001">
+            <button class="btn btn-tz-light" type="button" id="findOrderBtn">Find</button>
+          </div>
+          <div id="oneOrderResult" class="mb-4"></div>
+
+          <!-- Task 5: add a NEW order to the server (AJAX POST -> saved in JSON) -->
+          <label class="form-label fw-semibold">Add a new order (saved to the server's JSON file):</label>
+          <form id="addOrderForm" class="row g-2">
+            <div class="col-md-4"><input class="form-control" id="newCustomer" placeholder="Customer name" required></div>
+            <div class="col-6 col-md-2"><input type="number" class="form-control" id="newItems" placeholder="Items" required></div>
+            <div class="col-6 col-md-2"><input type="number" class="form-control" id="newTotal" placeholder="Total (Rs.)" required></div>
+            <div class="col-md-2"><input class="form-control" id="newPayment" placeholder="Payment"></div>
+            <div class="col-md-2"><button class="btn btn-tz w-100" type="submit">Add order</button></div>
+          </form>
+          <div id="addResult" class="mt-2"></div>
         </section>
 
         <!-- Profile details form -->
@@ -471,5 +492,7 @@
 <script src="../assets/js/profile.js"></script>
 <!-- All my jQuery demo code lives in this file, heavily commented. -->
 <script src="../assets/js/jquery-demo-latisha.js"></script>
+<!-- Class Task 5: JSON + AJAX + PHP code -->
+<script src="../assets/js/orders-ajax.js"></script>
 </body>
 </html>

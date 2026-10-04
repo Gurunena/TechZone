@@ -1,0 +1,29 @@
+[
+  {
+    "orderId": "ORD-1001",
+    "customer": "Jane Perera",
+    "date": "2026-09-20",
+    "items": 3,
+    "total": 185000,
+    "payment": "Visa",
+    "status": "Delivered"
+  },
+  {
+    "orderId": "ORD-1002",
+    "customer": "Kasun Silva",
+    "date": "2026-09-25",
+    "items": 1,
+    "total": 42000,
+    "payment": "Cash on Delivery",
+    "status": "Shipped"
+  },
+  {
+    "orderId": "ORD-1003",
+    "customer": "Nethmi Fernando",
+    "date": "2026-10-01",
+    "items": 5,
+    "total": 320000,
+    "payment": "Mastercard",
+    "status": "Processing"
+  }
+]

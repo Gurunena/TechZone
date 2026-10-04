@@ -1,27 +1,7 @@
 /* ==========================================================================
-   TechZone — jquery-demo-latisha.js   (Class Task 4: jQuery)   by Latisha
-
-   ~~~ READ ME LIKE A STORY ~~~
-
-   WHAT IS jQUERY?
-   Think of the web page as a big box of LEGO. Every button, word and picture
-   is one LEGO brick. jQuery is a magic hand that can grab any brick and change
-   it — its colour, where it is, or make it appear and disappear.
-
-   THE MAGIC WORD IS  $
-     $("#hello")  = grab the ONE brick whose id is "hello"   (# means id)
-     $(".box")    = grab EVERY brick with the class "box"     (. means class)
-   Then you add a dot and say what to do:   $("#hello").hide();
-
-   HOW THIS IS BUILT
-   All my jQuery is added to the REAL parts of my website (stat cards, orders
-   table, addresses, profile form, cart items). That's how real sites use
-   jQuery — it quietly makes real features nicer. It is NOT a fake demo box.
 
    ============ THE 6 REQUIREMENTS — AND WHERE TO FIND EACH ONE ============
-   Tip: press Ctrl+F and search "REQUIREMENT 1", "REQUIREMENT 2" ... to jump
-   straight to any one during the Q&A.
-
+   
      REQUIREMENT 1 — DOM TRAVERSAL          -> Recent Orders table (hover a row)
      REQUIREMENT 2 — DOM MODIFICATION       -> "Add New" address button
      REQUIREMENT 3 — ATTRIBUTE MODIFICATION -> "Lock / Unlock" profile form
@@ -29,9 +9,6 @@
      REQUIREMENT 5 — JAVASCRIPT EFFECTS     -> Saved Addresses (click heading)
      REQUIREMENT 6 — HTML EVENTS            -> used everywhere (hover + click)
    =========================================================================
-
-   $(function () { ... }) means "wait until the page has fully loaded, THEN run
-   my code", so every LEGO brick is on the table before the magic hand reaches.
    ========================================================================== */
 
 $(function () {
