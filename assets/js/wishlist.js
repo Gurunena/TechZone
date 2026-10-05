@@ -1,3 +1,5 @@
+
+
 /* =========================================
    TECHZONE WISHLIST
    ========================================= */
@@ -502,10 +504,10 @@ if (clearWishlistBtn) {
 
 renderWishlist();
 
-
-
+// ============================================
+// ASSIGNMENT 2 - REQUIREMENT 1
 // DOM TRAVERSAL USING jQuery
-
+// ============================================
 
 $(document).ready(function () {
 
@@ -520,9 +522,10 @@ $(document).ready(function () {
 
 });
 
-
+// ============================================
+// ASSIGNMENT 2 - REQUIREMENT 2
 // DOM MODIFICATION USING jQuery
-
+// ============================================
 
 $(document).ready(function () {
 
@@ -534,8 +537,10 @@ $(document).ready(function () {
 
 });
 
-
+// ============================================
+// ASSIGNMENT 2 - REQUIREMENT 3
 // ATTRIBUTE MODIFICATION USING jQuery
+// ============================================
 
 $(document).ready(function () {
 
@@ -556,9 +561,10 @@ $(document).ready(function () {
 
 });
 
-
+// ============================================
+// ASSIGNMENT 2 - REQUIREMENT 4
 // CSS MANIPULATION USING jQuery
-
+// ============================================
 
 $(document).ready(function () {
 
@@ -573,10 +579,10 @@ $(document).ready(function () {
 
 });
 
-
-
+// ============================================
+// ASSIGNMENT 2 - REQUIREMENT 5
 // JAVASCRIPT EFFECTS USING jQuery
-
+// ============================================
 
 $(document).ready(function () {
 
@@ -591,9 +597,10 @@ $(document).ready(function () {
 
 });
 
-
+// ============================================
+// ASSIGNMENT 2 - REQUIREMENT 6
 // HTML EVENTS USING jQuery
-
+// ============================================
 
 $(document).ready(function () {
 
@@ -631,6 +638,8 @@ function loadWishlistFromServer() {
 
                 console.log("All Wishlist Records:", response.data);
 
+                displayServerWishlist(response.data);
+
             } else {
 
                 console.log("Error:", response.message);
@@ -646,6 +655,287 @@ function loadWishlistFromServer() {
     });
 }
 
+function displayServerWishlist(records) {
+
+    if (!wishlistContainer) return;
+
+
+    records.forEach(function (item) {
+
+        /*
+           Find the matching TechZone product
+           using the product name from JSON.
+        */
+
+        const matchedProduct = wishlistProducts.find(function (product) {
+
+            return product.name.toLowerCase().trim() ===
+                   item.productName.toLowerCase().trim();
+
+        });
+
+
+        /*
+           Use the real TechZone product details
+           if a matching product is found.
+        */
+
+        const productImage = matchedProduct
+            ? matchedProduct.image
+            : "../assets/images/products/default-product.png";
+
+
+        const productName = matchedProduct
+            ? matchedProduct.name
+            : item.productName;
+
+
+        const productCategory = matchedProduct
+            ? matchedProduct.category
+            : item.category;
+
+
+        const productDescription = matchedProduct
+            ? matchedProduct.description
+            : item.brand;
+
+
+        const productPrice = matchedProduct
+            ? matchedProduct.price
+            : Number(item.price);
+
+
+        const productOldPrice = matchedProduct
+            ? matchedProduct.oldPrice
+            : Number(item.price);
+
+
+        const productRating = matchedProduct
+            ? matchedProduct.rating
+            : "N/A";
+
+
+        const productReviews = matchedProduct
+            ? matchedProduct.reviews
+            : 0;
+
+
+        const productStock = matchedProduct
+            ? matchedProduct.stock
+            : item.availability;
+
+
+        /*
+           Check whether this product is already displayed.
+        */
+
+        const alreadyExists = Array.from(
+            wishlistContainer.querySelectorAll(
+                ".wishlist-card h3"
+            )
+        ).some(function (title) {
+
+            return title.textContent.trim() === productName;
+
+        });
+
+
+        if (alreadyExists) {
+            return;
+        }
+
+
+        /*
+           Calculate discount.
+        */
+
+        let discount = 0;
+
+        if (productOldPrice > productPrice) {
+
+            discount = Math.round(
+                ((productOldPrice - productPrice) /
+                productOldPrice) * 100
+            );
+
+        }
+
+
+        /*
+           Create wishlist card.
+        */
+
+        const card = document.createElement("div");
+
+        card.className =
+            "col-xl-4 col-lg-6 col-md-6";
+
+
+        card.innerHTML = `
+
+            <article class="wishlist-card">
+
+                <div class="wishlist-image-wrapper">
+
+                    <span class="discount-badge">
+
+                        ${
+                            discount > 0
+                                ? discount + "% OFF"
+                                : "SAVED"
+                        }
+
+                    </span>
+
+
+                    <div class="wishlist-product-image
+                                d-flex
+                                align-items-center
+                                justify-content-center">
+
+                        <img
+                            src="${productImage}"
+                            alt="${productName}"
+                            class="wishlist-product-image">
+
+                    </div>
+
+                </div>
+
+
+                <div class="wishlist-card-body">
+
+                    <span class="product-category">
+
+                        ${productCategory}
+
+                    </span>
+
+
+                    <h3>
+
+                        ${productName}
+
+                    </h3>
+
+
+                    <p class="product-description">
+
+                        ${productDescription}
+
+                    </p>
+
+
+                    <div class="product-rating">
+
+                        <span class="stars">
+
+                            ★★★★★
+
+                        </span>
+
+                        <span>
+
+                            ${productRating}
+
+                        </span>
+
+                        <span class="review-count">
+
+                            (${productReviews})
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="price-area">
+
+                        <span class="current-price">
+
+                            Rs.
+                            ${Number(productPrice)
+                                .toLocaleString("en-LK")}
+
+                        </span>
+
+
+                        ${
+                            productOldPrice > productPrice
+                                ? `
+                                    <span class="old-price">
+
+                                        Rs.
+                                        ${Number(productOldPrice)
+                                            .toLocaleString("en-LK")}
+
+                                    </span>
+                                  `
+                                : ""
+                        }
+
+                    </div>
+
+
+                    <div class="stock-status">
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        ${productStock}
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        `;
+
+
+        wishlistContainer.appendChild(card);
+
+    });
+
+
+    /*
+       Update wishlist count.
+    */
+
+    const totalItems =
+        wishlistContainer.querySelectorAll(
+            ".wishlist-card"
+        ).length;
+
+
+    if (wishlistCount) {
+
+        wishlistCount.textContent =
+            totalItems;
+
+    }
+
+
+    if (wishlistItemLabel) {
+
+        wishlistItemLabel.textContent =
+            totalItems === 1
+                ? "1 item"
+                : totalItems + " items";
+
+    }
+
+
+    /*
+       Hide empty wishlist message.
+    */
+
+    if (totalItems > 0 && emptyWishlist) {
+
+        emptyWishlist.style.display = "none";
+
+    }
+
+}
 
 // --------------------------------------------
 // 2. GET ONE WISHLIST RECORD
