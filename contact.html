@@ -194,7 +194,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="message" class="form-label">Your Message</label>
-                            <textarea class="form-control" id="message" rows="4" placeholder="How can we help you?"></textarea>
+                            <textarea class="form-control" id="message" rows="4" placeholder="How can we help you?" required></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary-custom me-2" id="submitBtn">Submit Message</button>
@@ -324,6 +324,9 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 <script src="assets/js/global.js"></script>
-<script src="assets/js/contact.js"></script>
+<!-- ?v= is a cache buster: the browser treats this as a different URL and
+     re-downloads the file. Bump the number after editing contact.js, or the
+     browser may keep running an old cached copy. -->
+<script src="assets/js/contact.js?v=2"></script>
 </body>
 </html>

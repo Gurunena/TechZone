@@ -732,6 +732,22 @@
                 role="alert">
             </div>
 
+
+            <!-- Records loaded from data/wishlist.json by api/wishlist.php.
+                 These live in their own grid: they are server records, not
+                 the products you saved with the heart buttons, so mixing
+                 them into the wishlist grid below made the page show items
+                 that were never added. -->
+
+            <h3 class="h6 text-muted mt-4 mb-2">
+                Server records (data/wishlist.json)
+            </h3>
+
+            <div
+                class="row g-4"
+                id="wishlistServerList">
+            </div>
+
         </div>
 
     </div>
@@ -1239,7 +1255,9 @@
 
 <!-- Wishlist JS -->
 
-<script src="../assets/js/wishlist.js"></script>
+<!-- ?v= is a cache buster: the browser treats this as a different URL and
+     re-downloads the file. Bump the number after editing wishlist.js. -->
+<script src="../assets/js/wishlist.js?v=2"></script>
 
 
 </body>
