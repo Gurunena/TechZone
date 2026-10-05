@@ -1,0 +1,7 @@
+[
+  {"id": 1, "name": "R. Dayananda", "initials": "RD", "role": "Founder & Lead", "department": "Management", "email": "rd@techzone.lk", "joined": 2024},
+  {"id": 2, "name": "Kaveesha", "initials": "KV", "role": "Customer Care", "department": "Support", "email": "kaveesha@techzone.lk", "joined": 2024},
+  {"id": 3, "name": "Shambavi", "initials": "SH", "role": "Content & Support", "department": "Support", "email": "shambavi@techzone.lk", "joined": 2024},
+  {"id": 4, "name": "Latisha", "initials": "LD", "role": "Store & Accounts", "department": "Operations", "email": "latisha@techzone.lk", "joined": 2025},
+  {"id": 5, "name": "Bineth", "initials": "BI", "role": "Web Developer", "department": "IT", "email": "bineth@techzone.lk", "joined": 2025}
+]
