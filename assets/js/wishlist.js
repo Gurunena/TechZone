@@ -1,3 +1,5 @@
+
+
 /* =========================================
    TECHZONE WISHLIST
    ========================================= */
@@ -497,10 +499,104 @@ if (clearWishlistBtn) {
 
 
 /* -----------------------------------------
+   Load the full product catalogue from the API
+
+   The wishlistProducts list above only holds the five featured products,
+   so hearting anything else (any laptop, or a product added through the
+   Add Product form) saved the id but showed nothing here - the filter in
+   renderWishlist() could not find a matching record.
+
+   api/get_products.php is the single source of truth for products, so the
+   catalogue is fetched from there and merged over the list above. The five
+   entries stay as a fallback: if the request fails the page still works
+   the way it did before.
+   ----------------------------------------- */
+
+function loadWishlistCatalogue() {
+
+    console.log("[AJAX] GET ../api/get_products.php (wishlist catalogue)");
+
+    $.ajax({
+        url: "../api/get_products.php",
+        method: "GET",
+        dataType: "json"
+    })
+        .done(function (products) {
+
+            console.log("[AJAX] Catalogue for wishlist:", products);
+
+            products.forEach(function (p) {
+
+                /* Map a products.json record onto the shape this page uses.
+                   Image paths in the JSON are relative to the site root,
+                   and this page sits in account/, so they need "../". */
+                const mapped = {
+                    id: p.slug,
+                    name: p.name,
+                    category: p.category || "Products",
+                    price: Number(p.price) || 0,
+                    oldPrice: p.oldPrice ? Number(p.oldPrice) : null,
+                    rating: Number(p.rating) || 0,
+                    reviews: Number(p.reviews) || 0,
+                    image: p.image ? "../" + p.image : "",
+                    description: p.spec ||
+                        [p.processor, p.ram, p.storage].filter(Boolean).join(" / "),
+                    stock: p.badge === "Out of Stock" ? "Out of Stock" : "In Stock"
+                };
+
+                const existing = wishlistProducts.findIndex(function (item) {
+                    return item.id === mapped.id;
+                });
+
+                if (existing === -1) {
+                    wishlistProducts.push(mapped);
+                } else {
+                    // Keep the hand-written image for the five originals,
+                    // which point at files that are known to exist.
+                    mapped.image = wishlistProducts[existing].image || mapped.image;
+                    wishlistProducts[existing] = mapped;
+                }
+            });
+
+            // Re-render now that every saved product can be resolved.
+            renderWishlist();
+        })
+        .fail(function (xhr, textStatus) {
+
+            console.error("[AJAX] Could not load the product catalogue:",
+                xhr.status, textStatus, xhr.responseText);
+
+            /* Only the five featured products can be shown, so say so
+               rather than leaving saved items silently missing. */
+            const saved = window.TZ ? TZ.getWishlist() : [];
+
+            const missing = saved.filter(function (id) {
+                return !wishlistProducts.some(function (p) { return p.id === id; });
+            });
+
+            if (missing.length && wishlistContainer) {
+                const note = document.createElement("div");
+                note.className = "col-12";
+                note.innerHTML =
+                    '<div class="alert alert-warning mb-0">' +
+                    '<i class="bi bi-exclamation-triangle-fill"></i> ' +
+                    missing.length + ' saved item(s) could not be loaded ' +
+                    'because the product list is unavailable. ' +
+                    'Is Apache running in XAMPP?' +
+                    '</div>';
+                wishlistContainer.appendChild(note);
+            }
+        });
+}
+
+
+/* -----------------------------------------
    Initial Load
    ----------------------------------------- */
 
+// Render straight away with what is known, then fill in the rest.
 renderWishlist();
+loadWishlistCatalogue();
 
 // ============================================
 // ASSIGNMENT 2 - REQUIREMENT 1
@@ -610,5 +706,448 @@ $(document).ready(function () {
         console.log("Clear Wishlist button clicked.");
 
     });
+
+});
+
+// ============================================
+// CLASS TASK 5 - JSON + AJAX
+// WISHLIST SERVER DATA
+// ============================================
+
+
+// --------------------------------------------
+// 1. GET ALL WISHLIST RECORDS
+// --------------------------------------------
+
+function loadWishlistFromServer() {
+
+    $.ajax({
+        url: "../api/wishlist.php",
+        method: "GET",
+        dataType: "json",
+
+        success: function (response) {
+
+            if (response.success) {
+
+                console.log("All Wishlist Records:", response.data);
+
+                displayServerWishlist(response.data);
+
+            } else {
+
+                console.log("Error:", response.message);
+
+            }
+        },
+
+        error: function (xhr) {
+
+            console.log("AJAX Error:", xhr.responseText);
+
+        }
+    });
+}
+
+function displayServerWishlist(records) {
+
+    /*
+       These are the records from data/wishlist.json, so they render into
+       their OWN grid (#wishlistServerList). They used to be appended to
+       #wishlistContainer, which is the list of products saved with the
+       heart buttons - so the page showed server records the user had
+       never added, and the summary total did not match the cards.
+    */
+    const serverContainer =
+        document.querySelector("#wishlistServerList");
+
+    if (!serverContainer) return;
+
+    // Rebuild from scratch so a re-fetch after adding does not duplicate.
+    serverContainer.innerHTML = "";
+
+
+    records.forEach(function (item) {
+
+        /*
+           Find the matching TechZone product
+           using the product name from JSON.
+        */
+
+        const matchedProduct = wishlistProducts.find(function (product) {
+
+            return product.name.toLowerCase().trim() ===
+                   item.productName.toLowerCase().trim();
+
+        });
+
+
+        /*
+           Use the real TechZone product details
+           if a matching product is found.
+        */
+
+        const productImage = matchedProduct
+            ? matchedProduct.image
+            : "../assets/images/products/default-product.png";
+
+
+        const productName = matchedProduct
+            ? matchedProduct.name
+            : item.productName;
+
+
+        const productCategory = matchedProduct
+            ? matchedProduct.category
+            : item.category;
+
+
+        const productDescription = matchedProduct
+            ? matchedProduct.description
+            : item.brand;
+
+
+        const productPrice = matchedProduct
+            ? matchedProduct.price
+            : Number(item.price);
+
+
+        const productOldPrice = matchedProduct
+            ? matchedProduct.oldPrice
+            : Number(item.price);
+
+
+        const productRating = matchedProduct
+            ? matchedProduct.rating
+            : "N/A";
+
+
+        const productReviews = matchedProduct
+            ? matchedProduct.reviews
+            : 0;
+
+
+        const productStock = matchedProduct
+            ? matchedProduct.stock
+            : item.availability;
+
+
+        /*
+           Check whether this product is already displayed.
+        */
+
+        const alreadyExists = Array.from(
+            serverContainer.querySelectorAll(
+                ".wishlist-card h3"
+            )
+        ).some(function (title) {
+
+            return title.textContent.trim() === productName;
+
+        });
+
+
+        if (alreadyExists) {
+            return;
+        }
+
+
+        /*
+           Calculate discount.
+        */
+
+        let discount = 0;
+
+        if (productOldPrice > productPrice) {
+
+            discount = Math.round(
+                ((productOldPrice - productPrice) /
+                productOldPrice) * 100
+            );
+
+        }
+
+
+        /*
+           Create wishlist card.
+        */
+
+        const card = document.createElement("div");
+
+        card.className =
+            "col-xl-4 col-lg-6 col-md-6";
+
+
+        card.innerHTML = `
+
+            <article class="wishlist-card">
+
+                <div class="wishlist-image-wrapper">
+
+                    <span class="discount-badge">
+
+                        ${
+                            discount > 0
+                                ? discount + "% OFF"
+                                : "SAVED"
+                        }
+
+                    </span>
+
+
+                    <div class="wishlist-product-image
+                                d-flex
+                                align-items-center
+                                justify-content-center">
+
+                        <img
+                            src="${productImage}"
+                            alt="${productName}"
+                            class="wishlist-product-image">
+
+                    </div>
+
+                </div>
+
+
+                <div class="wishlist-card-body">
+
+                    <span class="product-category">
+
+                        ${productCategory}
+
+                    </span>
+
+
+                    <h3>
+
+                        ${productName}
+
+                    </h3>
+
+
+                    <p class="product-description">
+
+                        ${productDescription}
+
+                    </p>
+
+
+                    <div class="product-rating">
+
+                        <span class="stars">
+
+                            ★★★★★
+
+                        </span>
+
+                        <span>
+
+                            ${productRating}
+
+                        </span>
+
+                        <span class="review-count">
+
+                            (${productReviews})
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="price-area">
+
+                        <span class="current-price">
+
+                            Rs.
+                            ${Number(productPrice)
+                                .toLocaleString("en-LK")}
+
+                        </span>
+
+
+                        ${
+                            productOldPrice > productPrice
+                                ? `
+                                    <span class="old-price">
+
+                                        Rs.
+                                        ${Number(productOldPrice)
+                                            .toLocaleString("en-LK")}
+
+                                    </span>
+                                  `
+                                : ""
+                        }
+
+                    </div>
+
+
+                    <div class="stock-status">
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+                        ${productStock}
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        `;
+
+
+        serverContainer.appendChild(card);
+
+    });
+
+    /*
+       The header count and the "Your wishlist is empty" message belong to
+       the heart-button wishlist, which renderWishlist() keeps up to date.
+       This function used to overwrite both with the number of server
+       records, which made the count disagree with the saved products.
+    */
+
+}
+
+// --------------------------------------------
+// 2. GET ONE WISHLIST RECORD
+// --------------------------------------------
+
+function getWishlistItem(id) {
+
+    $.ajax({
+        url: "../api/wishlist.php?id=" + id,
+        method: "GET",
+        dataType: "json",
+
+        success: function (response) {
+
+            if (response.success) {
+
+                console.log("Single Wishlist Record:", response.data);
+
+            } else {
+
+                console.log("Error:", response.message);
+
+            }
+        },
+
+        error: function (xhr) {
+
+            console.log("AJAX Error:", xhr.responseText);
+
+        }
+    });
+}
+
+
+// --------------------------------------------
+// 3. POST - ADD NEW WISHLIST RECORD
+// --------------------------------------------
+
+function addWishlistItem() {
+
+    const wishlistData = {
+
+        productName: $("#wishlistProductName").val(),
+
+        category: $("#wishlistCategory").val(),
+
+        brand: $("#wishlistBrand").val(),
+
+        price: $("#wishlistPrice").val(),
+
+        quantity: $("#wishlistQuantity").val(),
+
+        availability: $("#wishlistAvailability").val()
+
+    };
+
+
+    $.ajax({
+
+        url: "../api/wishlist.php",
+
+        method: "POST",
+
+        contentType: "application/json",
+
+        data: JSON.stringify(wishlistData),
+
+        dataType: "json",
+
+        success: function (response) {
+
+            if (response.success) {
+
+                $("#wishlistServerMessage")
+                    .text(response.message)
+                    .removeClass("text-danger")
+                    .addClass("text-success");
+
+                console.log(
+                    "New Wishlist Record:",
+                    response.data
+                );
+
+                // Clear form
+                $("#wishlistServerForm")[0].reset();
+
+                // Reload all records
+                loadWishlistFromServer();
+
+            } else {
+
+                $("#wishlistServerMessage")
+                    .text(response.message)
+                    .removeClass("text-success")
+                    .addClass("text-danger");
+            }
+        },
+
+        error: function (xhr) {
+
+            console.log("AJAX Error:", xhr.responseText);
+
+            $("#wishlistServerMessage")
+                .text("Unable to connect to the server.")
+                .removeClass("text-success")
+                .addClass("text-danger");
+
+        }
+
+    });
+
+}
+
+
+// --------------------------------------------
+// 4. FORM SUBMIT EVENT
+// --------------------------------------------
+
+$(document).ready(function () {
+
+    $("#wishlistServerForm").on("submit", function (event) {
+
+        event.preventDefault();
+
+        addWishlistItem();
+
+    });
+
+});
+
+
+// --------------------------------------------
+// 5. LOAD ALL RECORDS WHEN PAGE LOADS
+// --------------------------------------------
+
+$(document).ready(function () {
+
+    loadWishlistFromServer();
 
 });

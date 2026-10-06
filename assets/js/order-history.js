@@ -78,10 +78,9 @@ $(document).ready(function () {
 
 });
 
-// ============================================
-// REQUIREMENT 3
+
+
 // ATTRIBUTE MODIFICATION USING jQuery
-// ============================================
 
 $(document).ready(function () {
 
@@ -102,10 +101,9 @@ $(document).ready(function () {
 
 });
 
-// ============================================
-// REQUIREMENT 4
+
+
 // CSS MANIPULATION USING jQuery
-// ============================================
 
 $(document).ready(function () {
 
@@ -122,10 +120,9 @@ $(document).ready(function () {
 
 });
 
-// ============================================
-// REQUIREMENT 5
+
 // JAVASCRIPT EFFECTS USING jQuery
-// ============================================
+
 
 $(document).ready(function () {
 
@@ -142,10 +139,9 @@ $(document).ready(function () {
 
 });
 
-// ============================================
-//  REQUIREMENT 6
+
 // HTML EVENTS USING jQuery
-// ============================================
+
 
 $(document).ready(function () {
 
@@ -162,5 +158,188 @@ $(document).ready(function () {
         );
 
     });
+
+});
+
+// CLASS TASK 5 - JSON + AJAX
+// ORDER HISTORY SERVER DATA
+
+
+
+// GET ALL ORDER RECORDS
+function loadOrderHistoryFromServer() {
+
+    $.ajax({
+        url: "api/orderhistory.php",
+        method: "GET",
+        dataType: "json",
+
+        success: function (response) {
+
+            if (response.success) {
+
+                console.log(
+                    "All Order History Records:",
+                    response.data
+                );
+
+            } else {
+
+                console.log(
+                    "Error:",
+                    response.message
+                );
+
+            }
+        },
+
+        error: function (xhr) {
+
+            console.log(
+                "AJAX Error:",
+                xhr.responseText
+            );
+
+        }
+    });
+}
+
+
+// GET ONE ORDER RECORD
+function getOrderHistoryItem(orderNumber) {
+
+    $.ajax({
+        url: "api/orderhistory.php?orderNumber=" + orderNumber,
+        method: "GET",
+        dataType: "json",
+
+        success: function (response) {
+
+            if (response.success) {
+
+                console.log(
+                    "Single Order Record:",
+                    response.data
+                );
+
+            } else {
+
+                console.log(
+                    "Error:",
+                    response.message
+                );
+
+            }
+        },
+
+        error: function (xhr) {
+
+            console.log(
+                "AJAX Error:",
+                xhr.responseText
+            );
+
+        }
+    });
+}
+
+
+// ADD NEW ORDER RECORD
+function addOrderHistoryItem() {
+
+    const orderData = {
+
+        orderNumber: $("#orderNumber").val(),
+        productName: $("#orderProductName").val(),
+        category: $("#orderCategory").val(),
+        brand: $("#orderBrand").val(),
+        price: $("#orderPrice").val(),
+        quantity: $("#orderQuantity").val(),
+        status: $("#orderStatus").val(),
+        orderDate: $("#orderDate").val()
+
+    };
+
+
+    $.ajax({
+
+        url: "api/orderhistory.php",
+        method: "POST",
+
+        contentType: "application/json",
+
+        data: JSON.stringify(orderData),
+
+        dataType: "json",
+
+        success: function (response) {
+
+            if (response.success) {
+
+                $("#orderServerMessage")
+                    .text(response.message)
+                    .removeClass("text-danger")
+                    .addClass("text-success");
+
+                console.log(
+                    "New Order Record:",
+                    response.data
+                );
+
+
+                // Clear the form
+                $("#orderServerForm")[0].reset();
+
+
+                // Load updated records
+                loadOrderHistoryFromServer();
+
+            } else {
+
+                $("#orderServerMessage")
+                    .text(response.message)
+                    .removeClass("text-success")
+                    .addClass("text-danger");
+
+            }
+
+        },
+
+        error: function (xhr) {
+
+            console.log(
+                "AJAX Error:",
+                xhr.responseText
+            );
+
+            $("#orderServerMessage")
+                .text("Unable to connect to the server.")
+                .removeClass("text-success")
+                .addClass("text-danger");
+
+        }
+
+    });
+}
+
+
+// FORM SUBMIT EVENT
+$(document).ready(function () {
+
+    $("#orderServerForm").on("submit", function (event) {
+
+        event.preventDefault();
+
+        addOrderHistoryItem();
+
+    });
+
+});
+
+
+// LOAD ALL ORDERS WHEN PAGE LOADS
+$(document).ready(function () {
+
+    loadOrderHistoryFromServer();
 
 });

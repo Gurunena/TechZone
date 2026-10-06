@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "productId": 1,
+        "name": "Nuwan Perera",
+        "email": "nuwan@example.com",
+        "rating": 5,
+        "text": "Excellent machine for the price. Handles Valorant and Warzone on high settings without breaking a sweat, and the 144Hz screen makes a real difference. Delivery to Kandy took three days.",
+        "date": "2025-08-28",
+        "verified": true
+    },
+    {
+        "id": 2,
+        "productId": 1,
+        "name": "Tharindu Silva",
+        "email": "tharindu@example.com",
+        "rating": 4,
+        "text": "Great performance and build quality. The fans do get loud under heavy load, but the cooling keeps temperatures reasonable. Battery life is average — expect around 4 hours of normal use.",
+        "date": "2025-08-14",
+        "verified": true
+    },
+    {
+        "id": 3,
+        "productId": 1,
+        "name": "Amaya Rathnayake",
+        "email": "amaya@example.com",
+        "rating": 4,
+        "text": "Bought this for design work and light gaming. The RTX 4050 handles Premiere Pro renders nicely. Would have liked a brighter display, but at this price it is hard to complain.",
+        "date": "2025-08-02",
+        "verified": true
+    },
+    {
+        "id": 4,
+        "productId": 1,
+        "name": "Kasun Fernando",
+        "email": "kasun@example.com",
+        "rating": 3,
+        "text": "Solid laptop, but mine arrived with only 8GB of RAM installed and TechZone sorted out a replacement quickly. Good service, just check your unit on arrival.",
+        "date": "2025-07-19",
+        "verified": true
+    },
+    {
+        "id": 5,
+        "productId": 13,
+        "name": "Dilani Jayasuriya",
+        "email": "dilani@example.com",
+        "rating": 5,
+        "text": "The Victus 16 runs everything I throw at it and the 1TB drive means I am not deleting games to make room. Well worth the discount price.",
+        "date": "2025-09-06",
+        "verified": true
+    }
+]

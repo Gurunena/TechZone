@@ -150,9 +150,9 @@
 
 <main>
 
-  <!-- ============================================================
+  <!--
        3. HERO BANNER — Bootstrap carousel, 3 slides
-       ============================================================ -->
+       -->
   <section class="hero" aria-label="Featured promotions">
     <div id="tzHeroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
 
@@ -277,9 +277,9 @@
     </div>
   </section>
 
-  <!-- ============================================================
+  <!--
        4. CATEGORY ICONS GRID
-       ============================================================ -->
+       -->
   <section class="section section-categories">
     <div class="container">
       <div class="category-grid">
@@ -342,9 +342,9 @@
     </div>
   </section>
 
-  <!-- ============================================================
+  <!--
        5. FEATURED PRODUCTS
-       ============================================================ -->
+       -->
   <section class="section section-featured">
     <div class="container">
 
@@ -353,202 +353,21 @@
         <a class="view-all" href="products/laptops.html">View All <i class="bi bi-arrow-right"></i></a>
       </div>
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-5 g-3 g-lg-4">
+      <!-- AJAX: loading spinner / error message (products-ajax.js) -->
+      <div data-products-status></div>
 
-        <!-- Product 1 -->
-        <div class="col">
-          <article class="product-card">
-            <a class="product-thumb" href="products/product-detail.html?id=asus-tuf-f15">
-              <span class="product-badges"><span class="tz-badge tz-badge-best">Best Seller</span></span>
-              <img src="assets/images/products/ASUS TUF Gaming F15.png" alt="ASUS TUF Gaming F15 laptop">
-            </a>
-            <div class="product-body">
-              <h3 class="product-title">
-                <a href="products/product-detail.html?id=asus-tuf-f15">ASUS TUF Gaming F15</a>
-              </h3>
-              <p class="product-spec">Intel i5 / 16GB / 512GB SSD / RTX 4050</p>
-              <div class="product-rating">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
-                <span>(24)</span>
-              </div>
-              <div class="product-price">
-                <span class="price-now">Rs. 289,990</span>
-              </div>
-              <div class="product-actions">
-                <button class="btn btn-tz" type="button"
-                        data-tz-add-to-cart
-                        data-id="asus-tuf-f15"
-                        data-name="ASUS TUF Gaming F15"
-                        data-price="289990"
-                        data-image="assets/images/products/ASUS TUF Gaming F15.png">
-                  <i class="bi bi-bag-plus"></i> Add to Cart
-                </button>
-                <!-- jQuery Requirement 1: DOM Traversal target -->
-                <button class="btn btn-wish" type="button" data-tz-wish="asus-tuf-f15" aria-label="Add to wishlist">
-                  <i class="bi bi-heart"></i>
-                </button>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <!-- Product 2 -->
-        <div class="col">
-          <article class="product-card">
-            <a class="product-thumb" href="products/product-detail.html?id=ibuypower-gaming-pc">
-              <span class="product-badges"><span class="tz-badge tz-badge-new">New</span></span>
-              <img src="assets/images/products/iBUYPOWER Gaming PC.avif" alt="iBUYPOWER gaming desktop PC">
-            </a>
-            <div class="product-body">
-              <h3 class="product-title">
-                <a href="products/product-detail.html?id=ibuypower-gaming-pc">iBUYPOWER Gaming PC</a>
-              </h3>
-              <p class="product-spec">Ryzen 5 5600 / 16GB / RTX 3060</p>
-              <div class="product-rating">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
-                <span>(18)</span>
-              </div>
-              <div class="product-price">
-                <span class="price-now">Rs. 399,990</span>
-              </div>
-              <div class="product-actions">
-                <button class="btn btn-tz" type="button"
-                        data-tz-add-to-cart
-                        data-id="ibuypower-gaming-pc"
-                        data-name="iBUYPOWER Gaming PC"
-                        data-price="399990"
-                        data-image="assets/images/products/iBUYPOWER Gaming PC.avif">
-                  <i class="bi bi-bag-plus"></i> Add to Cart
-                </button>
-                <!-- jQuery Requirement 1: DOM Traversal target -->
-                <button class="btn btn-wish" type="button" data-tz-wish="ibuypower-gaming-pc" aria-label="Add to wishlist">
-                  <i class="bi bi-heart"></i>
-                </button>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <!-- Product 3 -->
-        <div class="col">
-          <article class="product-card">
-            <a class="product-thumb" href="products/product-detail.html?id=acer-nitro-27">
-              <span class="product-badges"><span class="tz-badge tz-badge-discount">-12%</span></span>
-              <img src="assets/images/products/Acer Nitro.webp" alt="Acer Nitro 27 inch gaming monitor">
-            </a>
-            <div class="product-body">
-              <h3 class="product-title">
-                <a href="products/product-detail.html?id=acer-nitro-27">Acer Nitro 27&quot; Monitor</a>
-              </h3>
-              <p class="product-spec">Full HD / 165Hz / 1ms</p>
-              <div class="product-rating">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
-                <span>(32)</span>
-              </div>
-              <div class="product-price">
-                <span class="price-now">Rs. 74,990</span>
-                <span class="price-old">Rs. 84,990</span>
-              </div>
-              <div class="product-actions">
-                <button class="btn btn-tz" type="button"
-                        data-tz-add-to-cart
-                        data-id="acer-nitro-27"
-                        data-name="Acer Nitro 27&quot; Monitor"
-                        data-price="74990"
-                        data-image="assets/images/products/Acer Nitro.webp">
-                  <i class="bi bi-bag-plus"></i> Add to Cart
-                </button>
-                <!-- jQuery Requirement 1: DOM Traversal target -->
-                <button class="btn btn-wish" type="button" data-tz-wish="acer-nitro-27" aria-label="Add to wishlist">
-                  <i class="bi bi-heart"></i>
-                </button>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <!-- Product 4 -->
-        <div class="col">
-          <article class="product-card">
-            <a class="product-thumb" href="products/product-detail.html?id=samsung-970-evo-plus">
-              <span class="product-badges"><span class="tz-badge tz-badge-popular">Popular</span></span>
-              <img src="assets/images/products/Samsung 970 EVO Plus.webp" alt="Samsung 970 EVO Plus NVMe SSD">
-            </a>
-            <div class="product-body">
-              <h3 class="product-title">
-                <a href="products/product-detail.html?id=samsung-970-evo-plus">Samsung 970 EVO Plus</a>
-              </h3>
-              <p class="product-spec">1TB NVMe M.2 SSD</p>
-              <div class="product-rating">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
-                <span>(41)</span>
-              </div>
-              <div class="product-price">
-                <span class="price-now">Rs. 32,990</span>
-              </div>
-              <div class="product-actions">
-                <button class="btn btn-tz" type="button"
-                        data-tz-add-to-cart
-                        data-id="samsung-970-evo-plus"
-                        data-name="Samsung 970 EVO Plus 1TB"
-                        data-price="32990"
-                        data-image="assets/images/products/Samsung 970 EVO Plus.webp">
-                  <i class="bi bi-bag-plus"></i> Add to Cart
-                </button>
-                <!-- jQuery Requirement 1: DOM Traversal target -->
-                <button class="btn btn-wish" type="button" data-tz-wish="samsung-970-evo-plus" aria-label="Add to wishlist">
-                  <i class="bi bi-heart"></i>
-                </button>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <!-- Product 5 -->
-        <div class="col">
-          <article class="product-card">
-            <a class="product-thumb" href="products/product-detail.html?id=hyperx-cloud-ii">
-              <span class="product-badges"><span class="tz-badge tz-badge-discount">-15%</span></span>
-              <img src="assets/images/products/HyperX Cloud II.webp" alt="HyperX Cloud II gaming headset">
-            </a>
-            <div class="product-body">
-              <h3 class="product-title">
-                <a href="products/product-detail.html?id=hyperx-cloud-ii">HyperX Cloud II</a>
-              </h3>
-              <p class="product-spec">Gaming Headset</p>
-              <div class="product-rating">
-                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
-                <span>(27)</span>
-              </div>
-              <div class="product-price">
-                <span class="price-now">Rs. 24,990</span>
-                <span class="price-old">Rs. 29,990</span>
-              </div>
-              <div class="product-actions">
-                <button class="btn btn-tz" type="button"
-                        data-tz-add-to-cart
-                        data-id="hyperx-cloud-ii"
-                        data-name="HyperX Cloud II Headset"
-                        data-price="24990"
-                        data-image="assets/images/products/HyperX Cloud II.webp">
-                  <i class="bi bi-bag-plus"></i> Add to Cart
-                </button>
-                <!-- jQuery Requirement 1: DOM Traversal target -->
-                <button class="btn btn-wish" type="button" data-tz-wish="hyperx-cloud-ii" aria-label="Add to wishlist">
-                  <i class="bi bi-heart"></i>
-                </button>
-              </div>
-            </div>
-          </article>
-        </div>
-
-      </div>
+      <!-- AJAX: Featured Products are rendered here from
+           api/get_products.php?featured=1 by products-ajax.js.
+           data-api-filter = the GET parameters sent with the request. -->
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-5 g-3 g-lg-4"
+           data-ajax-products
+           data-api-filter='{"featured":1}'></div>
     </div>
   </section>
 
-  <!-- ============================================================
+  <!--
        6. PROMO BANNERS ROW
-       ============================================================ -->
+       -->
   <section class="section section-promos">
     <div class="container">
       <div class="row g-3 g-lg-4">
@@ -598,9 +417,9 @@
 
 </main>
 
-<!-- ============================================================
+<!--
      7. FOOTER
-     ============================================================ -->
+     -->
 <footer class="tz-footer">
   <div class="container">
     <div class="row g-4">
@@ -711,6 +530,8 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="assets/js/global.js"></script>
 <script src="assets/js/home.js"></script>
+<!-- AJAX: loads Featured Products from api/get_products.php -->
+<script src="assets/js/products-ajax.js"></script>
 <!-- jQuery assignment demos — loads last so it can see the vanilla JS -->
 <script src="assets/js/jquery-demo.js"></script>
 </body>
