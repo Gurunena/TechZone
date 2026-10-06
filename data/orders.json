@@ -1,56 +1,29 @@
 [
-    {
-        "orderId": "ORD-1001",
-        "customer": "Jane Perera",
-        "date": "2026-09-20",
-        "items": 3,
-        "total": 185000,
-        "payment": "Visa",
-        "status": "Delivered"
-    },
-    {
-        "orderId": "ORD-1002",
-        "customer": "Kasun Silva",
-        "date": "2026-09-25",
-        "items": 1,
-        "total": 42000,
-        "payment": "Cash on Delivery",
-        "status": "Shipped"
-    },
-    {
-        "orderId": "ORD-1003",
-        "customer": "Nethmi Fernando",
-        "date": "2026-10-01",
-        "items": 5,
-        "total": 320000,
-        "payment": "Mastercard",
-        "status": "Processing"
-    },
-    {
-        "orderId": "ORD-1004",
-        "customer": "Test Test",
-        "date": "2026-10-04",
-        "items": 2,
-        "total": 25879,
-        "payment": "Card",
-        "status": "Processing"
-    },
-    {
-        "orderId": "ORD-1005",
-        "customer": "Latisha Daluwatte",
-        "date": "2026-10-04",
-        "items": 4,
-        "total": 380960,
-        "payment": "Cash on Delivery",
-        "status": "Processing"
-    },
-    {
-        "orderId": "ORD-1006",
-        "customer": "Test Test",
-        "date": "2026-10-06",
-        "items": 2,
-        "total": 58585,
-        "payment": "Card",
-        "status": "Processing"
-    }
+  {
+    "orderId": "ORD-1001",
+    "customer": "Jane Perera",
+    "date": "2026-09-20",
+    "items": 3,
+    "total": 185000,
+    "payment": "Visa",
+    "status": "Delivered"
+  },
+  {
+    "orderId": "ORD-1002",
+    "customer": "Kasun Silva",
+    "date": "2026-09-25",
+    "items": 1,
+    "total": 42000,
+    "payment": "Cash on Delivery",
+    "status": "Shipped"
+  },
+  {
+    "orderId": "ORD-1003",
+    "customer": "Nethmi Fernando",
+    "date": "2026-10-01",
+    "items": 5,
+    "total": 320000,
+    "payment": "Mastercard",
+    "status": "Processing"
+  }
 ]
