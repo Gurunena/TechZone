@@ -333,7 +333,25 @@
     }
 
     /* Everything is good: save the order, empty the cart, go to Thank-You page. */
-    saveOrder();
+    var placedOrder = saveOrder();
+
+    /* CLASS TASK 5 — also SEND this order to the server so it is saved in the
+       JSON file (data/orders.json via api/orders.php). We use navigator.sendBeacon
+       because it reliably sends the data even while the page is navigating away
+       to the Thank-You page. If the server (XAMPP) is off, the order still saves
+       in the browser above, so checkout never breaks. */
+    try {
+      var itemCount = placedOrder.items.reduce(function (s, i) { return s + (Number(i.qty) || 0); }, 0);
+      var serverOrder = {
+        customer: placedOrder.customer.name || 'Guest',
+        items:    itemCount,
+        total:    placedOrder.total,
+        payment:  placedOrder.paymentMethod || 'Card'
+      };
+      var blob = new Blob([JSON.stringify(serverOrder)], { type: 'application/json' });
+      navigator.sendBeacon('../api/orders.php', blob);   // AJAX-style POST to the server
+    } catch (e) { /* server not reachable — the browser copy above is enough */ }
+
     TZ.clearCart();
     window.location.href = 'order-confirmation.html';
   });
